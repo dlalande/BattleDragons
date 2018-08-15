@@ -4,16 +4,16 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{B7CC4756-0EA8-4659-B571-F01C1775071B}</ProjectGuid>
-    <OutputType>Exe</OutputType>
-    <RootNamespace>Dragons.Console</RootNamespace>
-    <AssemblyName>Dragons.Console</AssemblyName>
-    <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
+    <ProjectGuid>{DA356D6F-2E5D-437E-B6DB-1C2A08D19E80}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Dragons.Core</RootNamespace>
+    <AssemblyName>Dragons.Core</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -23,7 +23,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -32,6 +31,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="MongoDB.Bson, Version=2.7.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MongoDB.Bson.2.7.0\lib\net45\MongoDB.Bson.dll</HintPath>
+    </Reference>
     <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.11.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
@@ -45,35 +47,27 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Common\Constants.cs" />
-    <Compile Include="Common\Coordinate.cs" />
-    <Compile Include="Common\Dragon.cs" />
-    <Compile Include="Common\Event.cs" />
-    <Compile Include="Common\Game.cs" />
-    <Compile Include="Common\GameBoard.cs" />
-    <Compile Include="Common\EventType.cs" />
-    <Compile Include="Common\InitialSetup.cs" />
-    <Compile Include="Common\Move.cs" />
-    <Compile Include="Common\Piece.cs" />
-    <Compile Include="Common\PieceType.cs" />
-    <Compile Include="Common\GameStart.cs" />
-    <Compile Include="Common\GameState.cs" />
-    <Compile Include="Common\Player.cs" />
-    <Compile Include="Common\PlayerType.cs" />
-    <Compile Include="Common\Reservation.cs" />
-    <Compile Include="Common\Spell.cs" />
-    <Compile Include="Common\SpellType.cs" />
-    <Compile Include="GameRepository.cs" />
-    <Compile Include="IGameRepository.cs" />
-    <Compile Include="IGameService.cs" />
-    <Compile Include="Program.cs" />
+    <Compile Include="Constants.cs" />
+    <Compile Include="Coordinate.cs" />
+    <Compile Include="Dragon.cs" />
+    <Compile Include="Event.cs" />
+    <Compile Include="Enums\EventType.cs" />
+    <Compile Include="Game.cs" />
+    <Compile Include="GameBoard.cs" />
+    <Compile Include="GameStart.cs" />
+    <Compile Include="GameState.cs" />
+    <Compile Include="InitialSetup.cs" />
+    <Compile Include="Move.cs" />
+    <Compile Include="Piece.cs" />
+    <Compile Include="Enums\PieceType.cs" />
+    <Compile Include="Player.cs" />
+    <Compile Include="Enums\PlayerType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="GameService.cs" />
-    <Compile Include="SpellType.cs" />
+    <Compile Include="Reservation.cs" />
+    <Compile Include="Spell.cs" />
+    <Compile Include="Enums\SpellType.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
-    <None Include="InitialSetups\Setup1.json" />
     <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

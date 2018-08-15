@@ -1,8 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using MongoDB.Bson;
+using MongoDB.Bson.Serialization.Attributes;
 
-namespace Dragons.Common
+namespace Dragons.Core
 {
+    [BsonIgnoreExtraElements]
     public class GameState
     {
         public GameState()
@@ -11,10 +14,23 @@ namespace Dragons.Common
             Moves = new Stack<Move>();
         }
 
+        //[BsonId]
+        //public ObjectId Id { get; set; }
+
+        [BsonElement]
         public Player Player1 { get; set; }
+
+        [BsonElement]
         public Player Player2 { get; set; }
+        
+        [BsonElement]
         public List<Event> Events { get; set; }
+
+        [BsonElement]
         public Stack<Move> Moves { get; set; }
+        
+        [BsonElement]
+        public DateTime Created { get; set; }
 
         public Game ToGame(Guid playerId)
         {

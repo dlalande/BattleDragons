@@ -1,7 +1,9 @@
 ﻿using System.Collections.Generic;
+using MongoDB.Bson.Serialization.Attributes;
 
-namespace Dragons.Common
+namespace Dragons.Core
 {
+    [BsonIgnoreExtraElements]
     public class GameBoard : List<List<Piece>>
     {
         public GameBoard()

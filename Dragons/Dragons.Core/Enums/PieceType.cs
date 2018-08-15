@@ -1,4 +1,4 @@
-﻿namespace Dragons.Common
+﻿namespace Dragons.Core
 {
     public enum PieceType
     {

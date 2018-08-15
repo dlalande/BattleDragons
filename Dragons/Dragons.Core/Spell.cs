@@ -1,11 +1,21 @@
 ﻿using System.Collections.Generic;
+using MongoDB.Bson.Serialization.Attributes;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
 
-namespace Dragons.Common
+namespace Dragons.Core
 {
+    [BsonIgnoreExtraElements]
     public class Spell
     {
+        [BsonElement]
+        [JsonConverter(typeof(StringEnumConverter))]
         public SpellType Type { get; set; }
+        
+        [BsonElement]
         public string Description { get; set; }
+
+        [BsonElement]
         public int ManaCost { get; set; }
 
         public static List<Spell> AllSpells()

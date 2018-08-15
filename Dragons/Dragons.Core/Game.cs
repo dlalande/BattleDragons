@@ -1,7 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
-namespace Dragons.Common
+namespace Dragons.Core
 {
     public class Game
     {

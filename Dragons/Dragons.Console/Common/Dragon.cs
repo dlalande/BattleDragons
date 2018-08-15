@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace Dragons.Common
 {
-    public class Dragon : List<GamePiece>
+    public class Dragon : List<Piece>
     {
 
     }
