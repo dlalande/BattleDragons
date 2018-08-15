@@ -45,17 +45,26 @@
     <Compile Include="Common\Constants.cs" />
     <Compile Include="Common\Coordinate.cs" />
     <Compile Include="Common\Dragon.cs" />
-    <Compile Include="Common\GameEvent.cs" />
+    <Compile Include="Common\Event.cs" />
     <Compile Include="Common\Game.cs" />
     <Compile Include="Common\GameBoard.cs" />
-    <Compile Include="Common\GameEventType.cs" />
-    <Compile Include="Common\GamePiece.cs" />
-    <Compile Include="Common\GamePieceType.cs" />
+    <Compile Include="Common\EventType.cs" />
+    <Compile Include="Common\Move.cs" />
+    <Compile Include="Common\Piece.cs" />
+    <Compile Include="Common\PieceType.cs" />
+    <Compile Include="Common\GameStart.cs" />
+    <Compile Include="Common\GameState.cs" />
     <Compile Include="Common\Player.cs" />
-    <Compile Include="Common\PlayerSide.cs" />
     <Compile Include="Common\PlayerType.cs" />
+    <Compile Include="Common\Reservation.cs" />
+    <Compile Include="Common\Spell.cs" />
+    <Compile Include="Common\SpellType.cs" />
+    <Compile Include="GameRepository.cs" />
+    <Compile Include="IGameRepository.cs" />
+    <Compile Include="IScreenService.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ScreenService.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

@@ -6,16 +6,16 @@ using System.Threading.Tasks;
 
 namespace Dragons.Common
 {
-    public class GamePiece
+    public class Piece
     {
-        public GamePiece()
+        public Piece()
         {
             Coordinate = new Coordinate();
-            Type = GamePieceType.Ground;
+            Type = PieceType.Ground;
         }
 
         public Coordinate Coordinate { get; set; }
-        public GamePieceType Type { get; set; }
+        public PieceType Type { get; set; }
         public string State { get; set; }
         public int Value { get; set; }
         public int Orientation { get; set; }

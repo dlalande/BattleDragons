@@ -6,10 +6,9 @@ using System.Threading.Tasks;
 
 namespace Dragons.Common
 {
-    public class Player
+    public class GameStart
     {
-        public string Name { get; set; }
-        public int Mana { get; set; }
-        public PlayerType Type { get; set; }
+        public Reservation Player1 { get; set; }
+        public Reservation Player2 { get; set; }
     }
 }

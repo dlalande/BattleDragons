@@ -4,13 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Dragons.Console
+namespace Dragons.Common
 {
-    class Program
+    public class GameState
     {
-        static void Main(string[] args)
-        {
-            
-        }
     }
 }

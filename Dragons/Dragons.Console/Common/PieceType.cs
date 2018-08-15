@@ -6,10 +6,8 @@ using System.Threading.Tasks;
 
 namespace Dragons.Common
 {
-    public enum GameEventType
+    public enum PieceType
     {
-        Attack,
-        KillDragon,
-        GameWon
+        Ground
     }
 }

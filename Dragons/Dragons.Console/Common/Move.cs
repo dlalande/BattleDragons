@@ -6,9 +6,10 @@ using System.Threading.Tasks;
 
 namespace Dragons.Common
 {
-    public enum PlayerSide
+    public class Move
     {
-        Me,
-        Opponent
+        public Guid PlayerId { get; set; }
+        public Coordinate Coordinate { get; set; }
+        public Spell Spell { get; set; }
     }
 }

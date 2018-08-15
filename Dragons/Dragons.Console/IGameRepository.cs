@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace Dragons.Common
 {
-    public enum GamePieceType
+    interface IGameRepository
     {
-        Ground
+        Task<Reservation> InsertReservationAsync(Reservation reservation);
     }
 }

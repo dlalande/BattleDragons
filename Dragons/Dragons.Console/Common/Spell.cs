@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace Dragons.Common
 {
-    public class Player
+    public class Spell
     {
-        public string Name { get; set; }
-        public int Mana { get; set; }
-        public PlayerType Type { get; set; }
+        public SpellType Type { get; set; }
+        public string Description { get; set; }
+        public int ManaCost { get; set; }
     }
 }
