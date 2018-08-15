@@ -32,9 +32,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\packages\Newtonsoft.Json.11.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -45,36 +42,21 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Common\Constants.cs" />
-    <Compile Include="Common\Coordinate.cs" />
-    <Compile Include="Common\Dragon.cs" />
-    <Compile Include="Common\Event.cs" />
-    <Compile Include="Common\Game.cs" />
-    <Compile Include="Common\GameBoard.cs" />
-    <Compile Include="Common\EventType.cs" />
-    <Compile Include="Common\InitialSetup.cs" />
-    <Compile Include="Common\Move.cs" />
-    <Compile Include="Common\Piece.cs" />
-    <Compile Include="Common\PieceType.cs" />
-    <Compile Include="Common\GameStart.cs" />
-    <Compile Include="Common\GameState.cs" />
-    <Compile Include="Common\Player.cs" />
-    <Compile Include="Common\PlayerType.cs" />
-    <Compile Include="Common\Reservation.cs" />
-    <Compile Include="Common\Spell.cs" />
-    <Compile Include="Common\SpellType.cs" />
-    <Compile Include="GameRepository.cs" />
-    <Compile Include="IGameRepository.cs" />
-    <Compile Include="IGameService.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="GameService.cs" />
-    <Compile Include="SpellType.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <None Include="InitialSetups\Setup1.json" />
-    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Dragons.Core\Dragons.Core.csproj">
+      <Project>{da356d6f-2e5d-437e-b6db-1c2a08d19e80}</Project>
+      <Name>Dragons.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Dragons.Service.Core\Dragons.Service.Core.csproj">
+      <Project>{8cc14d37-cb90-42e7-902e-0ea83435e408}</Project>
+      <Name>Dragons.Service.Core</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

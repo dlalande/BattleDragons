@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace Dragons.Core
 {
@@ -9,5 +10,10 @@ namespace Dragons.Core
         public int Mana { get; set; }
         public GameBoard Board { get; set; }
         public List<Spell> Spells { get; set; }
+
+        public override string ToString()
+        {
+            return $"{Name} vs. {Opponent}. {Environment.NewLine}{Board}";
+        }
     }
 }

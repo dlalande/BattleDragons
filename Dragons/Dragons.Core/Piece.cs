@@ -25,5 +25,10 @@ namespace Dragons.Core
 
         [BsonElement]
         public int Orientation { get; set; }
+
+        public override string ToString()
+        {
+            return $"{Type} piece at coordinate[{Coordinate}].";
+        }
     }
 }

@@ -38,9 +38,10 @@ namespace Dragons.Respository
             return reservation;
         }
 
-        public async Task<GameState> GetGameStateAsync(Guid playerId)
+        public async Task<GameState> GetGameStateAsync(string playerId)
         {
-            return await _gameStateCollection.Find(state => state.Player1.PlayerId.Equals(playerId) || state.Player2.PlayerId.Equals(playerId)).SingleAsync();
+            var filter = Builders<GameState>.Filter.Where(state => state.Player1.PlayerId.Equals(playerId) || state.Player2.PlayerId.Equals(playerId));
+            return await _gameStateCollection.Find(filter).SingleOrDefaultAsync();
         }
 
         public async Task<GameState> InsertGameStateAsync(GameState gameState)

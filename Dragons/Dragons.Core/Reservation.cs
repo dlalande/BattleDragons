@@ -9,7 +9,7 @@ namespace Dragons.Core
     public class Reservation
     {
         [BsonId]
-        public Guid PlayerId { get; set; }
+        public string PlayerId { get; set; }
 
         [BsonElement]
         public string Name { get; set; }

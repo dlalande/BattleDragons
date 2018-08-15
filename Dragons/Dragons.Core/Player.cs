@@ -11,7 +11,7 @@ namespace Dragons.Core
     public class Player
     {
         [BsonId]
-        public Guid PlayerId { get; set; }
+        public string PlayerId { get; set; }
         
         [BsonElement]
         public string Name { get; set; }

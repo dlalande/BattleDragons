@@ -20,16 +20,16 @@ namespace Dragons.Service.Core
             _repo = new GameRepository(host, port, database);
         }
 
-        public async Task<Game> GetGameAsync(Guid playerId)
+        public async Task<Game> GetGameAsync(string playerId)
         {
             var gameState = await _repo.GetGameStateAsync(playerId);
             return gameState?.ToGame(playerId);
         }
 
-        public async Task<List<Event>> GetGameEventsAsync(Guid playerId, int offset = 0)
+        public async Task<List<Event>> GetGameEventsAsync(string playerId, int offset = 0)
         {
             var gameState = await _repo.GetGameStateAsync(playerId);
-            return gameState?.Events.SkipWhile((e, index) => index > offset - 1).ToList();
+            return gameState?.Events.Where((e, index) => index > offset - 1).ToList();
         }
 
         public async Task<List<Reservation>> GetReservationsAsync()
@@ -80,6 +80,7 @@ namespace Dragons.Service.Core
                 Created = DateTime.UtcNow
             };
             await _repo.InsertGameStateAsync(gameState);
+            //delete reservation
         }
 
         public async Task<Reservation> InsertReservationAsync(Reservation reservation)

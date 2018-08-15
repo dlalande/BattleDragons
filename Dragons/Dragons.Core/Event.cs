@@ -16,7 +16,7 @@ namespace Dragons.Core
         }
 
         [BsonElement]
-        public Guid PlayerId { get; set; }
+        public string PlayerId { get; set; }
 
         [BsonElement]
         [JsonConverter(typeof(StringEnumConverter))]
@@ -27,5 +27,10 @@ namespace Dragons.Core
 
         [BsonElement]
         public int Mana { get; set; }
+
+        public override string ToString()
+        {
+            return $"{Type} event for player {PlayerId}. [{string.Join(",", Pieces)}]";
+        }
     }
 }

@@ -32,7 +32,7 @@ namespace Dragons.Core
         [BsonElement]
         public DateTime Created { get; set; }
 
-        public Game ToGame(Guid playerId)
+        public Game ToGame(string playerId)
         {
             var player = Player1.PlayerId.Equals(playerId) ? Player1 : Player2;
             var game = new Game

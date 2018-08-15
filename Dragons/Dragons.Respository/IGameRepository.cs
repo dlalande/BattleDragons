@@ -10,7 +10,7 @@ namespace Dragons.Respository
     {
         Task<List<Reservation>> GetReservationsAsync();
         Task<Reservation> InsertReservationAsync(Reservation reservation);
-        Task<GameState> GetGameStateAsync(Guid playerId);
+        Task<GameState> GetGameStateAsync(string playerId);
         Task<GameState> InsertGameStateAsync(GameState gameState);
         Task<GameState> UpdateGameStateAsync(GameState gameState);
         Task<Tuple<InitialSetup, InitialSetup>> GetRandomInitialSetupsAsync();

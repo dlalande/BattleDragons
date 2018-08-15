@@ -1,14 +1,75 @@
-﻿using System.Collections.Generic;
-using Dragons.Common;
-using Newtonsoft.Json;
+﻿
+
+using System;
+using System.ComponentModel.Design;
+using System.Threading;
+using System.Threading.Tasks;
+using Dragons.Core;
+using Dragons.Service.Core;
 
 namespace Dragons.Console
 {
     class Program
     {
+        private static readonly IGameService Service = new GameService();
+        private static string PlayerId = Guid.NewGuid().ToString();
+        private static int _currentEventIndex = 0;
+
+
         static void Main(string[] args)
         {
- 
+            MainAsync(args).Wait();
+            System.Console.ReadLine();
+        }
+
+        static async Task MainAsync(string[] args)
+        {
+            
+            //if (args.Length > 0) // Player 2
+            //{
+            //    var reservations = await Service.GetReservationsAsync();
+            //    await Service.InsertGameStartAsync(new GameStart()
+            //    {
+            //        Player1 = reservations[0],
+            //        Player2 = new Reservation() {PlayerId = PlayerId, Name = "Taras", Created = DateTime.UtcNow}
+            //    });
+            //}
+            //else // Player 1
+            //{
+            //    await Service.InsertReservationAsync(new Reservation() {PlayerId = PlayerId, Name = "David", Created = DateTime.UtcNow});
+            //}
+
+            await PlayGame();
+
+        }
+
+        static async Task PlayGame()
+        {
+            PlayerId = "f1b8b107-2f0c-4de6-8582-4e81d9d3e563";
+            Game game;
+            do
+            {
+                game = await Service.GetGameAsync(PlayerId);
+                if (game == null)
+                    Thread.Sleep(1000);
+            } while (game == null);
+            
+            System.Console.WriteLine("Game started...");
+            System.Console.WriteLine(game.ToString());
+
+            var events = await Service.GetGameEventsAsync(PlayerId, _currentEventIndex);
+
+            foreach (var gameEvent in events)
+            {
+                _currentEventIndex++;
+                System.Console.WriteLine($"{gameEvent}.");
+            }
+            await Service.InsertGameMoveAsync(new Move()
+            {
+                Coordinate = new Coordinate {X = 4, Y = 7},
+                PlayerId = PlayerId,
+                Spell = game.Spells[1]
+            });
         }
     }
 }

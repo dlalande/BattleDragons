@@ -16,5 +16,10 @@ namespace Dragons.Core
         {
             return new Coordinate() {X = new Random().Next(0, size - 1), Y = new Random().Next(0, size - 1)};
         }
+
+        public override string ToString()
+        {
+            return $"{X},{Y}";
+        }
     }
 }

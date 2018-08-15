@@ -10,7 +10,7 @@ namespace Dragons.Core
     public class Move
     {
         [BsonElement]
-        public Guid PlayerId { get; set; }
+        public string PlayerId { get; set; }
 
         [BsonElement]
         public Coordinate Coordinate { get; set; }
@@ -74,7 +74,7 @@ namespace Dragons.Core
                 gameState.Events.Add(attackEvent);
             }
 
-            for (var index = opponent.Dragons.Count - 1; index < 0; index--)
+            for (var index = opponent.Dragons.Count - 1; index >= 0; index--)
             {
                 var dragon = opponent.Dragons[index];
                 if (!dragon.All(piece => piece.HasBeenAttacked))
