@@ -75,5 +75,13 @@ namespace Dragons.Respository
         {
             return await _reservationCollection.Find(FilterDefinition<Reservation>.Empty).ToListAsync();
         }
+
+        public async Task DeleteReservationAsync(Reservation reservation)
+        {
+            var filter = Builders<Reservation>.Filter.Where(r => r.PlayerId.Equals(reservation.PlayerId));
+            var result = await _reservationCollection.DeleteOneAsync(filter);
+            if (!result.IsAcknowledged)
+                throw new Exception("Problem with delete.");
+        }
     }
 }

@@ -12,6 +12,7 @@ namespace Dragons.Core
         {
             Events = new List<Event>();
             Moves = new Stack<Move>();
+            Created = DateTime.UtcNow;
         }
 
         //[BsonId]

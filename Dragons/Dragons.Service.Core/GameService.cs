@@ -76,11 +76,10 @@ namespace Dragons.Service.Core
                         PlayerId = start.Player1.PlayerId,
                         Type = EventType.GameStarted
                     }
-                },
-                Created = DateTime.UtcNow
+                }
             };
             await _repo.InsertGameStateAsync(gameState);
-            //delete reservation
+            await _repo.DeleteReservationAsync(start.Player1);
         }
 
         public async Task<Reservation> InsertReservationAsync(Reservation reservation)

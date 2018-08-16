@@ -6,6 +6,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using Dragons.Core;
 using Dragons.Service.Core;
+using Newtonsoft.Json;
 
 namespace Dragons.Console
 {
@@ -24,20 +25,37 @@ namespace Dragons.Console
 
         static async Task MainAsync(string[] args)
         {
-            
-            //if (args.Length > 0) // Player 2
-            //{
-            //    var reservations = await Service.GetReservationsAsync();
-            //    await Service.InsertGameStartAsync(new GameStart()
-            //    {
-            //        Player1 = reservations[0],
-            //        Player2 = new Reservation() {PlayerId = PlayerId, Name = "Taras", Created = DateTime.UtcNow}
-            //    });
-            //}
-            //else // Player 1
-            //{
-            //    await Service.InsertReservationAsync(new Reservation() {PlayerId = PlayerId, Name = "David", Created = DateTime.UtcNow});
-            //}
+            var res = JsonConvert.SerializeObject(new Reservation() { PlayerId = PlayerId, Name = "David" });
+            var move = JsonConvert.SerializeObject(new Move
+            {
+                Coordinate = new Coordinate
+                {
+                    X = 4,
+                    Y = 5
+                },
+                PlayerId = PlayerId,
+                Spell = new Spell
+                {
+                    Type = SpellType.FireBall,
+                    Description = "description",
+                    ManaCost = 35
+                }
+            });
+            if (args.Length > 0) // Player 2
+            {
+                var reservations = await Service.GetReservationsAsync();
+                var gameStart = new GameStart()
+                {
+                    Player1 = reservations[0],
+                    Player2 = new Reservation() { PlayerId = PlayerId, Name = "Taras" }
+                };
+                var g = JsonConvert.SerializeObject(gameStart);
+                await Service.InsertGameStartAsync(gameStart);
+            }
+            else // Player 1
+            {
+                await Service.InsertReservationAsync(new Reservation() { PlayerId = PlayerId, Name = "David" });
+            }
 
             await PlayGame();
 

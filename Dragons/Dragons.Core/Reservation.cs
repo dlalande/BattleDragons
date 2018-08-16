@@ -8,6 +8,11 @@ namespace Dragons.Core
     [BsonIgnoreExtraElements]
     public class Reservation
     {
+        public Reservation()
+        {
+            Created = DateTime.UtcNow;
+        }
+
         [BsonId]
         public string PlayerId { get; set; }
 
