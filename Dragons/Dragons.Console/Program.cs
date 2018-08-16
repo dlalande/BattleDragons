@@ -1,7 +1,4 @@
-﻿
-
-using System;
-using System.ComponentModel.Design;
+﻿using System;
 using System.Threading;
 using System.Threading.Tasks;
 using Dragons.Core;

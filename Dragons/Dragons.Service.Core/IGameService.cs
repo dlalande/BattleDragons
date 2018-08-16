@@ -1,5 +1,4 @@
-﻿using System;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using System.Collections.Generic;
 using Dragons.Core;
 
@@ -7,6 +6,7 @@ namespace Dragons.Service.Core
 {
     public interface IGameService
     {
+        Task InitializeAsync(string folderPath);
         Task<List<Reservation>> GetReservationsAsync();
         Task<Reservation> InsertReservationAsync(Reservation reservation);
         Task InsertGameStartAsync(GameStart start);

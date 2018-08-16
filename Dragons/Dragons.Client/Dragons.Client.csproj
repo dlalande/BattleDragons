@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{DA356D6F-2E5D-437E-B6DB-1C2A08D19E80}</ProjectGuid>
+    <ProjectGuid>{EB357960-87C8-4470-B129-F2F620DEB037}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Dragons.Core</RootNamespace>
-    <AssemblyName>Dragons.Core</AssemblyName>
+    <RootNamespace>Dragons.Client</RootNamespace>
+    <AssemblyName>Dragons.Client</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -31,39 +31,17 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="MongoDB.Bson, Version=2.7.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\MongoDB.Bson.2.7.0\lib\net45\MongoDB.Bson.dll</HintPath>
-    </Reference>
-    <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\packages\Newtonsoft.Json.11.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Constants.cs" />
-    <Compile Include="DataLayer\Coordinate.cs" />
-    <Compile Include="DataLayer\Dragon.cs" />
-    <Compile Include="DataLayer\Event.cs" />
-    <Compile Include="Types\EventType.cs" />
-    <Compile Include="Game.cs" />
-    <Compile Include="DataLayer\GameBoard.cs" />
-    <Compile Include="GameStart.cs" />
-    <Compile Include="DataLayer\GameState.cs" />
-    <Compile Include="InitialSetup.cs" />
-    <Compile Include="DataLayer\Move.cs" />
-    <Compile Include="DataLayer\Piece.cs" />
-    <Compile Include="Types\PieceType.cs" />
-    <Compile Include="DataLayer\Player.cs" />
-    <Compile Include="Types\PlayerType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="DataLayer\Reservation.cs" />
-    <Compile Include="DataLayer\Spell.cs" />
-    <Compile Include="Types\SpellType.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -1,0 +1,206 @@
+{
+  "BoardSize": 14,
+  "Dragons": [
+    [
+      {
+        "Coordinate": {
+          "X": 6,
+          "Y": 12
+        },
+        "Type": "DragonHead",
+        "HasBeenAttacked": false,
+        "Orientation": -90
+      },
+      {
+        "Coordinate": {
+          "X": 5,
+          "Y": 12
+        },
+        "Type": "DragonBody",
+        "HasBeenAttacked": false,
+        "Orientation": -90
+      },
+      {
+        "Coordinate": {
+          "X": 5,
+          "Y": 11
+        },
+        "Type": "DragonBody",
+        "HasBeenAttacked": false,
+        "Orientation": -90
+      }
+    ],
+    [
+      {
+        "Coordinate": {
+          "X": 11,
+          "Y": 0
+        },
+        "Type": "DragonHead",
+        "HasBeenAttacked": false,
+        "Orientation": 0
+      },
+      {
+        "Coordinate": {
+          "X": 12,
+          "Y": 0
+        },
+        "Type": "DragonBody",
+        "HasBeenAttacked": false,
+        "Orientation": 0
+      },
+      {
+        "Coordinate": {
+          "X": 13,
+          "Y": 0
+        },
+        "Type": "DragonBody",
+        "HasBeenAttacked": false,
+        "Orientation": 0
+      }
+    ],
+    [
+      {
+        "Coordinate": {
+          "X": 11,
+          "Y": 6
+        },
+        "Type": "DragonHead",
+        "HasBeenAttacked": false,
+        "Orientation": 0
+      },
+      {
+        "Coordinate": {
+          "X": 12,
+          "Y": 7
+        },
+        "Type": "DragonBody",
+        "HasBeenAttacked": false,
+        "Orientation": 0
+      },
+      {
+        "Coordinate": {
+          "X": 12,
+          "Y": 6
+        },
+        "Type": "DragonBody",
+        "HasBeenAttacked": false,
+        "Orientation": 0
+      },
+      {
+        "Coordinate": {
+          "X": 12,
+          "Y": 8
+        },
+        "Type": "DragonBody",
+        "HasBeenAttacked": false,
+        "Orientation": 0
+      },
+      {
+        "Coordinate": {
+          "X": 11,
+          "Y": 8
+        },
+        "Type": "DragonBody",
+        "HasBeenAttacked": false,
+        "Orientation": 0
+      }
+    ],
+    [
+      {
+        "Coordinate": {
+          "X": 2,
+          "Y": 7
+        },
+        "Type": "DragonHead",
+        "HasBeenAttacked": false,
+        "Orientation": 0
+      },
+      {
+        "Coordinate": {
+          "X": 2,
+          "Y": 6
+        },
+        "Type": "DragonBody",
+        "HasBeenAttacked": false,
+        "Orientation": 0
+      },
+      {
+        "Coordinate": {
+          "X": 1,
+          "Y": 6
+        },
+        "Type": "DragonBody",
+        "HasBeenAttacked": false,
+        "Orientation": 0
+      },
+      {
+        "Coordinate": {
+          "X": 1,
+          "Y": 7
+        },
+        "Type": "DragonBody",
+        "HasBeenAttacked": false,
+        "Orientation": 0
+      }
+    ],
+    [
+      {
+        "Coordinate": {
+          "X": 5,
+          "Y": 0
+        },
+        "Type": "DragonHead",
+        "HasBeenAttacked": false,
+        "Orientation": 0
+      },
+      {
+        "Coordinate": {
+          "X": 4,
+          "Y": 0
+        },
+        "Type": "DragonBody",
+        "HasBeenAttacked": false,
+        "Orientation": 0
+      }
+    ]
+  ],
+  "AdditionalPieces": [
+    {
+      "Coordinate": {
+        "X": 1,
+        "Y": 1
+      },
+      "Type": "LargeMana",
+      "HasBeenAttacked": false,
+      "Orientation": 0
+    },
+    {
+      "Coordinate": {
+        "X": 5,
+        "Y": 6
+      },
+      "Type": "SmallMana",
+      "HasBeenAttacked": false,
+      "Orientation": 0
+    },
+    {
+      "Coordinate": {
+        "X": 2,
+        "Y": 12
+      },
+      "Type": "SmallMana",
+      "HasBeenAttacked": false,
+      "Orientation": 0
+    },
+    {
+      "Coordinate": {
+        "X": 8,
+        "Y": 9
+      },
+      "Type": "SmallMana",
+      "HasBeenAttacked": false,
+      "Orientation": 0
+    }
+  ]
+}

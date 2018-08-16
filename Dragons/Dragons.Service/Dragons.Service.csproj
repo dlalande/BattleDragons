@@ -225,6 +225,16 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="App_Data\InitialSetups\InitialSetup0.json" />
+    <Content Include="App_Data\InitialSetups\InitialSetup1.json" />
+    <Content Include="App_Data\InitialSetups\InitialSetup2.json" />
+    <Content Include="App_Data\InitialSetups\InitialSetup3.json" />
+    <Content Include="App_Data\InitialSetups\InitialSetup4.json" />
+    <Content Include="App_Data\InitialSetups\InitialSetup5.json" />
+    <Content Include="App_Data\InitialSetups\InitialSetup6.json" />
+    <Content Include="App_Data\InitialSetups\InitialSetup7.json" />
+    <Content Include="App_Data\InitialSetups\InitialSetup8.json" />
+    <Content Include="App_Data\InitialSetups\InitialSetup9.json" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -247,7 +257,6 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App_Data\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>

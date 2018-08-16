@@ -17,6 +17,8 @@ namespace Dragons.Service
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+
+            GameService.InitializeAsync(Server.MapPath("~/App_Data/InitialSetups")).ConfigureAwait(false).GetAwaiter().GetResult();
         }
     }
 }

@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Configuration;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Dragons.Core;
@@ -10,14 +8,11 @@ namespace Dragons.Service.Core
 {
     public class GameService : IGameService
     {
-        private readonly IGameRepository _repo;
+        private readonly IGameRepository _repo= new GameRepository();
 
-        public GameService()
+        public async Task InitializeAsync(string folderPath)
         {
-            var host = ConfigurationManager.AppSettings["host"] ?? Constants.DefaultHost;
-            var port = int.TryParse(ConfigurationManager.AppSettings["port"], out var portSetting) ? portSetting : Constants.DefaultPort;
-            var database = ConfigurationManager.AppSettings["database"] ?? Constants.DefaultDatabase;
-            _repo = new GameRepository(host, port, database);
+            await _repo.InitializeAsync(new GameRepositorySettings {InitialSetupsFolderPath = folderPath});
         }
 
         public async Task<Game> GetGameAsync(string playerId)

@@ -2,12 +2,12 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Dragons.Core;
-using MongoDB.Bson;
 
 namespace Dragons.Respository
 {
     public interface IGameRepository
     {
+        Task InitializeAsync(GameRepositorySettings settings);
         Task<List<Reservation>> GetReservationsAsync();
         Task<Reservation> InsertReservationAsync(Reservation reservation);
         Task DeleteReservationAsync(Reservation reservation);

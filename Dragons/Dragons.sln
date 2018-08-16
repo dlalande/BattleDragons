@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dragons.Service.Core", "Dra
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dragons.Service", "Dragons.Service\Dragons.Service.csproj", "{78894DC2-232A-4332-81C7-65C390FDF985}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dragons.Client", "Dragons.Client\Dragons.Client.csproj", "{EB357960-87C8-4470-B129-F2F620DEB037}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{78894DC2-232A-4332-81C7-65C390FDF985}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{78894DC2-232A-4332-81C7-65C390FDF985}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{78894DC2-232A-4332-81C7-65C390FDF985}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EB357960-87C8-4470-B129-F2F620DEB037}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EB357960-87C8-4470-B129-F2F620DEB037}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EB357960-87C8-4470-B129-F2F620DEB037}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EB357960-87C8-4470-B129-F2F620DEB037}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
