@@ -2,6 +2,9 @@
 
 namespace Dragons.Core
 {
+    /// <summary>
+    /// Constants used in the code.
+    /// </summary>
     public class Constants
     {
         #region MongoDB Constants

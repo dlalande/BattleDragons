@@ -1,23 +1,46 @@
 ﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using MongoDB.Bson.Serialization.Attributes;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 
 namespace Dragons.Core
 {
+    /// <summary>
+    /// Represents a spell in the game.
+    /// </summary>
     [BsonIgnoreExtraElements]
     public class Spell
     {
+        /// <summary>
+        /// Type of spell.
+        /// </summary>
         [BsonElement]
+        [BsonRequired]
+        [Required]
         [JsonConverter(typeof(StringEnumConverter))]
         public SpellType Type { get; set; }
         
+        /// <summary>
+        /// Description of spell.
+        /// </summary>
         [BsonElement]
+        [BsonRequired]
+        [Required]
         public string Description { get; set; }
 
+        /// <summary>
+        /// Cost of mana to cast the spell.
+        /// </summary>
         [BsonElement]
+        [BsonRequired]
+        [Required]
         public int ManaCost { get; set; }
 
+        /// <summary>
+        /// List of all the spells in the game.
+        /// </summary>
+        /// <returns></returns>
         public static List<Spell> AllSpells()
         {
             return new List<Spell>()

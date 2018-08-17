@@ -22,7 +22,7 @@ namespace Dragons.Console
 
         static async Task MainAsync(string[] args)
         {
-            var res = JsonConvert.SerializeObject(new Reservation() { PlayerId = PlayerId, Name = "David" });
+            var res = JsonConvert.SerializeObject(new Reservation { Player = {PlayerId = PlayerId, Name = "David" }});
             var move = JsonConvert.SerializeObject(new Move
             {
                 Coordinate = new Coordinate
@@ -43,15 +43,15 @@ namespace Dragons.Console
                 var reservations = await Service.GetReservationsAsync();
                 var gameStart = new GameStart()
                 {
-                    Player1 = reservations[0],
-                    Player2 = new Reservation() { PlayerId = PlayerId, Name = "Taras" }
+                    Player1 = reservations[0].Player,
+                    Player2 = { PlayerId = PlayerId, Name = "Taras" }
                 };
                 var g = JsonConvert.SerializeObject(gameStart);
                 await Service.InsertGameStartAsync(gameStart);
             }
             else // Player 1
             {
-                await Service.InsertReservationAsync(new Reservation() { PlayerId = PlayerId, Name = "David" });
+                await Service.InsertReservationAsync(new Reservation() {Player = {PlayerId = PlayerId, Name = "David"}});
             }
 
             await PlayGame();

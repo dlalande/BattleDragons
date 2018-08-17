@@ -35,14 +35,15 @@ namespace Dragons.Service.Core
         public async Task<Move> InsertGameMoveAsync(Move move)
         {
             var gameState = await _repo.GetGameStateAsync(move.PlayerId);
-            move.Execute(gameState);
+            gameState.ProcessMove(move);
             await _repo.UpdateGameStateAsync(gameState);
             return move;
         }
 
+
         public async Task InsertGameStartAsync(GameStart start)
         {
-            var initialSetups = await _repo.GetRandomInitialSetupsAsync();
+            var initialSetups = _repo.GetRandomInitialSetups();
 
             var gameState = new GameState()
             {
@@ -74,12 +75,18 @@ namespace Dragons.Service.Core
                 }
             };
             await _repo.InsertGameStateAsync(gameState);
-            await _repo.DeleteReservationAsync(start.Player1);
+            await _repo.DeleteReservationAsync(new Reservation {Player = start.Player1});
         }
 
         public async Task<Reservation> InsertReservationAsync(Reservation reservation)
         {
             return await _repo.InsertReservationAsync(reservation);
         }
+
+        public async Task DeleteReservationAsync(Reservation reservation)
+        {
+            await _repo.DeleteReservationAsync(reservation);
+        }
+
     }
 }

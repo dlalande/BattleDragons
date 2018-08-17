@@ -9,6 +9,7 @@ namespace Dragons.Service.Core
         Task InitializeAsync(string folderPath);
         Task<List<Reservation>> GetReservationsAsync();
         Task<Reservation> InsertReservationAsync(Reservation reservation);
+        Task DeleteReservationAsync(Reservation reservation);
         Task InsertGameStartAsync(GameStart start);
         Task<Game> GetGameAsync(string playerId);
         Task<List<Event>> GetGameEventsAsync(string playerId, int offset = 0);
