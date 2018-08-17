@@ -21,6 +21,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Debug\Dragons.Core.xml</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -38,6 +39,7 @@
       <HintPath>..\packages\Newtonsoft.Json.11.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="Microsoft.CSharp" />
   </ItemGroup>
@@ -46,6 +48,7 @@
     <Compile Include="DataLayer\Coordinate.cs" />
     <Compile Include="DataLayer\Dragon.cs" />
     <Compile Include="DataLayer\Event.cs" />
+    <Compile Include="DataLayer\PlayerDetails.cs" />
     <Compile Include="Types\EventType.cs" />
     <Compile Include="Game.cs" />
     <Compile Include="DataLayer\GameBoard.cs" />

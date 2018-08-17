@@ -5,22 +5,30 @@ using MongoDB.Bson.Serialization.Attributes;
 
 namespace Dragons.Core
 {
+    /// <summary>
+    /// Represents a game board for a single player.
+    /// </summary>
     [BsonIgnoreExtraElements]
     public class GameBoard : List<List<Piece>>
     {
+        /// <summary>
+        /// Default constructor.
+        /// </summary>
         public GameBoard()
         { }
   
-
+        /// <summary>
+        /// Constructor used to create a game board from an <see cref="InitialSetup">initial setup</see>.
+        /// </summary>
+        /// <param name="setup">Initial setup used to create board.</param>
         public GameBoard(InitialSetup setup)
         {
-            
             for (var x = 0; x < setup.BoardSize; x++)
             {
                 Add(new List<Piece>());
                 for (var y = 0; y < setup.BoardSize; y++)
                 {
-                    this[x].Add(new Piece {Coordinate = new Coordinate {X = x, Y = y}, Type = PieceType.Map});
+                    this[x].Add(new Piece {Coordinate = new Coordinate {X = x, Y = y}, Type = PieceType.Empty});
                 }
             }
 
@@ -32,6 +40,10 @@ namespace Dragons.Core
                 this[additionalPiece.Coordinate.X][additionalPiece.Coordinate.Y] = additionalPiece;
         }
 
+        /// <summary>
+        /// Returns pretty-printed string
+        /// </summary>
+        /// <returns>Returns pretty-printed string</returns>
         public override string ToString()
         {
             var sb = new StringBuilder();

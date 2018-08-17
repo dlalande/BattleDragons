@@ -1,24 +1,37 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations;
 using MongoDB.Bson.Serialization.Attributes;
 
 namespace Dragons.Core
 {
+    /// <summary>
+    /// Represents a player's game reservation while waiting for another player to join the game.
+    /// </summary>
     [BsonIgnoreExtraElements]
     public class Reservation
     {
+        /// <summary>
+        /// Default constructor
+        /// </summary>
         public Reservation()
         {
             Created = DateTime.UtcNow;
         }
-
-        [BsonId]
-        public string PlayerId { get; set; }
-
+       
+        /// <summary>
+        /// Player holding the reservation while waiting for another player to join.
+        /// </summary>
         [BsonElement]
-        public string Name { get; set; }
+        [BsonRequired]
+        [Required]
+        public PlayerDetails Player { get; set; }
         
-        [BsonElement()]
-        //[JsonProperty( propertyName:"created")]
+        /// <summary>
+        /// Date and time in UTC the reservation was created.
+        /// </summary>
+        [BsonElement]
+        [BsonRequired]
+        [Required]
         public DateTime Created { get; set; }
     }
 }

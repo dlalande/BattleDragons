@@ -27,8 +27,11 @@ namespace Dragons.Respository
             var db = client.GetDatabase(Constants.DefaultDatabase);
             
             _reservationCollection = db.GetCollection<Reservation>(Constants.ReservationCollection);
+            await _reservationCollection.Indexes.CreateOneAsync(
+                new CreateIndexModel<Reservation>(Builders<Reservation>.IndexKeys.Ascending(reservation => reservation.Player.PlayerId)));
+
             _gameStateCollection = db.GetCollection<GameState>(Constants.GameStateCollection);
-            var indexes = await _gameStateCollection.Indexes.CreateManyAsync(new[]
+            await _gameStateCollection.Indexes.CreateManyAsync(new[]
             {
                 new CreateIndexModel<GameState>(Builders<GameState>.IndexKeys.Ascending(state => state.Player1.PlayerId)),
                 new CreateIndexModel<GameState>(Builders<GameState>.IndexKeys.Ascending(state => state.Player2.PlayerId))
@@ -97,7 +100,7 @@ namespace Dragons.Respository
 
         public async Task DeleteReservationAsync(Reservation reservation)
         {
-            var filter = Builders<Reservation>.Filter.Where(r => r.PlayerId.Equals(reservation.PlayerId));
+            var filter = Builders<Reservation>.Filter.Where(r => r.Player.PlayerId.Equals(reservation.Player.PlayerId));
             var result = await _reservationCollection.DeleteOneAsync(filter);
             if (!result.IsAcknowledged)
                 throw new Exception("Problem with delete.");

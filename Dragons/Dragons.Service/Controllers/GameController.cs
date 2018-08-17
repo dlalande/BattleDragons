@@ -5,6 +5,9 @@ using System.Threading.Tasks;
 
 namespace Dragons.Service.Controllers
 {
+    /// <summary>
+    /// Controller to handle actions for games.
+    /// </summary>
     [ValidationActionFilter]
     [RoutePrefix("api/Game")]
     public class GameController : ApiController
