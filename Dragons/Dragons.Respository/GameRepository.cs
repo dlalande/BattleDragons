@@ -81,16 +81,39 @@ namespace Dragons.Respository
             return gameState;
         }
 
-        public Tuple<InitialSetup,InitialSetup> GetRandomInitialSetups()
+        public Tuple<InitialSetup,InitialSetup> GetRandomInitialSetupPair()
         {
-            var random = new Random();
-            var player1Index = random.Next(_initialSetups.Count);
-            int player2Index;
-            do
+            return _initialSetups.RandomPair();
+        }
+
+        public InitialSetup GetRandomInitialSetup()
+        {
+            return _initialSetups.Random();
+        }
+
+        public Player GetRandomPlayer()
+        {
+            return new Player
             {
-                player2Index = random.Next(_initialSetups.Count);
-            } while (player1Index == player2Index);
-            return new Tuple<InitialSetup, InitialSetup>(_initialSetups[player1Index], _initialSetups[player2Index]);
+                PlayerId = Guid.NewGuid().ToString(),
+                Name = Constants.WizardNames.Random()
+            };
+        }
+
+        public Tuple<Player, Player> GetRandomPlayerPair()
+        {
+            var namePair = Constants.WizardNames.RandomPair();
+            return new Tuple<Player, Player>(
+                new Player()
+                {
+                    PlayerId = Guid.NewGuid().ToString(),
+                    Name = namePair.Item1
+                }, 
+                new Player()
+                {
+                    PlayerId = Guid.NewGuid().ToString(),
+                    Name = namePair.Item2
+                });
         }
 
         public async Task<List<Reservation>> GetReservationsAsync()

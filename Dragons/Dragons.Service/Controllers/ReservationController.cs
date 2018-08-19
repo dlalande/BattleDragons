@@ -9,12 +9,13 @@ namespace Dragons.Service.Controllers
     /// Controller to handle actions for reservations.
     /// </summary>
     [ValidationActionFilter]
-    public class ReservationController : ApiController
+    public class reservationController : ApiController
     {
         /// <summary>
         /// Returns the list of all reservations in the system representing waiting players.
         /// </summary>
         /// <returns>Returns the list of all reservations in the system representing waiting players.</returns>
+        [HttpGet]
         public async Task<IEnumerable<Reservation>> Get()
         {
             return await WebApiApplication.GameService.GetReservationsAsync();
@@ -25,6 +26,7 @@ namespace Dragons.Service.Controllers
         /// </summary>
         /// <param name="reservation">Reservation for waiting player.</param>
         /// <returns>Returns newly inserted reservation.</returns>
+        [HttpPost]
         public async Task<Reservation> Post([FromBody]Reservation reservation)
         {
             return await WebApiApplication.GameService.InsertReservationAsync(reservation);
@@ -35,6 +37,7 @@ namespace Dragons.Service.Controllers
         /// </summary>
         /// <param name="reservation">Reservation for waiting player to delete.</param>
         /// <returns>Nothing</returns>
+        [HttpDelete]
         public async Task Delete([FromBody]Reservation reservation)
         {
             await WebApiApplication.GameService.DeleteReservationAsync(reservation);

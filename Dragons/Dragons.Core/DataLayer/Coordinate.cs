@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
+using System.Threading;
 using MongoDB.Bson.Serialization.Attributes;
 
 namespace Dragons.Core
@@ -33,7 +34,7 @@ namespace Dragons.Core
         /// <returns></returns>
         public static Coordinate Random(int size)
         {
-            return new Coordinate() {X = new Random().Next(0, size - 1), Y = new Random().Next(0, size - 1)};
+            return new Coordinate() { X = Dice.Roll(size), Y = Dice.Roll(size) };
         }
 
         /// <summary>
@@ -42,7 +43,7 @@ namespace Dragons.Core
         /// <returns>Returns pretty-printed string</returns>
         public override string ToString()
         {
-            return $"{X},{Y}";
+            return $"[{X},{Y}]";
         }
     }
 }

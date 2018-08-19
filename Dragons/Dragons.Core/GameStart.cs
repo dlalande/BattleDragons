@@ -11,12 +11,22 @@ namespace Dragons.Core
         /// Details for player 1.
         /// </summary>
         [Required]
-        public PlayerDetails Player1 { get; set; }
+        public Player Player1 { get; set; }
 
         /// <summary>
         /// Details for player 2.
         /// </summary>
         [Required]
-        public PlayerDetails Player2 { get; set; }
+        public Player Player2 { get; set; }
+
+        /// <summary>
+        /// Initial setup for player 1.
+        /// </summary>
+        public InitialSetup Player1Setup { get; set; }
+
+        /// <summary>
+        /// Initial setup for player 2.
+        /// </summary>
+        public InitialSetup Player2Setup { get; set; }
     }
 }

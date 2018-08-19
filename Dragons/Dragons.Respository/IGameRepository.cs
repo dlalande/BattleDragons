@@ -14,6 +14,9 @@ namespace Dragons.Respository
         Task<GameState> GetGameStateAsync(string playerId);
         Task<GameState> InsertGameStateAsync(GameState gameState);
         Task<GameState> UpdateGameStateAsync(GameState gameState);
-        Tuple<InitialSetup, InitialSetup> GetRandomInitialSetups();
+        Tuple<InitialSetup, InitialSetup> GetRandomInitialSetupPair();
+        InitialSetup GetRandomInitialSetup();
+        Player GetRandomPlayer();
+        Tuple<Player, Player> GetRandomPlayerPair();
     }
 }

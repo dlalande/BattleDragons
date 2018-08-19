@@ -58,7 +58,7 @@ namespace Dragons.Core
         /// <returns>Returns pretty-printed string</returns>
         public override string ToString()
         {
-            return $"{Type} piece at coordinate[{Coordinate}].";
+            return $"{Type} piece at {Coordinate}";
         }
     }
 }

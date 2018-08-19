@@ -17,7 +17,6 @@ namespace Dragons.Core
         /// </summary>
         [BsonElement]
         [BsonRequired]
-        [Required]
         public string PlayerId { get; set; }
 
         /// <summary>
@@ -35,5 +34,14 @@ namespace Dragons.Core
         [BsonRequired]
         [Required]
         public Spell Spell { get; set; }
+
+        /// <summary>
+        /// Returns pretty-printed string
+        /// </summary>
+        /// <returns>Returns pretty-printed string</returns>
+        public override string ToString()
+        {
+            return $"{Spell} at {Coordinate}";
+        }
     }
 }

@@ -41,12 +41,24 @@ namespace Dragons.Core
         /// <summary>
         /// List of wizard names.
         /// </summary>
-        public static readonly List<string> WizardNames = new List<string> { "Gandolf", "Lavarus", "Ezekiel", "Magnus", "Mortius", "Cyrus", "Belzof", "Palpatine", "Morgoth" };
+        public static readonly IReadOnlyList<string> WizardNames = new List<string>
+        {
+            "Gandolf",
+            "Merlin",
+            "Lavarus",
+            "Ezekiel",
+            "Magnus",
+            "Mortius",
+            "Cyrus",
+            "Belzof",
+            "Palpatine",
+            "Morgoth"
+        }.AsReadOnly();
 
         /// <summary>
         /// List of wizard names.
         /// </summary>
-        public const int DefaultInitialMana = 10;
+        public const int DefaultInitialMana = 1000000;
 
         /// <summary>
         /// List of wizard names.

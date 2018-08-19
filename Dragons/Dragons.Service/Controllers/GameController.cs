@@ -9,8 +9,8 @@ namespace Dragons.Service.Controllers
     /// Controller to handle actions for games.
     /// </summary>
     [ValidationActionFilter]
-    [RoutePrefix("api/Game")]
-    public class GameController : ApiController
+    [RoutePrefix("dragons/game")]
+    public class gameController : ApiController
     {
         /// <summary>
         /// Returns the list of event for a given game after the index offset.
@@ -18,7 +18,8 @@ namespace Dragons.Service.Controllers
         /// <param name="id">Id of game player.</param>
         /// <param name="offset">Optional offset to load events after.</param>
         /// <returns>Returns the list of event for a given game after the index offset.</returns>
-        [Route("{id}/Events")]
+        [HttpGet]
+        [Route("{id}/events")]
         public async Task<IEnumerable<Event>> Get(string id, [FromUri] int offset = 0)
         {
             return await WebApiApplication.GameService.GetGameEventsAsync(id, offset);
@@ -29,6 +30,7 @@ namespace Dragons.Service.Controllers
         /// </summary>
         /// <param name="id">Id of game player.</param>
         /// <returns>Returns a game from the perspective of the given player.</returns>
+        [HttpGet]
         public async Task<Game> Get(string id)
         {
             return await WebApiApplication.GameService.GetGameAsync(id);
@@ -39,7 +41,8 @@ namespace Dragons.Service.Controllers
         /// </summary>
         /// <param name="move">Move to play.</param>
         /// <returns>Returns move played.</returns>
-        [Route("Move")]
+        [HttpPost]
+        [Route("move")]
         public async Task<Move> Post(Move move)
         {
             return await WebApiApplication.GameService.InsertGameMoveAsync(move);

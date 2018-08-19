@@ -8,7 +8,7 @@ namespace Dragons.Service.Controllers
     /// Controller to handle actions for game starts.
     /// </summary>
     [ValidationActionFilter]
-    public class GameStartController : ApiController
+    public class gamestartController : ApiController
     {
         /// <summary>
         /// Starts a new game for the given reservations 
@@ -16,6 +16,7 @@ namespace Dragons.Service.Controllers
         /// <param name="gameStart">Reservations to start the game with.</param>
         /// <returns>Nothing</returns>
         /// <remarks>Removes the player one reservation from the reservations list.</remarks>
+        [HttpPut]
         public async Task Put([FromBody]GameStart gameStart)
         {
             await WebApiApplication.GameService.InsertGameStartAsync(gameStart);

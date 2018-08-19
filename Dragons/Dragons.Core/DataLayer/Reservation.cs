@@ -24,7 +24,7 @@ namespace Dragons.Core
         [BsonElement]
         [BsonRequired]
         [Required]
-        public PlayerDetails Player { get; set; }
+        public Player Player { get; set; }
         
         /// <summary>
         /// Date and time in UTC the reservation was created.

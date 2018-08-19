@@ -4,16 +4,18 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{DA356D6F-2E5D-437E-B6DB-1C2A08D19E80}</ProjectGuid>
-    <OutputType>Library</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Dragons.Core</RootNamespace>
-    <AssemblyName>Dragons.Core</AssemblyName>
+    <ProjectGuid>{87ADD235-A9A7-4EF0-98B3-BE97F461DF44}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>Dragons.PlayerPiano</RootNamespace>
+    <AssemblyName>Dragons.PlayerPiano</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -21,9 +23,9 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DocumentationFile>bin\Debug\Dragons.Core.xml</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -32,43 +34,42 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="MongoDB.Bson, Version=2.7.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\MongoDB.Bson.2.7.0\lib\net45\MongoDB.Bson.dll</HintPath>
-    </Reference>
     <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.11.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="System" />
-    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Constants.cs" />
-    <Compile Include="DataLayer\Coordinate.cs" />
-    <Compile Include="DataLayer\Dragon.cs" />
-    <Compile Include="DataLayer\Event.cs" />
-    <Compile Include="DataLayer\Player.cs" />
-    <Compile Include="Dice.cs" />
-    <Compile Include="IReadOnlyListExtensions.cs" />
-    <Compile Include="Types\EventType.cs" />
-    <Compile Include="Game.cs" />
-    <Compile Include="DataLayer\GameBoard.cs" />
-    <Compile Include="GameStart.cs" />
-    <Compile Include="DataLayer\GameState.cs" />
-    <Compile Include="InitialSetup.cs" />
-    <Compile Include="DataLayer\Move.cs" />
-    <Compile Include="DataLayer\Piece.cs" />
-    <Compile Include="Types\PieceType.cs" />
-    <Compile Include="DataLayer\PlayerState.cs" />
-    <Compile Include="Types\PlayerType.cs" />
+    <Compile Include="GamePlay.cs" />
+    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="DataLayer\Reservation.cs" />
-    <Compile Include="DataLayer\Spell.cs" />
-    <Compile Include="Types\SpellType.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="App.config" />
+    <Content Include="GamePlays\GamePlay1.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="GamePlays\GamePlay2.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Dragons.Core\Dragons.Core.csproj">
+      <Project>{da356d6f-2e5d-437e-b6db-1c2a08d19e80}</Project>
+      <Name>Dragons.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Dragons.Service.Core\Dragons.Service.Core.csproj">
+      <Project>{8cc14d37-cb90-42e7-902e-0ea83435e408}</Project>
+      <Name>Dragons.Service.Core</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

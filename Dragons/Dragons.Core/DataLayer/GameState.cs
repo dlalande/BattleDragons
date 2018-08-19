@@ -28,7 +28,7 @@ namespace Dragons.Core
         [BsonElement]
         [BsonRequired]
         [Required]
-        public Player Player1 { get; set; }
+        public PlayerState Player1 { get; set; }
 
         /// <summary>
         /// Player 1 of the game.
@@ -36,7 +36,7 @@ namespace Dragons.Core
         [BsonElement]
         [BsonRequired]
         [Required]
-        public Player Player2 { get; set; }
+        public PlayerState Player2 { get; set; }
         
         /// <summary>
         /// List of events that occurred during game play.
@@ -76,7 +76,7 @@ namespace Dragons.Core
                 Board = player.Board,
                 Mana = player.Mana,
                 Opponent = !Player1.PlayerId.Equals(playerId) ? Player1.Name : Player2.Name,
-                Spells = Spell.AllSpells()
+                Spells = Spell.AllSpells.ToList()
             };
             return game;
         }
@@ -162,7 +162,7 @@ namespace Dragons.Core
             Events.Add(new Event { PlayerId = opponent.PlayerId, Type = EventType.ManaUpdated, Mana = Constants.DefaultManaIncrement });
         }
 
-        private static void AttackSquare(Coordinate coordinate, Event attackEvent, Player opponent)
+        private static void AttackSquare(Coordinate coordinate, Event attackEvent, PlayerState opponent)
         {
             var xDirection = coordinate.X == opponent.Board.Count - 1 ? -1 : 1;
             var yDirection = coordinate.Y == opponent.Board.Count - 1 ? -1 : 1;
