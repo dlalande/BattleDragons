@@ -17,11 +17,12 @@ namespace Dragons.Console
         static async Task PlayGameAsync()
         {
             var playerId = Guid.NewGuid().ToString();
-            var currentEventIndex = 0;
+            var eventOffset = 0;
             
             using (var dragonsClient = new DragonsClient(new Uri("http://localhost:51962/"), string.Empty))
             {
                 var game = await dragonsClient.GetGameAsync(playerId);
+                var events = await dragonsClient.GetGameEventsAsync(playerId, eventOffset);
             }
         }
     }

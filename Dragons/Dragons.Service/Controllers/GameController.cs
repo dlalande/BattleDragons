@@ -47,5 +47,27 @@ namespace Dragons.Service.Controllers
         {
             return await WebApiApplication.GameService.InsertGameMoveAsync(move);
         }
+
+        /// <summary>
+        /// Returns a random move for a given board size.
+        /// </summary>
+        /// <returns>Returns move played.</returns>
+        [HttpGet]
+        [Route("move/{boardSize}")]
+        public Move Get(int boardSize)
+        {
+            return WebApiApplication.GameService.GetRandomMove(boardSize);
+        }
+
+        /// <summary>
+        /// Returns a random player.
+        /// </summary>
+        /// <returns>Returns a random player.</returns>
+        [HttpGet]
+        [Route("player")]
+        public Player Get()
+        {
+            return WebApiApplication.GameService.GetRandomPlayer();
+        }
     }
 }

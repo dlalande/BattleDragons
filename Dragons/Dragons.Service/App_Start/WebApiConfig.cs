@@ -1,4 +1,5 @@
-﻿using System.Web.Http;
+﻿using Newtonsoft.Json;
+using System.Web.Http;
 
 namespace Dragons.Service
 {
@@ -23,6 +24,8 @@ namespace Dragons.Service
                 routeTemplate: "dragons/{controller}/{id}",
                 defaults: new { id = RouteParameter.Optional }
             );
+
+            config.Formatters.JsonFormatter.SerializerSettings.NullValueHandling = NullValueHandling.Ignore;
         }
     }
 }

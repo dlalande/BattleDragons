@@ -15,9 +15,10 @@ namespace Dragons.Service.Core
         Task<Game> GetGameAsync(string playerId);
         Task<List<Event>> GetGameEventsAsync(string playerId, int offset = 0);
         Task<Move> InsertGameMoveAsync(Move move);
+        Move GetRandomMove(int boardSize);
+
         // This would be used to generate a random move for the given player id.  
         // It will load the game by playerId, and based on the playerType (Human, EasyComputer, MediumComputer, HardComputer)
         // Task<Move> GetNextMoveAsync(string playerId);
-        Move GetRandomMove(int size);
     }
 }

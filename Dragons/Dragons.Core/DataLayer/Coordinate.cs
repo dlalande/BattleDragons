@@ -30,11 +30,11 @@ namespace Dragons.Core
         /// <summary>
         /// Returns a random coordinate bounded by the size of the game board.
         /// </summary>
-        /// <param name="size"></param>
+        /// <param name="boardSize"></param>
         /// <returns></returns>
-        public static Coordinate Random(int size)
+        public static Coordinate Random(int boardSize)
         {
-            return new Coordinate() { X = Dice.Roll(size), Y = Dice.Roll(size) };
+            return new Coordinate() { X = Dice.Roll(boardSize), Y = Dice.Roll(boardSize) };
         }
 
         /// <summary>
