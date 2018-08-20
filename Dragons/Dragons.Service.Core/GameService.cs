@@ -30,7 +30,7 @@ namespace Dragons.Service.Core
         {
             return new Move
             {
-                PlayerId = null,
+                Player = null,
                 Coordinate = Coordinate.Random(boardSize),
                 Spell = Spell.AllSpells.Random()
             };
@@ -39,7 +39,11 @@ namespace Dragons.Service.Core
         public async Task<Game> GetGameAsync(string playerId)
         {
             var gameState = await _repo.GetGameStateAsync(playerId);
-            return gameState?.ToGame(playerId);
+            if (gameState == null)
+                return null;
+
+            var playerState = gameState.Player1State.Player.PlayerId.Equals(playerId) ? gameState.Player1State : gameState.Player2State;
+            return gameState.ToGame(playerState);
         }
 
         public async Task<List<Event>> GetGameEventsAsync(string playerId, int offset = 0)
@@ -55,9 +59,9 @@ namespace Dragons.Service.Core
 
         public async Task<Move> InsertGameMoveAsync(Move move)
         {
-            if (string.IsNullOrWhiteSpace(move.PlayerId))
-                throw new ArgumentException("PlayerId must not be empty.", nameof(move));
-            var gameState = await _repo.GetGameStateAsync(move.PlayerId);
+            if (string.IsNullOrWhiteSpace(move.Player?.PlayerId))
+                throw new ArgumentException("Player must not be empty.", nameof(move));
+            var gameState = await _repo.GetGameStateAsync(move.Player.PlayerId);
             gameState.ProcessMove(move);
             await _repo.UpdateGameStateAsync(gameState);
             return move;
@@ -80,29 +84,25 @@ namespace Dragons.Service.Core
 
             var gameState = new GameState()
             {
-                Player1 = new PlayerState
+                Player1State = new PlayerState
                 {
-                    PlayerId = start.Player1.PlayerId,
-                    Name = start.Player1.Name,
+                    Player = start.Player1,
                     Mana = Constants.DefaultInitialMana,
                     Type = PlayerType.Human,
-                    Board = new GameBoard(player1Setup),
-                    Dragons = player1Setup.Dragons
+                    Board = new GameBoard(player1Setup)
                 },
-                Player2 = new PlayerState
+                Player2State = new PlayerState
                 {
-                    PlayerId = start.Player2.PlayerId,
-                    Name = start.Player2.Name,
+                    Player = start.Player2,
                     Mana = Constants.DefaultInitialMana,
                     Type = PlayerType.Human,
-                    Board = new GameBoard(player2Setup),
-                    Dragons = player2Setup.Dragons
+                    Board = new GameBoard(player2Setup)
                 },
                 Events = new List<Event>
                 {
                     new Event()
                     {
-                        PlayerId = start.Player1.PlayerId,
+                        Player = start.Player1,
                         Type = EventType.GameStarted
                     }
                 }

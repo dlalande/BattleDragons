@@ -40,6 +40,18 @@ namespace Dragons.Core
         public List<Spell> Spells { get; set; }
 
         /// <summary>
+        /// Indicates whether the player can make a move.
+        /// </summary>
+        [Required]
+        public bool CanMove { get; set; }
+
+        /// <summary>
+        /// Indicates whether the game is over. (probably not needed)
+        /// </summary>
+        [Required]
+        public bool IsOver { get; set; }
+
+        /// <summary>
         /// Returns pretty-printed string
         /// </summary>
         /// <returns>Returns pretty-printed string</returns>

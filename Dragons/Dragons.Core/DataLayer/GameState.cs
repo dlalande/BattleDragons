@@ -28,7 +28,7 @@ namespace Dragons.Core
         [BsonElement]
         [BsonRequired]
         [Required]
-        public PlayerState Player1 { get; set; }
+        public PlayerState Player1State { get; set; }
 
         /// <summary>
         /// Player 1 of the game.
@@ -36,7 +36,7 @@ namespace Dragons.Core
         [BsonElement]
         [BsonRequired]
         [Required]
-        public PlayerState Player2 { get; set; }
+        public PlayerState Player2State { get; set; }
         
         /// <summary>
         /// List of events that occurred during game play.
@@ -63,22 +63,38 @@ namespace Dragons.Core
         public DateTime Created { get; set; }
 
         /// <summary>
+        /// Indicates whether the game is over. (probably not needed)
+        /// </summary>
+        [BsonElement]
+        [BsonRequired]
+        [Required]
+        public bool IsOver { get; set; }
+
+        /// <summary>
         /// Converts the given game state into a <see cref="Game">game</see> from the given player's perspective.
         /// </summary>
-        /// <param name="playerId">Id of player whose perspective the converted game if from.</param>
+        /// <param name="playerState">State of player whose perspective the converted game if from.</param>
         /// <returns>Returns a <see cref="Game">game</see> from the given player's perspective.</returns>
-        public Game ToGame(string playerId)
+        public Game ToGame(PlayerState playerState)
         {
-            var player = Player1.PlayerId.Equals(playerId) ? Player1 : Player2;
             var game = new Game
             {
-                Name = player.Name,
-                Board = player.Board,
-                Mana = player.Mana,
-                Opponent = !Player1.PlayerId.Equals(playerId) ? Player1.Name : Player2.Name,
+                Name = playerState.Player.Name,
+                Board = playerState.Board,
+                Mana = playerState.Mana,
+                Opponent = !Player1State.Player.Equals(playerState.Player) ? Player1State.Player.Name : Player2State.Player.Name,
+                CanMove = CanMove(playerState.Player),
+                IsOver = IsOver,
                 Spells = Spell.AllSpells.ToList()
             };
             return game;
+        }
+
+        private bool CanMove(Player player)
+        {
+            if (!Moves.Any())  
+                return Player1State.Player.Equals(player); //player 1 gets the first move.
+            return !Moves.Peek().Player.Equals(player);
         }
 
         /// <summary>
@@ -87,24 +103,22 @@ namespace Dragons.Core
         /// <param name="move">Move to process.</param>
         public void ProcessMove(Move move)
         {
-             //TODO: Maybe move this to game state.
-
-            if (Moves.Any() && Moves.Peek().PlayerId.Equals(move.PlayerId))
-                throw new Exception("Player already moved.");
+             if(!CanMove(move.Player))
+                throw new Exception("It is not this player's turn.");
 
             Moves.Push(move);
-            var player = Player1.PlayerId.Equals(move.PlayerId) ? Player1 : Player2;
-            var opponent = Player1.PlayerId.Equals(move.PlayerId) ? Player2 : Player1;
+            var player = Player1State.Player.Equals(move.Player) ? Player1State : Player2State;
+            var opponent = Player1State.Player.Equals(move.Player) ? Player2State : Player1State;
 
             if (player.Mana < move.Spell.ManaCost)
                 throw new Exception("Not enough mana to cast spell.");
 
             player.Mana -= move.Spell.ManaCost;
-            Events.Add(new Event { PlayerId = player.PlayerId, Type = EventType.ManaUpdated, Mana = -1 * move.Spell.ManaCost });
+            Events.Add(new Event { Player = player.Player, Type = EventType.ManaUpdated, Mana = -1 * move.Spell.ManaCost });
 
             var attackEvent = new Event
             {
-                PlayerId = opponent.PlayerId,
+                Player = opponent.Player,
                 Type = EventType.Attacked
             };
 
@@ -114,78 +128,87 @@ namespace Dragons.Core
                     attackEvent = null;
                     break;
                 case SpellType.Lightning:
-                    attackEvent.Pieces.Add(opponent.Board[move.Coordinate.X][move.Coordinate.Y]);
+                    attackEvent.Pieces.Add(opponent.Board.Pieces[move.Coordinate.X][move.Coordinate.Y]);
                     break;
                 case SpellType.FireBall:
                     AttackSquare(move.Coordinate, attackEvent, opponent);
                     break;
                 case SpellType.FireStorm:
-                    for (var row = 0; row < opponent.Board.Count; row++)
-                        attackEvent.Pieces.Add(opponent.Board[move.Coordinate.X][row]);
+                    for (var row = 0; row < opponent.Board.Pieces.Count; row++)
+                        attackEvent.Pieces.Add(opponent.Board.Pieces[move.Coordinate.X][row]);
                     break;
                 case SpellType.IceStrike:
-                    for (var column = 0; column < opponent.Board.Count; column++)
-                        attackEvent.Pieces.Add(opponent.Board[column][move.Coordinate.Y]);
+                    for (var column = 0; column < opponent.Board.Pieces.Count; column++)
+                        attackEvent.Pieces.Add(opponent.Board.Pieces[column][move.Coordinate.Y]);
                     break;
                 case SpellType.DragonFury:
-                    foreach (var dragon in player.Dragons)
-                        AttackSquare(Coordinate.Random(opponent.Board.Count), attackEvent, opponent);
+                    foreach (var dragon in player.Board.Dragons)
+                        AttackSquare(Coordinate.Random(opponent.Board.Pieces.Count), attackEvent, opponent);
+                    break;
+                case SpellType.AvadaKedavra:
+                        var dragonToKill = opponent.Board.Dragons.Where(dragon=> !dragon.IsDead).ToList().AsReadOnly().Random();
+                        attackEvent.Pieces.AddRange(dragonToKill);
                     break;
             }
 
             if (attackEvent != null)
             {
+                Events.Add(attackEvent);
                 foreach (var attackEventPiece in attackEvent.Pieces)
                 {
+                    if(attackEventPiece.HasBeenAttacked)
+                        continue;
+
                     attackEventPiece.HasBeenAttacked = true;
-                    CheckForMana(attackEventPiece, move.PlayerId);
+                    CheckForMana(attackEventPiece, move.Player);
+                    CheckForDeadDragon(attackEventPiece, opponent);
                 }
-                Events.Add(attackEvent);
-            }
 
-            for (var index = opponent.Dragons.Count - 1; index >= 0; index--)
-            {
-                var dragon = opponent.Dragons[index];
-                if (!dragon.All(piece => piece.HasBeenAttacked))
-                    continue;
-                Events.Add(new Event { PlayerId = opponent.PlayerId, Type = EventType.DragonKilled, Pieces = dragon });
-                opponent.Dragons.RemoveAt(index);
+                if (opponent.Board.Dragons.All(dragon => dragon.IsDead))
+                {
+                    Events.Add(new Event { Player = move.Player, Type = EventType.GameWon });
+                    IsOver = true;
+                    return;
+                }
             }
-
-            if (opponent.Dragons.Count == 0)
-            {
-                Events.Add(new Event { PlayerId = move.PlayerId, Type = EventType.GameWon });
-                return;
-            }
-
             // Add mana to next player.
-            Events.Add(new Event { PlayerId = opponent.PlayerId, Type = EventType.ManaUpdated, Mana = Constants.DefaultManaIncrement });
+            Events.Add(new Event { Player = opponent.Player, Type = EventType.ManaUpdated, Mana = Constants.DefaultManaIncrement });
         }
 
         private static void AttackSquare(Coordinate coordinate, Event attackEvent, PlayerState opponent)
         {
-            var xDirection = coordinate.X == opponent.Board.Count - 1 ? -1 : 1;
-            var yDirection = coordinate.Y == opponent.Board.Count - 1 ? -1 : 1;
+            var xDirection = coordinate.X == opponent.Board.Pieces.Count - 1 ? -1 : 1;
+            var yDirection = coordinate.Y == opponent.Board.Pieces.Count - 1 ? -1 : 1;
 
-            attackEvent.Pieces = new List<Piece>
+            attackEvent.Pieces.AddRange(new []
             {
-                opponent.Board[coordinate.X][coordinate.Y],
-                opponent.Board[coordinate.X][coordinate.Y + yDirection],
-                opponent.Board[coordinate.X + xDirection][coordinate.Y],
-                opponent.Board[coordinate.X + xDirection][coordinate.Y + yDirection]
-            };
+                opponent.Board.Pieces[coordinate.X][coordinate.Y],
+                opponent.Board.Pieces[coordinate.X][coordinate.Y + yDirection],
+                opponent.Board.Pieces[coordinate.X + xDirection][coordinate.Y],
+                opponent.Board.Pieces[coordinate.X + xDirection][coordinate.Y + yDirection]
+            });
         }
 
-        private void CheckForMana(Piece attackedPiece, string playerId)
+        private void CheckForMana(Piece attackedPiece, Player player)
         {
             if (attackedPiece.Type == PieceType.LargeMana || attackedPiece.Type == PieceType.SmallMana)
             {
                 Events.Add(new Event
                 {
-                    PlayerId = playerId,
+                    Player = player,
                     Type = EventType.ManaUpdated,
                     Mana = attackedPiece.Type == PieceType.LargeMana ? Constants.LargeManaValue : Constants.SmallManaValue
                 });
+            }
+        }
+
+        private void CheckForDeadDragon(Piece attackedPiece, PlayerState opponent)
+        {
+            if (attackedPiece.IsDragonPiece())
+            {
+                foreach (var dragon in opponent.Board.Dragons)
+                    if(dragon.IsDead && dragon.Contains(attackedPiece))
+                        Events.Add(new Event { Player = opponent.Player, Type = EventType.DragonKilled, Pieces = dragon });
             }
         }
     }

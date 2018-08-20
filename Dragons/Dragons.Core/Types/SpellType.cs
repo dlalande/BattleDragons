@@ -33,6 +33,11 @@
         /// <summary>
         /// Attacks with a fireball for each dragon you still have alive.
         /// </summary>
-        DragonFury
+        DragonFury, 
+
+        /// <summary>
+        /// Instantly kills one dragon at random.
+        /// </summary>
+        AvadaKedavra
     }
 }

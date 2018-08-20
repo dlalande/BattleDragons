@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
 using MongoDB.Bson.Serialization.Attributes;
 
 namespace Dragons.Core
@@ -13,11 +12,11 @@ namespace Dragons.Core
     public class Move
     {
         /// <summary>
-        /// Id of player who made the move.
+        /// Player who made the move.
         /// </summary>
         [BsonElement]
         [BsonRequired]
-        public string PlayerId { get; set; }
+        public Player Player { get; set; }
 
         /// <summary>
         /// Coordinate on game board the move applies to.
@@ -41,7 +40,7 @@ namespace Dragons.Core
         /// <returns>Returns pretty-printed string</returns>
         public override string ToString()
         {
-            return $"{Spell} at {Coordinate}";
+            return $"{Player.Name} casts {Spell} at {Coordinate}";
         }
     }
 }

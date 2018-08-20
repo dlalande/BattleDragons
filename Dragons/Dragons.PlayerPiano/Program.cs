@@ -1,10 +1,7 @@
 ﻿using System;
 using System.Linq;
-using System.Collections.Generic;
 using Dragons.Core;
 using Dragons.Service.Core;
-using Newtonsoft.Json;
-using System.IO;
 using System.Threading.Tasks;
 
 namespace Dragons.PlayerPiano
@@ -39,9 +36,9 @@ namespace Dragons.PlayerPiano
                 {
                     var move = gameService.GetRandomMove(14);
                     if (i % 2 == 0)
-                        move.PlayerId = gamePlay.GameStart.Player1.PlayerId;
+                        move.Player = gamePlay.GameStart.Player1;
                     else
-                        move.PlayerId = gamePlay.GameStart.Player2.PlayerId;
+                        move.Player = gamePlay.GameStart.Player2;
                     i++;
                     await gameService.InsertGameMoveAsync(move);
                     var events = await gameService.GetGameEventsAsync(gamePlay.GameStart.Player1.PlayerId, offset);
@@ -97,13 +94,13 @@ namespace Dragons.PlayerPiano
 
             var players = gameService.GetRandomPlayerPair();
 
-            var moves = Enumerable.Range(0, 20).Select(i =>
+            var moves = Enumerable.Range(0, 200).Select(i =>
             {
                 var move = gameService.GetRandomMove(14);
                 if (i % 2 == 0)
-                    move.PlayerId = players.Item1.PlayerId;
+                    move.Player = players.Item1;
                 else
-                    move.PlayerId = players.Item2.PlayerId;
+                    move.Player = players.Item2;
                 return move;
             }).ToList();
 

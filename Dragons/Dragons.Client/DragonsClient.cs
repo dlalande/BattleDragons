@@ -8,14 +8,15 @@ using System.Threading.Tasks;
 
 namespace Dragons.Client
 {
-    public class DragonsClient : IDisposable
+    public class DragonsClient 
     {
         private const string JsonMediaType = "application/json";
         private const string GameRoute = "game";
         private const string ReservationRoute = "reservation";
         private const string GameStartRoute = "gamestart";
-        private const string EventRoute = "event";
+        private const string EventRoute = "events";
         private const string MoveRoute = "move";
+        private const string PlayerRoute = "player";
 
         private const string RoutePrefix = "dragons";
         private readonly Uri baseAddress;
@@ -25,6 +26,28 @@ namespace Dragons.Client
         {
             this.baseAddress = baseAddress;
             this.apiKey = apiKey;
+        }
+
+        public async Task<Player> GetRandomPlayerAsync()
+        {
+            using (var client = new HttpClient() { BaseAddress = this.baseAddress })
+            {
+                var response = await client.GetAsync($"{RoutePrefix}/{GameRoute}/{PlayerRoute}");
+                response.EnsureSuccess();
+                var content = await response.Content.ReadAsStringAsync();
+                return JsonConvert.DeserializeObject<Player>(content);
+            }
+        }
+
+        public async Task<Move> GetRandomMoveAsync(int boardSize)
+        {
+            using (var client = new HttpClient() { BaseAddress = this.baseAddress })
+            {
+                var response = await client.GetAsync($"{RoutePrefix}/{GameRoute}/{MoveRoute}/{boardSize}");
+                response.EnsureSuccess();
+                var content = await response.Content.ReadAsStringAsync();
+                return JsonConvert.DeserializeObject<Move>(content);
+            }
         }
 
         public async Task<Game> GetGameAsync(string playerId)
@@ -99,19 +122,9 @@ namespace Dragons.Client
         {
             using (var client = new HttpClient() { BaseAddress = this.baseAddress })
             {
-                var response = await client.PostAsync($"{RoutePrefix}/{GameStartRoute}", new StringContent(JsonConvert.SerializeObject(gameStart), Encoding.UTF8, JsonMediaType));
+                var response = await client.PutAsync($"{RoutePrefix}/{GameStartRoute}", new StringContent(JsonConvert.SerializeObject(gameStart), Encoding.UTF8, JsonMediaType));
                 response.EnsureSuccess();
             }
-        }
-
-        public Task InitializeAsync(string folderPath)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void Dispose()
-        {
-
         }
     }
 }

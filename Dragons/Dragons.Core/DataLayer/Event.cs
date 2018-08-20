@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using MongoDB.Bson.Serialization.Attributes;
 using Newtonsoft.Json;
@@ -26,7 +27,7 @@ namespace Dragons.Core
         [BsonElement]
         [BsonRequired]
         [Required]
-        public string PlayerId { get; set; }
+        public Player Player { get; set; }
 
         /// <summary>
         /// Type of event that occurred.
@@ -59,7 +60,7 @@ namespace Dragons.Core
         /// <returns>Returns pretty-printed string</returns>
         public override string ToString()
         {
-            return $"{Type} event for player {PlayerId} [mana:{Mana}]. {string.Join(",", Pieces)}";
+            return $"{Type} event for {Player.Name} [mana:{Mana}].{Environment.NewLine}{string.Join($",{Environment.NewLine}", Pieces)}";
         }
     }
 }

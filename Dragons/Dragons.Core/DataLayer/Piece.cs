@@ -60,5 +60,14 @@ namespace Dragons.Core
         {
             return $"{Type} piece at {Coordinate}";
         }
+
+        /// <summary>
+        /// Returns true if the piece type is a dragon.
+        /// </summary>
+        /// <returns></returns>
+        public bool IsDragonPiece()
+        {
+            return Type == PieceType.DragonHead || Type == PieceType.DragonBody || Type == PieceType.DragonTail;
+        }
     }
 }

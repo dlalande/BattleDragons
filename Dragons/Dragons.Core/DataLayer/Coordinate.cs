@@ -45,5 +45,39 @@ namespace Dragons.Core
         {
             return $"[{X},{Y}]";
         }
+
+        /// <summary>
+        /// Returns true if the given object is a coordinate and the coordinates match.
+        /// </summary>
+        /// <param name="obj">Object to test.</param>
+        /// <returns>Returns true if the given object is a coordinate and the coordinates match.</returns>
+        public override bool Equals(object obj)
+        {
+            if (ReferenceEquals(null, obj)) return false;
+            if (ReferenceEquals(this, obj)) return true;
+            return obj is Coordinate other && Equals(other);
+        }
+
+        /// <summary>
+        /// Returns true if the coordinates match.
+        /// </summary>
+        /// <param name="other">Coordinate to test.</param>
+        /// <returns>Returns true if the coordinates match.</returns>
+        protected bool Equals(Coordinate other)
+        {
+            return X == other.X && Y == other.Y;
+        }
+
+        /// <summary>
+        ///  A hash code for the current object.
+        /// </summary>
+        /// <returns>A hash code for the current object.</returns>
+        public override int GetHashCode()
+        {
+            unchecked
+            {
+                return (X * 397) ^ Y;
+            }
+        }
     }
 }

@@ -87,6 +87,12 @@ namespace Dragons.Core
                 Type = SpellType.DragonFury,
                 Description = "Remaining alive dragons each lay waste to one randomly chosen 2x2 region.",
                 ManaCost =  60
+            },
+            new Spell()
+            {
+                Type = SpellType.AvadaKedavra,
+                Description = "Instantly kills one dragon at random.",
+                ManaCost =  150
             }
         }.AsReadOnly();
     }

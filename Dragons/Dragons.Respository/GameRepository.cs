@@ -33,8 +33,8 @@ namespace Dragons.Respository
             _gameStateCollection = db.GetCollection<GameState>(Constants.GameStateCollection);
             await _gameStateCollection.Indexes.CreateManyAsync(new[]
             {
-                new CreateIndexModel<GameState>(Builders<GameState>.IndexKeys.Ascending(state => state.Player1.PlayerId)),
-                new CreateIndexModel<GameState>(Builders<GameState>.IndexKeys.Ascending(state => state.Player2.PlayerId))
+                new CreateIndexModel<GameState>(Builders<GameState>.IndexKeys.Ascending(state => state.Player1State.Player.PlayerId)),
+                new CreateIndexModel<GameState>(Builders<GameState>.IndexKeys.Ascending(state => state.Player2State.Player.PlayerId))
             });
 
             if (!Directory.Exists(settings.InitialSetupsFolderPath))
@@ -63,7 +63,7 @@ namespace Dragons.Respository
 
         public async Task<GameState> GetGameStateAsync(string playerId)
         {
-            var filter = Builders<GameState>.Filter.Where(state => state.Player1.PlayerId.Equals(playerId) || state.Player2.PlayerId.Equals(playerId));
+            var filter = Builders<GameState>.Filter.Where(state => state.Player1State.Player.PlayerId.Equals(playerId) || state.Player2State.Player.PlayerId.Equals(playerId));
             return await _gameStateCollection.Find(filter).SingleOrDefaultAsync();
         }
 
@@ -75,7 +75,7 @@ namespace Dragons.Respository
 
         public async Task<GameState> UpdateGameStateAsync(GameState gameState)
         {
-            var result = await _gameStateCollection.ReplaceOneAsync(state => state.Player1.PlayerId.Equals(gameState.Player1.PlayerId), gameState);
+            var result = await _gameStateCollection.ReplaceOneAsync(state => state.Player1State.Player.PlayerId.Equals(gameState.Player1State.Player.PlayerId), gameState);
             if(!result.IsAcknowledged)
                 throw new Exception("Problem with update.");
             return gameState;
@@ -93,27 +93,15 @@ namespace Dragons.Respository
 
         public Player GetRandomPlayer()
         {
-            return new Player
-            {
-                PlayerId = Guid.NewGuid().ToString(),
-                Name = Constants.WizardNames.Random()
-            };
+            return new Player(Guid.NewGuid().ToString(), Constants.WizardNames.Random());
         }
 
         public Tuple<Player, Player> GetRandomPlayerPair()
         {
             var namePair = Constants.WizardNames.RandomPair();
             return new Tuple<Player, Player>(
-                new Player()
-                {
-                    PlayerId = Guid.NewGuid().ToString(),
-                    Name = namePair.Item1
-                }, 
-                new Player()
-                {
-                    PlayerId = Guid.NewGuid().ToString(),
-                    Name = namePair.Item2
-                });
+                new Player(Guid.NewGuid().ToString(), namePair.Item1), 
+                new Player(Guid.NewGuid().ToString(), namePair.Item2));
         }
 
         public async Task<List<Reservation>> GetReservationsAsync()
