@@ -32,6 +32,7 @@ namespace Dragons.Client
         {
             using (var client = new HttpClient() { BaseAddress = this.baseAddress })
             {
+                client.DefaultRequestHeaders.Add(Constants.ApiKeyHeader, apiKey);
                 var response = await client.GetAsync($"{RoutePrefix}/{GameRoute}/{PlayerRoute}");
                 response.EnsureSuccess();
                 var content = await response.Content.ReadAsStringAsync();
@@ -43,6 +44,7 @@ namespace Dragons.Client
         {
             using (var client = new HttpClient() { BaseAddress = this.baseAddress })
             {
+                client.DefaultRequestHeaders.Add(Constants.ApiKeyHeader, apiKey);
                 var response = await client.GetAsync($"{RoutePrefix}/{GameRoute}/{MoveRoute}/{boardSize}");
                 response.EnsureSuccess();
                 var content = await response.Content.ReadAsStringAsync();
@@ -54,6 +56,7 @@ namespace Dragons.Client
         {
             using (var client = new HttpClient() { BaseAddress = this.baseAddress })
             {
+                client.DefaultRequestHeaders.Add(Constants.ApiKeyHeader, apiKey);
                 var response = await client.GetAsync($"{RoutePrefix}/{GameRoute}/{playerId}");
                 response.EnsureSuccess();
                 var content = await response.Content.ReadAsStringAsync();
@@ -65,6 +68,7 @@ namespace Dragons.Client
         {
             using (var client = new HttpClient() { BaseAddress = this.baseAddress })
             {
+                client.DefaultRequestHeaders.Add(Constants.ApiKeyHeader, apiKey);
                 var response = await client.GetAsync($"{RoutePrefix}/{GameRoute}/{playerId}/{EventRoute}/?offset={offset}");
                 response.EnsureSuccess();
                 var content = await response.Content.ReadAsStringAsync();
@@ -76,6 +80,7 @@ namespace Dragons.Client
         {
             using (var client = new HttpClient() { BaseAddress = this.baseAddress })
             {
+                client.DefaultRequestHeaders.Add(Constants.ApiKeyHeader, apiKey);
                 var response = await client.PostAsync($"{RoutePrefix}/{GameRoute}/{MoveRoute}", new StringContent(JsonConvert.SerializeObject(move), Encoding.UTF8, JsonMediaType));
                 response.EnsureSuccess();
                 var content = await response.Content.ReadAsStringAsync();
@@ -87,6 +92,7 @@ namespace Dragons.Client
         {
             using (var client = new HttpClient() { BaseAddress = this.baseAddress })
             {
+                client.DefaultRequestHeaders.Add(Constants.ApiKeyHeader, apiKey);
                 var response = await client.GetAsync($"{RoutePrefix}/{ReservationRoute}");
                 response.EnsureSuccess();
                 var content = await response.Content.ReadAsStringAsync();
@@ -98,6 +104,7 @@ namespace Dragons.Client
         {
             using (var client = new HttpClient() { BaseAddress = this.baseAddress })
             {
+                client.DefaultRequestHeaders.Add(Constants.ApiKeyHeader, apiKey);
                 var response = await client.PostAsync($"{RoutePrefix}/{ReservationRoute}", new StringContent(JsonConvert.SerializeObject(reservation), Encoding.UTF8, JsonMediaType));
                 response.EnsureSuccess();
                 var content = await response.Content.ReadAsStringAsync();
@@ -109,6 +116,7 @@ namespace Dragons.Client
         {
             using (var client = new HttpClient() { BaseAddress = this.baseAddress })
             {
+                client.DefaultRequestHeaders.Add(Constants.ApiKeyHeader, apiKey);
                 var request = new HttpRequestMessage(HttpMethod.Delete, $"{RoutePrefix}/{ReservationRoute}")
                 {
                     Content = new StringContent(JsonConvert.SerializeObject(reservation), Encoding.UTF8, JsonMediaType)
@@ -122,6 +130,7 @@ namespace Dragons.Client
         {
             using (var client = new HttpClient() { BaseAddress = this.baseAddress })
             {
+                client.DefaultRequestHeaders.Add(Constants.ApiKeyHeader, apiKey);
                 var response = await client.PutAsync($"{RoutePrefix}/{GameStartRoute}", new StringContent(JsonConvert.SerializeObject(gameStart), Encoding.UTF8, JsonMediaType));
                 response.EnsureSuccess();
             }

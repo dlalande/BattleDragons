@@ -7,6 +7,20 @@ namespace Dragons.Core
     /// </summary>
     public class Constants
     {
+        #region Web Api
+
+        /// <summary>
+        /// Api key used for web api calls.
+        /// </summary>
+        public const string ApiKey = "0123456789";
+
+        /// <summary>
+        /// Header used to transmit the api key.
+        /// </summary>
+        public const string ApiKeyHeader = "X-ApiKey";
+
+        #endregion
+
         #region MongoDB Constants
 
         /// <summary>

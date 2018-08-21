@@ -1,5 +1,8 @@
-﻿using Newtonsoft.Json;
+﻿using Dragons.Core;
+using Newtonsoft.Json;
+using System.Net.Http;
 using System.Web.Http;
+using System.Web.Http.Dispatcher;
 
 namespace Dragons.Service
 {
@@ -14,17 +17,21 @@ namespace Dragons.Service
         /// <param name="config"></param>
         public static void Register(HttpConfiguration config)
         {
-            // Web API configuration and services
+            // Create a message handler chain with an end-point.
+            var routeHandlers = HttpClientFactory.CreatePipeline(new HttpControllerDispatcher(config),
+                new DelegatingHandler[] { new ApiKeyDelegatingHandler(Constants.ApiKey) });
 
             // Web API routes
             config.MapHttpAttributeRoutes();
 
+
             config.Routes.MapHttpRoute(
                 name: "DefaultApi",
                 routeTemplate: "dragons/{controller}/{id}",
-                defaults: new { id = RouteParameter.Optional }
+                defaults: new { id = RouteParameter.Optional },
+                constraints: null,
+                handler: routeHandlers
             );
-
             config.Formatters.JsonFormatter.SerializerSettings.NullValueHandling = NullValueHandling.Ignore;
         }
     }

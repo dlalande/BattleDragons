@@ -38,7 +38,7 @@ namespace Dragons.Console
         
         static void Main(string[] args)
         {
-            _client = new DragonsClient(new Uri("http://localhost:51962/"), string.Empty);
+            _client = new DragonsClient(new Uri("http://localhost:51962/"), Constants.ApiKey);
             var playerTasks = new [] { StartGameAsync(PlayerMode.Waiter), StartGameAsync(PlayerMode.Joiner) };
             Task.WaitAll(playerTasks);
             System.Console.WriteLine("Done!");
