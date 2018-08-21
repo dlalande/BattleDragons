@@ -1,6 +1,7 @@
 ﻿using Dragons.Core;
 using System.Threading.Tasks;
 using System.Web.Http;
+using NLog;
 
 namespace Dragons.Service.Controllers
 {
@@ -10,6 +11,8 @@ namespace Dragons.Service.Controllers
     [ValidationActionFilter]
     public class gamestartController : ApiController
     {
+        private static readonly Logger Logger = LogManager.GetCurrentClassLogger();
+
         /// <summary>
         /// Starts a new game for the given reservations 
         /// </summary>
@@ -19,7 +22,8 @@ namespace Dragons.Service.Controllers
         [HttpPut]
         public async Task Put([FromBody]GameStart gameStart)
         {
-            await WebApiApplication.GameService.InsertGameStartAsync(gameStart);
+            await Logger.LogExecuteAsync($"PutGameStart({gameStart})", async () => await WebApiApplication.GameService.InsertGameStartAsync(gameStart));
+            
         }
     }
 }

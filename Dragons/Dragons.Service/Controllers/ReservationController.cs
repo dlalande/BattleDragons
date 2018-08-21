@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Web.Http;
+using NLog;
 
 namespace Dragons.Service.Controllers
 {
@@ -11,6 +12,8 @@ namespace Dragons.Service.Controllers
     [ValidationActionFilter]
     public class reservationController : ApiController
     {
+        private static readonly Logger Logger = LogManager.GetCurrentClassLogger();
+
         /// <summary>
         /// Returns the list of all reservations in the system representing waiting players.
         /// </summary>
@@ -18,7 +21,7 @@ namespace Dragons.Service.Controllers
         [HttpGet]
         public async Task<IEnumerable<Reservation>> Get()
         {
-            return await WebApiApplication.GameService.GetReservationsAsync();
+            return await Logger.LogExecuteAsync($"GetReservations()", async () => await WebApiApplication.GameService.GetReservationsAsync());
         }
 
         /// <summary>
@@ -29,7 +32,7 @@ namespace Dragons.Service.Controllers
         [HttpPost]
         public async Task<Reservation> Post([FromBody]Reservation reservation)
         {
-            return await WebApiApplication.GameService.InsertReservationAsync(reservation);
+            return await Logger.LogExecuteAsync($"PostReservation({reservation})", async () => await WebApiApplication.GameService.InsertReservationAsync(reservation));
         }
 
         /// <summary>
@@ -40,7 +43,7 @@ namespace Dragons.Service.Controllers
         [HttpDelete]
         public async Task Delete([FromBody]Reservation reservation)
         {
-            await WebApiApplication.GameService.DeleteReservationAsync(reservation);
+            await Logger.LogExecuteAsync($"DeleteReservation({reservation})", async () => await WebApiApplication.GameService.DeleteReservationAsync(reservation));
         }
     }
 }

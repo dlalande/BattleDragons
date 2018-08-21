@@ -19,6 +19,11 @@ namespace Dragons.Core
         /// </summary>
         public const string ApiKeyHeader = "X-ApiKey";
 
+        /// <summary>
+        /// Header used to transmit the client id.
+        /// </summary>
+        public const string ClientIdHeader = "X-ClientId";
+
         #endregion
 
         #region MongoDB Constants

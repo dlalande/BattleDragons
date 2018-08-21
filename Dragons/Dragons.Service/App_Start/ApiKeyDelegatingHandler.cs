@@ -1,9 +1,9 @@
 ﻿using Dragons.Core;
-using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
+using NLog;
 
 namespace Dragons.Service
 {
@@ -12,15 +12,15 @@ namespace Dragons.Service
     /// </summary>
     public class ApiKeyDelegatingHandler : DelegatingHandler
     {
-        private readonly string Key;
+        private readonly string _apiKey;
 
         /// <summary>
         /// Default constructor.
         /// </summary>
-        /// <param name="key">Api key to validate against.</param>
-        public ApiKeyDelegatingHandler(string key)
+        /// <param name="apiKey">Api key to validate against.</param>
+        public ApiKeyDelegatingHandler(string apiKey)
         {
-            this.Key = key;
+            this._apiKey = apiKey;
         }
 
         /// <summary>
@@ -31,6 +31,9 @@ namespace Dragons.Service
         /// <returns>Returns the http response message.</returns>
         protected override Task<HttpResponseMessage> SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
         {
+            if(request.TryGetCustomHeaderValue(Constants.ClientIdHeader, out var clientId))
+                MappedDiagnosticsLogicalContext.Set("ClientId", clientId);
+
             if (!ValidateKey(request))
             {
                 var response = new HttpResponseMessage(HttpStatusCode.Forbidden);
@@ -41,12 +44,12 @@ namespace Dragons.Service
             return base.SendAsync(request, cancellationToken);
         }
 
-        private bool ValidateKey(HttpRequestMessage message)
+        private bool ValidateKey(HttpRequestMessage request)
         {
-            if (!message.Headers.Contains(Constants.ApiKeyHeader))
+            if (!request.TryGetCustomHeaderValue(Constants.ApiKeyHeader, out var apiKey)) 
                 return false;
-            var values = message.Headers.GetValues(Constants.ApiKeyHeader).ToList();
-            return Key.Equals(values.FirstOrDefault());
+            MappedDiagnosticsLogicalContext.Set("ApiKey", apiKey);
+            return _apiKey.Equals(apiKey);
         }
     }
 }

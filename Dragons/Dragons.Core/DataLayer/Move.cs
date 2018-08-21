@@ -40,7 +40,7 @@ namespace Dragons.Core
         /// <returns>Returns pretty-printed string</returns>
         public override string ToString()
         {
-            return $"{Player.Name} casts {Spell} at {Coordinate}";
+            return $"{Player?.Name ?? "Unknown player"} casts {Spell} at {Coordinate}";
         }
     }
 }

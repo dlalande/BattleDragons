@@ -4,12 +4,14 @@ using System.IO;
 using System.Threading.Tasks;
 using Dragons.Core;
 using MongoDB.Driver;
+using NLog;
 using JsonConvert = Newtonsoft.Json.JsonConvert;
 
 namespace Dragons.Respository
 {
     public class GameRepository : IGameRepository
     { 
+        private static readonly Logger Logger = LogManager.GetCurrentClassLogger();
         private IMongoCollection<Reservation> _reservationCollection;
         private IMongoCollection<GameState> _gameStateCollection;
         private IReadOnlyList<InitialSetup> _initialSetups;
@@ -23,6 +25,8 @@ namespace Dragons.Respository
                 //builder.Subscribe(new SingleEventSubscriber<CommandStartedEvent>(CommandStartedEventHandler));
 
             };
+            mongoClientSettings.ConnectTimeout = TimeSpan.FromSeconds(5);
+            mongoClientSettings.ServerSelectionTimeout = TimeSpan.FromSeconds(5);
             var client = new MongoClient(mongoClientSettings);
             var db = client.GetDatabase(Constants.DefaultDatabase);
             
@@ -47,9 +51,9 @@ namespace Dragons.Respository
                 {
                     initialSetups.Add(JsonConvert.DeserializeObject<InitialSetup>(File.ReadAllText(layoutFilePath)));
                 }
-                catch (Exception)
+                catch (Exception e)
                 {
-                    //Log warning.
+                    Logger.Warn(e);
                 }
             }
             _initialSetups = initialSetups.AsReadOnly();
@@ -77,7 +81,7 @@ namespace Dragons.Respository
         {
             var result = await _gameStateCollection.ReplaceOneAsync(state => state.Player1State.Player.PlayerId.Equals(gameState.Player1State.Player.PlayerId), gameState);
             if(!result.IsAcknowledged)
-                throw new Exception("Problem with update.");
+                throw new Exception("Error saving game state.");
             return gameState;
         }
 
@@ -114,7 +118,7 @@ namespace Dragons.Respository
             var filter = Builders<Reservation>.Filter.Where(r => r.Player.PlayerId.Equals(reservation.Player.PlayerId));
             var result = await _reservationCollection.DeleteOneAsync(filter);
             if (!result.IsAcknowledged)
-                throw new Exception("Problem with delete.");
+                throw new Exception("Error deleting reservation.");
         }
     }
 }

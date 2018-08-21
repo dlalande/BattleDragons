@@ -14,8 +14,8 @@ namespace Dragons.Console
         const string LogFilePath = "Log.txt";
 
         static DragonsClient _client;
-        static ConcurrentQueue<Tuple<string, ConsoleColor>> _waiterLog = new ConcurrentQueue<Tuple<string, ConsoleColor>>();
-        static ConcurrentQueue<Tuple<string, ConsoleColor>> _joinerLog = new ConcurrentQueue<Tuple<string, ConsoleColor>>();
+        static readonly ConcurrentQueue<Tuple<string, ConsoleColor>> _waiterLog = new ConcurrentQueue<Tuple<string, ConsoleColor>>();
+        static readonly ConcurrentQueue<Tuple<string, ConsoleColor>> _joinerLog = new ConcurrentQueue<Tuple<string, ConsoleColor>>();
 
         enum PlayerMode
         { 
@@ -38,7 +38,7 @@ namespace Dragons.Console
         
         static void Main(string[] args)
         {
-            _client = new DragonsClient(new Uri("http://localhost:51962/"), Constants.ApiKey);
+            _client = new DragonsClient(new Uri("http://localhost:51962/"), Guid.NewGuid().ToString(), Constants.ApiKey);
             var playerTasks = new [] { StartGameAsync(PlayerMode.Waiter), StartGameAsync(PlayerMode.Joiner) };
             Task.WaitAll(playerTasks);
             System.Console.WriteLine("Done!");
@@ -86,8 +86,8 @@ namespace Dragons.Console
             }
             catch (Exception e)
             {
-                LogEvent(playerMode, e.ToString(), ConsoleColor.DarkRed);
-                System.Console.WriteLine(e);
+                LogEvent(playerMode, e.Message, ConsoleColor.DarkRed);
+                System.Console.WriteLine(e.Message);
             }
         }
 
@@ -163,8 +163,7 @@ namespace Dragons.Console
             }
             catch (Exception e)
             {
-                LogEvent(playerMode, e.ToString(), ConsoleColor.DarkRed);
-                System.Console.WriteLine(e);
+                LogEvent(playerMode, e.Message, ConsoleColor.DarkRed);
                 throw;
             }
         }

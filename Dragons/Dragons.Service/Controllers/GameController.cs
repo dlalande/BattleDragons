@@ -2,6 +2,7 @@
 using Dragons.Core;
 using System.Web.Http;
 using System.Threading.Tasks;
+using NLog;
 
 namespace Dragons.Service.Controllers
 {
@@ -12,6 +13,8 @@ namespace Dragons.Service.Controllers
     [RoutePrefix("dragons/game")]
     public class gameController : ApiController
     {
+        private static readonly Logger Logger = LogManager.GetCurrentClassLogger();
+
         /// <summary>
         /// Returns the list of event for a given game after the index offset.
         /// </summary>
@@ -22,7 +25,7 @@ namespace Dragons.Service.Controllers
         [Route("{id}/events")]
         public async Task<IEnumerable<Event>> Get(string id, [FromUri] int offset = 0)
         {
-            return await WebApiApplication.GameService.GetGameEventsAsync(id, offset);
+            return await Logger.LogExecuteAsync($"GetEvents({id},{offset})", async () => await WebApiApplication.GameService.GetGameEventsAsync(id, offset));
         }
 
         /// <summary>
@@ -31,9 +34,10 @@ namespace Dragons.Service.Controllers
         /// <param name="id">Id of game player.</param>
         /// <returns>Returns a game from the perspective of the given player.</returns>
         [HttpGet]
+        [Route("{id}")]
         public async Task<Game> Get(string id)
         {
-            return await WebApiApplication.GameService.GetGameAsync(id);
+            return await Logger.LogExecuteAsync($"GetGame({id})", async () => await WebApiApplication.GameService.GetGameAsync(id));
         }
 
         /// <summary>
@@ -45,7 +49,7 @@ namespace Dragons.Service.Controllers
         [Route("move")]
         public async Task<Move> Post(Move move)
         {
-            return await WebApiApplication.GameService.InsertGameMoveAsync(move);
+            return await Logger.LogExecuteAsync($"PostMove({move})", async () => await WebApiApplication.GameService.InsertGameMoveAsync(move));
         }
 
         /// <summary>
@@ -56,7 +60,7 @@ namespace Dragons.Service.Controllers
         [Route("move/{boardSize}")]
         public Move Get(int boardSize)
         {
-            return WebApiApplication.GameService.GetRandomMove(boardSize);
+            return Logger.LogExecute($"GetRandomMove({boardSize})", () => WebApiApplication.GameService.GetRandomMove(boardSize));
         }
 
         /// <summary>
@@ -66,8 +70,8 @@ namespace Dragons.Service.Controllers
         [HttpGet]
         [Route("player")]
         public Player Get()
-        {
-            return WebApiApplication.GameService.GetRandomPlayer();
+        { 
+            return Logger.LogExecute($"GetRandomPlayer()", () => WebApiApplication.GameService.GetRandomPlayer());
         }
     }
 }
