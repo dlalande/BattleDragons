@@ -1,9 +1,10 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using Dragons.Core.Types;
 using MongoDB.Bson.Serialization.Attributes;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 
-namespace Dragons.Core
+namespace Dragons.Core.Models
 {
     /// <summary>
     /// Represents a game piece on the board.
@@ -68,6 +69,37 @@ namespace Dragons.Core
         public bool IsDragonPiece()
         {
             return Type == PieceType.DragonHead || Type == PieceType.DragonBody || Type == PieceType.DragonTail;
+        }
+
+        /// <summary>
+        /// Returns true if the given object is a piece and the coordinates match.
+        /// </summary>
+        /// <param name="obj">Object to test.</param>
+        /// <returns>Returns true if the given object is a piece and the coordinates match.</returns>
+        public override bool Equals(object obj)
+        {
+            if (ReferenceEquals(null, obj)) return false;
+            if (ReferenceEquals(this, obj)) return true;
+            return obj is Piece other && Equals(other);
+        }
+        
+        /// <summary>
+        /// Returns true if the coordinates match.
+        /// </summary>
+        /// <param name="other">Object to test.</param>
+        /// <returns>Returns true if the coordinates match.</returns>
+        protected bool Equals(Piece other)
+        {
+            return Equals(Coordinate, other.Coordinate);
+        }
+
+        /// <summary>
+        ///  A hash code for the current object.
+        /// </summary>
+        /// <returns>A hash code for the current object.</returns>
+        public override int GetHashCode()
+        {
+            return (Coordinate != null ? Coordinate.GetHashCode() : 0);
         }
     }
 }

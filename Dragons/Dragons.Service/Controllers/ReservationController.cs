@@ -1,7 +1,9 @@
-﻿using Dragons.Core;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Web.Http;
+using Dragons.Core.Models;
+using Dragons.Service.Extensions;
+using Dragons.Service.Pipeline;
 using NLog;
 
 namespace Dragons.Service.Controllers

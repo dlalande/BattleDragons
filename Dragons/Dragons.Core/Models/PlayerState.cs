@@ -1,9 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using MongoDB.Bson.Serialization.Attributes;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
 
-namespace Dragons.Core
+namespace Dragons.Core.Models
 {
     /// <summary>
     /// Represents the current state of the player during game play.
@@ -26,15 +24,6 @@ namespace Dragons.Core
         [BsonRequired]
         [Required]
         public int Mana { get; set; }
-
-        /// <summary>
-        /// Type of user.
-        /// </summary>
-        [BsonElement]
-        [BsonRequired]
-        [Required]
-        [JsonConverter(typeof(StringEnumConverter))]
-        public PlayerType Type { get; set; }
 
         /// <summary>
         /// Game board of player.

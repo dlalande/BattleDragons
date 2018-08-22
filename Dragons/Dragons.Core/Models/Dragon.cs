@@ -2,7 +2,7 @@
 using System.Linq;
 using MongoDB.Bson.Serialization.Attributes;
 
-namespace Dragons.Core
+namespace Dragons.Core.Models
 {
     /// <summary>
     /// Represents all the game pieces that make of a game board.

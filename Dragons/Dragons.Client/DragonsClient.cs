@@ -3,9 +3,9 @@ using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Net.Http;
-using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
+using Dragons.Core.Models;
 
 namespace Dragons.Client
 {
@@ -17,6 +17,7 @@ namespace Dragons.Client
         private const string GameStartRoute = "gamestart";
         private const string EventRoute = "events";
         private const string MoveRoute = "move";
+        private const string RandomRoute = "random";
         private const string PlayerRoute = "player";
 
         private const string RoutePrefix = "dragons";
@@ -43,7 +44,7 @@ namespace Dragons.Client
         {
             using (var client = GetHttpClient())
             {
-                var response = await client.GetAsync($"{RoutePrefix}/{GameRoute}/{PlayerRoute}");
+                var response = await client.GetAsync($"{RoutePrefix}/{GameRoute}/{PlayerRoute}/{RandomRoute}");
                 response.EnsureSuccess();
                 var content = await response.Content.ReadAsStringAsync();
                 return JsonConvert.DeserializeObject<Player>(content);
@@ -54,7 +55,18 @@ namespace Dragons.Client
         {
             using (var client = GetHttpClient())
             {
-                var response = await client.GetAsync($"{RoutePrefix}/{GameRoute}/{MoveRoute}/{boardSize}");
+                var response = await client.GetAsync($"{RoutePrefix}/{GameRoute}/{MoveRoute}/{RandomRoute}/{boardSize}");
+                response.EnsureSuccess();
+                var content = await response.Content.ReadAsStringAsync();
+                return JsonConvert.DeserializeObject<Move>(content);
+            }
+        }
+
+        public async Task<Move> GetNextMoveAsync(string playerId)
+        {
+            using (var client = GetHttpClient())
+            {
+                var response = await client.GetAsync($"{RoutePrefix}/{GameRoute}/{MoveRoute}/{playerId}");
                 response.EnsureSuccess();
                 var content = await response.Content.ReadAsStringAsync();
                 return JsonConvert.DeserializeObject<Move>(content);

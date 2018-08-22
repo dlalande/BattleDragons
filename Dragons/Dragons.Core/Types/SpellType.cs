@@ -1,4 +1,4 @@
-﻿namespace Dragons.Core
+﻿namespace Dragons.Core.Types
 {
     /// <summary>
     /// Types of spells to cast in the game.

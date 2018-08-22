@@ -169,15 +169,15 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="App_Start\ApiKeyDelegatingHandler.cs" />
-    <Compile Include="App_Start\ApiKeyAuthenticationFilter.cs" />
-    <Compile Include="App_Start\ExceptionExtenstions.cs" />
-    <Compile Include="App_Start\HttpRequestMessageExtensions.cs" />
-    <Compile Include="App_Start\LoggerExtensions.cs" />
+    <Compile Include="Pipeline\ApiKeyDelegatingHandler.cs" />
+    <Compile Include="Pipeline\ApiKeyAuthenticationFilter.cs" />
+    <Compile Include="Extensions\ExceptionExtenstions.cs" />
+    <Compile Include="Extensions\HttpRequestMessageExtensions.cs" />
+    <Compile Include="Extensions\LoggerExtensions.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\SwaggerConfig.cs" />
-    <Compile Include="App_Start\NLogExceptionLogger.cs" />
-    <Compile Include="App_Start\ValidationActionFilter.cs" />
+    <Compile Include="Pipeline\NLogExceptionLogger.cs" />
+    <Compile Include="Pipeline\ValidationActionFilter.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\GameController.cs" />
     <Compile Include="Controllers\GameStartController.cs" />

@@ -3,6 +3,8 @@ using System.Linq;
 using Dragons.Core;
 using Dragons.Service.Core;
 using System.Threading.Tasks;
+using Dragons.Core.Models;
+using Dragons.Core.Types;
 
 namespace Dragons.PlayerPiano
 {

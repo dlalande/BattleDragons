@@ -1,9 +1,7 @@
-﻿using System;
-using System.ComponentModel.DataAnnotations;
-using System.Threading;
+﻿using System.ComponentModel.DataAnnotations;
 using MongoDB.Bson.Serialization.Attributes;
 
-namespace Dragons.Core
+namespace Dragons.Core.Models
 {
     /// <summary>
     /// Represents a specific coordinate on the game board.

@@ -3,7 +3,7 @@ using System.Net.Http;
 using System.Web.Http.Controllers;
 using System.Web.Http.Filters;
 
-namespace Dragons.Service
+namespace Dragons.Service.Pipeline
 {
     /// <summary>
     ///  Filter used to validate all models sent to controllers.

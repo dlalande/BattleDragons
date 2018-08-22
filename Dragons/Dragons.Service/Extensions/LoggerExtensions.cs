@@ -3,7 +3,7 @@ using System.Diagnostics;
 using System.Threading.Tasks;
 using NLog;
 
-namespace Dragons.Service
+namespace Dragons.Service.Extensions
 {
         /// <summary>
     /// Extends the logger class with handy methods for wrapping actions or functions in a logging aspect.

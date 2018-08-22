@@ -2,7 +2,7 @@
 using System.Net.Http;
 using NLog;
 
-namespace Dragons.Service
+namespace Dragons.Service.Extensions
 {
     /// <summary>
     /// Extends the exception class with a method that makes a more meaningful exception for logging.

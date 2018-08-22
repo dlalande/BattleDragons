@@ -1,7 +1,7 @@
 ﻿using System.Web.Http.ExceptionHandling;
 using NLog;
 
-namespace Dragons.Service
+namespace Dragons.Service.Pipeline
 {
     /// <summary>
     /// Class used to log exceptions to NLog <see cref="NLog.Logger">Logger</see>.

@@ -1,5 +1,5 @@
-﻿using Dragons.Core;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using Dragons.Core.Models;
 
 namespace Dragons.PlayerPiano
 {

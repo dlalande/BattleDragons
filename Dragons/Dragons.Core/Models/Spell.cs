@@ -1,10 +1,11 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using Dragons.Core.Types;
 using MongoDB.Bson.Serialization.Attributes;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 
-namespace Dragons.Core
+namespace Dragons.Core.Models
 {
     /// <summary>
     /// Represents a spell in the game.

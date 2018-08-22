@@ -3,9 +3,10 @@ using System.Net;
 using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
+using Dragons.Service.Extensions;
 using NLog;
 
-namespace Dragons.Service
+namespace Dragons.Service.Pipeline
 {
     /// <summary>
     /// Class used to validate api key on inbound request headers.

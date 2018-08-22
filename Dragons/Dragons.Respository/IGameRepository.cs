@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using Dragons.Core;
+using Dragons.Core.Models;
 
 namespace Dragons.Respository
 {

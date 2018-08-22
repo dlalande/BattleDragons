@@ -1,6 +1,6 @@
 ﻿using System.Threading.Tasks;
 using System.Collections.Generic;
-using Dragons.Core;
+using Dragons.Core.Models;
 
 namespace Dragons.Service.Core
 {
@@ -19,6 +19,6 @@ namespace Dragons.Service.Core
 
         // This would be used to generate a random move for the given player id.  
         // It will load the game by playerId, and based on the playerType (Human, EasyComputer, MediumComputer, HardComputer)
-        // Task<Move> GetNextMoveAsync(string playerId);
+        Task<Move> GetNextMoveAsync(string playerId);
     }
 }

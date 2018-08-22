@@ -2,9 +2,11 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
+using Dragons.Core.MoveStrategies;
+using Dragons.Core.Types;
 using MongoDB.Bson.Serialization.Attributes;
 
-namespace Dragons.Core
+namespace Dragons.Core.Models
 {
     /// <summary>
     /// Represents the current state of a game.
@@ -98,6 +100,18 @@ namespace Dragons.Core
         }
 
         /// <summary>
+        /// Returns the next move for a player based on player type.
+        /// </summary>
+        /// <param name="playerId">Id of player.</param>
+        /// <returns>Returns the next move for a player based on player type.</returns>
+        public Move GetNextMove(string playerId)
+        {
+            var playerState = Player1State.Player.PlayerId.Equals(playerId) ? Player1State : Player2State;
+            var moveStrategy = MoveStrategyFactory.GetStrategy(playerState, this);
+            return moveStrategy.GetNextMove();
+        }
+
+        /// <summary>
         /// Processes a given move, generating any resulting events.
         /// </summary>
         /// <param name="move">Move to process.</param>
@@ -119,7 +133,8 @@ namespace Dragons.Core
             var attackEvent = new Event
             {
                 Player = opponent.Player,
-                Type = EventType.Attacked
+                Type = EventType.Attacked,
+                Spell = move.Spell
             };
 
             switch (move.Spell.Type)
@@ -173,6 +188,9 @@ namespace Dragons.Core
             }
             // Add mana to next player.
             Events.Add(new Event { Player = opponent.Player, Type = EventType.ManaUpdated, Mana = Constants.DefaultManaIncrement });
+
+            if (opponent.Player.IsComputerPlayer())
+                ProcessMove(GetNextMove(opponent.Player.PlayerId));
         }
 
         private static void AttackSquare(Coordinate coordinate, Event attackEvent, PlayerState opponent)

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
 using Dragons.Core;
+using Dragons.Core.Models;
 using MongoDB.Driver;
 using NLog;
 using JsonConvert = Newtonsoft.Json.JsonConvert;

@@ -6,6 +6,8 @@ using Dragons.Client;
 using Dragons.Core;
 using System.Text;
 using System.IO;
+using Dragons.Core.Models;
+using Dragons.Core.Types;
 
 namespace Dragons.Console
 {
@@ -39,8 +41,17 @@ namespace Dragons.Console
         static void Main(string[] args)
         {
             _client = new DragonsClient(new Uri("http://localhost:51962/"), Guid.NewGuid().ToString(), Constants.ApiKey);
-            var playerTasks = new [] { StartGameAsync(PlayerMode.Waiter), StartGameAsync(PlayerMode.Joiner) };
-            Task.WaitAll(playerTasks);
+
+            if (args.Length == 0)
+            {
+                OnePlayerStart(PlayerType.MediumComputer).Wait();
+            }
+            else
+            {
+                var playerTasks = new[] {TwoPlayerStart(PlayerMode.Waiter), TwoPlayerStart(PlayerMode.Joiner)};
+                Task.WaitAll(playerTasks);
+            }
+
             System.Console.WriteLine("Done!");
 
             var joinerLogString = new StringBuilder();
@@ -62,7 +73,27 @@ namespace Dragons.Console
             System.Console.ReadLine();
         }
 
-        static async Task StartGameAsync(PlayerMode playerMode)
+        static async Task OnePlayerStart(PlayerType playerType)
+        {
+            try
+            {
+                var player1 = await _client.GetRandomPlayerAsync();
+                var player2 = await _client.GetRandomPlayerAsync();
+                player2.Type = playerType;
+
+                await _client.InsertReservationAsync(new Reservation {Player = player1});
+                await _client.InsertGameStartAsync(new GameStart {Player1 = player1, Player2 = player2});
+                System.Console.Write($"Playing game {player1.Name} vs. {player2.Name} ...");
+                await PlayGameAsync(player1, PlayerMode.Waiter);
+            }
+            catch (Exception e)
+            {
+                LogEvent(PlayerMode.Waiter, e.Message, ConsoleColor.DarkRed);
+                System.Console.WriteLine(e.Message);
+            }
+        }
+
+        static async Task TwoPlayerStart(PlayerMode playerMode)
         {
             try
             {
@@ -119,46 +150,44 @@ namespace Dragons.Console
                         await _client.InsertGameMoveAsync(move);
                         LogEvent(playerMode, $"{Environment.NewLine}{player.Name}: {move}", ConsoleColor.White);
                     }
-                    else
-                    {
-                        if (!printedStart)
-                        {
-                            LogEvent(playerMode, $"{game}", ConsoleColor.Magenta);
-                            printedStart = true;
-                        }
-                        var hasWon = false;
-                        var events = await _client.GetGameEventsAsync(player.PlayerId, eventOffset);
-                        foreach (var gameEvent in events)
-                        {
-                            var color = ConsoleColor.White; 
-                            switch (gameEvent.Type)
-                            {
-                                case EventType.GameStarted:
-                                    color = ConsoleColor.Magenta;
-                                    break;
-                                case EventType.DragonKilled:
-                                    color = ConsoleColor.Green;
-                                    break;
-                                case EventType.GameWon:
-                                    color = ConsoleColor.Magenta;
-                                    hasWon = true;
-                                    break;
-                                case EventType.Attacked:
-                                    color = ConsoleColor.Yellow;
-                                    break;
-                                case EventType.ManaUpdated:
-                                    color = gameEvent.Mana > 0 ? ConsoleColor.Cyan : ConsoleColor.DarkCyan;
-                                    break;
-                            }
-                            if(gameEvent.Type != EventType.GameStarted)
-                                LogEvent(playerMode, $"{Environment.NewLine}{player.Name}: {gameEvent}", color);
-                            eventOffset++;
-                        }
 
-                        if (hasWon)
-                            break;
-                        await Task.Delay(TimeSpan.FromMilliseconds(500));
+                    if (!printedStart)
+                    {
+                        LogEvent(playerMode, $"{game}", ConsoleColor.Magenta);
+                        printedStart = true;
                     }
+                    var hasWon = false;
+                    var events = await _client.GetGameEventsAsync(player.PlayerId, eventOffset);
+                    foreach (var gameEvent in events)
+                    {
+                        var color = ConsoleColor.White; 
+                        switch (gameEvent.Type)
+                        {
+                            case EventType.GameStarted:
+                                color = ConsoleColor.Magenta;
+                                break;
+                            case EventType.DragonKilled:
+                                color = ConsoleColor.Green;
+                                break;
+                            case EventType.GameWon:
+                                color = ConsoleColor.Magenta;
+                                hasWon = true;
+                                break;
+                            case EventType.Attacked:
+                                color = ConsoleColor.Yellow;
+                                break;
+                            case EventType.ManaUpdated:
+                                color = gameEvent.Mana > 0 ? ConsoleColor.Cyan : ConsoleColor.DarkCyan;
+                                break;
+                        }
+                        if(gameEvent.Type != EventType.GameStarted)
+                            LogEvent(playerMode, $"{Environment.NewLine}{player.Name}: {gameEvent}", color);
+                        eventOffset++;
+                    }
+
+                    if (hasWon)
+                        break;
+                    await Task.Delay(TimeSpan.FromMilliseconds(500));
                 }
             }
             catch (Exception e)

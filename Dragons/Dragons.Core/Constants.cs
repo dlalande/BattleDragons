@@ -94,6 +94,16 @@ namespace Dragons.Core
         /// </summary>
         public const int SmallManaValue = 20;
 
+        /// <summary>
+        /// Percentage chance your dragon will be attacked.
+        /// </summary>
+        public const int AttackDragonPercentage = 35;
+
+        /// <summary>
+        /// Percentage chance you cast Meditate spell.
+        /// </summary>
+        public const int MeditatePercentage = 50;
+
         #endregion
     }
 }

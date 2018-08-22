@@ -1,7 +1,9 @@
 ﻿using System.Collections.Generic;
-using Dragons.Core;
 using System.Web.Http;
 using System.Threading.Tasks;
+using Dragons.Core.Models;
+using Dragons.Service.Extensions;
+using Dragons.Service.Pipeline;
 using NLog;
 
 namespace Dragons.Service.Controllers
@@ -55,12 +57,26 @@ namespace Dragons.Service.Controllers
         /// <summary>
         /// Returns a random move for a given board size.
         /// </summary>
-        /// <returns>Returns move played.</returns>
+        /// <param name="boardSize">Size of board.</param>
+        /// <returns>Returns a random move for a given board size.</returns>
         [HttpGet]
-        [Route("move/{boardSize}")]
+        [Route("move/random/{boardSize}")]
         public Move Get(int boardSize)
         {
             return Logger.LogExecute($"GetRandomMove({boardSize})", () => WebApiApplication.GameService.GetRandomMove(boardSize));
+        }
+
+        /// <summary>
+        /// Returns a next move for a given player.
+        /// <remarks>Player should not be a human.</remarks>
+        /// </summary>
+        /// <param name="playerId">Id of player.</param>
+        /// <returns>Returns a next move for a given player.</returns>
+        [HttpGet]
+        [Route("move/{playerId}")]
+        public async Task<Move> GetNextMove(string playerId)
+        {
+            return await Logger.LogExecuteAsync($"GetNextMove({playerId})", async () => await WebApiApplication.GameService.GetNextMoveAsync(playerId));
         }
 
         /// <summary>
@@ -68,7 +84,7 @@ namespace Dragons.Service.Controllers
         /// </summary>
         /// <returns>Returns a random player.</returns>
         [HttpGet]
-        [Route("player")]
+        [Route("player/random")]
         public Player Get()
         { 
             return Logger.LogExecute($"GetRandomPlayer()", () => WebApiApplication.GameService.GetRandomPlayer());

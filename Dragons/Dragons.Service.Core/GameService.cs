@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Dragons.Core;
+using Dragons.Core.Models;
+using Dragons.Core.Types;
 using Dragons.Respository;
 
 namespace Dragons.Service.Core
@@ -88,14 +90,12 @@ namespace Dragons.Service.Core
                 {
                     Player = start.Player1,
                     Mana = Constants.DefaultInitialMana,
-                    Type = PlayerType.Human,
                     Board = new GameBoard(player1Setup)
                 },
                 Player2State = new PlayerState
                 {
                     Player = start.Player2,
                     Mana = Constants.DefaultInitialMana,
-                    Type = PlayerType.Human,
                     Board = new GameBoard(player2Setup)
                 },
                 Events = new List<Event>
@@ -119,6 +119,12 @@ namespace Dragons.Service.Core
         public async Task DeleteReservationAsync(Reservation reservation)
         {
             await _repo.DeleteReservationAsync(reservation);
+        }
+
+        public async Task<Move> GetNextMoveAsync(string playerId)
+        {
+            var gameState = await _repo.GetGameStateAsync(playerId);
+            return gameState.GetNextMove(playerId);
         }
 
     }

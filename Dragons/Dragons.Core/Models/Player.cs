@@ -1,8 +1,11 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
+using Dragons.Core.Types;
 using MongoDB.Bson.Serialization.Attributes;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
 
-namespace Dragons.Core
+namespace Dragons.Core.Models
 {
     /// <summary>
     /// Represents the player information.
@@ -20,6 +23,7 @@ namespace Dragons.Core
             _id = playerId;
             PlayerId = playerId;
             Name = name;
+            Type = PlayerType.Human;
         }
 
         /// <summary>
@@ -43,6 +47,23 @@ namespace Dragons.Core
         [Required]
         public string Name { get; set; }
 
+        /// <summary>
+        /// Type of user.
+        /// </summary>
+        [BsonElement]
+        [BsonRequired]
+        [JsonConverter(typeof(StringEnumConverter))]
+        public PlayerType Type { get; set; }
+
+        /// <summary>
+        /// Returns true if player is a computer.
+        /// </summary>
+        /// <returns>Returns true if player is a computer.</returns>
+        public bool IsComputerPlayer()
+        {
+            return Type != PlayerType.Human;
+        }
+        
         /// <summary>
         /// Returns true if the given player's PlayerId matches.
         /// </summary>

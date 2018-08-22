@@ -1,11 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using Dragons.Core.Types;
 using MongoDB.Bson.Serialization.Attributes;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 
-namespace Dragons.Core
+namespace Dragons.Core.Models
 {
     /// <summary>
     /// Represents a typed event that occurred during the course of the game.
@@ -55,12 +56,18 @@ namespace Dragons.Core
         public int Mana { get; set; }
 
         /// <summary>
+        /// Spell used in the attack events.
+        /// </summary>
+        [BsonElement]
+        public Spell Spell { get; set; }
+
+        /// <summary>
         /// Returns pretty-printed string
         /// </summary>
         /// <returns>Returns pretty-printed string</returns>
         public override string ToString()
         {
-            return $"{Type} event for {Player.Name} [mana:{Mana}].{Environment.NewLine}{string.Join($",{Environment.NewLine}", Pieces)}";
+            return $"{Type} event for {Player.Name} {Spell?.ToString() ?? string.Empty} [mana:{Mana}].{Environment.NewLine}{string.Join($",{Environment.NewLine}", Pieces)}";
         }
     }
 }

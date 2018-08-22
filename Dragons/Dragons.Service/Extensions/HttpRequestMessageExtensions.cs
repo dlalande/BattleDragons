@@ -1,7 +1,7 @@
 ﻿using System.IdentityModel;
 using System.Net.Http;
 
-namespace Dragons.Service
+namespace Dragons.Service.Extensions
 {
     /// <summary>
     /// Extends the HttpRequestMessage with handy methods for managing custom headers.
