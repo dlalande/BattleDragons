@@ -28,13 +28,13 @@ namespace Dragons.Core.MoveStrategies
             var spell = Constants.AllSpells.First(s => s.Type == SpellType.Meditate);
 
             // As you run out of dragons, your attacks increase.
-            if (Dice.Roll(100) >= (PlayerState.Board.Dragons.Count - 1 * 100) / Constants.DragonsPerPlayer)
+            if (Dice.Roll(100) >= (PlayerState.Board.AliveDragons.Count - 1 * 100) / Constants.DragonsPerPlayer)
                 spell = Constants.AllSpells.Costing(PlayerState.Mana).Where(s => s.Type != SpellType.Meditate).ToList().Random();
-
+    
             if (Dice.Roll(100) <= Constants.AttackDragonPercentage)
             {
                 var opponentState = GameState.Player1State.Player.Equals(PlayerState.Player) ? GameState.Player2State : GameState.Player1State;
-                coordinate = opponentState.Board.Dragons.First().First(p => p.HasBeenAttacked = false).Coordinate;
+                coordinate = opponentState.Board.AliveDragons.First().First(p => !p.HasBeenAttacked).Coordinate;
                 spell = Constants.AllSpells.Costing(PlayerState.Mana).OrderByDescending(s => s.ManaCost).First();
             }
 

@@ -61,7 +61,7 @@ namespace Dragons.Core.Models
         public List<List<Piece>> Pieces { get; set; }
 
         /// <summary>
-        /// List of alive dragons on the board.
+        /// List of all the dragons on the board.
         /// </summary>
         [BsonIgnore]
         public List<Dragon> Dragons
@@ -70,6 +70,15 @@ namespace Dragons.Core.Models
             {
                 return InitialSetup.Dragons.Select(dragon => new Dragon(dragon.Select(piece => Pieces[piece.Coordinate.X][piece.Coordinate.Y]))).ToList();
             }
+        }
+
+        /// <summary>
+        /// List of all the alive dragons on the board.
+        /// </summary>
+        [BsonIgnore]
+        public List<Dragon> AliveDragons
+        {
+            get { return Dragons.Where(dragon => !dragon.IsDead).ToList(); }
         }
 
         /// <summary>

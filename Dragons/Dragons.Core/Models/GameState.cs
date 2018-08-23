@@ -159,11 +159,11 @@ namespace Dragons.Core.Models
                         attackEvent.Pieces.Add(opponent.Board.Pieces[column][move.Coordinate.Y]);
                     break;
                 case SpellType.DragonFury:
-                    foreach (var dragon in player.Board.Dragons)
+                    foreach (var dragon in player.Board.AliveDragons)
                         AttackSquare(Coordinate.Random(opponent.Board.Pieces.Count), attackEvent, opponent);
                     break;
                 case SpellType.AvadaKedavra:
-                    var dragonToKill = opponent.Board.Dragons.Where(dragon => !dragon.IsDead).ToList().AsReadOnly().Random();
+                    var dragonToKill = opponent.Board.AliveDragons.Random();
                     attackEvent.Pieces.AddRange(dragonToKill);
                     break;
             }
@@ -181,7 +181,7 @@ namespace Dragons.Core.Models
                     CheckForDeadDragon(attackEventPiece, opponent);
                 }
 
-                if (opponent.Board.Dragons.All(dragon => dragon.IsDead))
+                if (opponent.Board.AliveDragons.Count == 0)
                 {
                     Events.Add(new Event { Player = move.Player, Type = EventType.GameWon });
                     IsOver = true;
@@ -192,8 +192,8 @@ namespace Dragons.Core.Models
             // Add mana to next player.
             Events.Add(new Event { Player = opponent.Player, Type = EventType.ManaUpdated, Mana = Constants.DefaultManaIncrement });
 
-            //if (opponent.Player.IsComputerPlayer())
-            //    ProcessMove(GetNextMove(opponent.Player.PlayerId));
+            if (opponent.Player.Type != PlayerType.Human)
+                ProcessMove(GetNextMove(opponent.Player.PlayerId));
         }
 
         private static void AttackSquare(Coordinate coordinate, Event attackEvent, PlayerState opponent)

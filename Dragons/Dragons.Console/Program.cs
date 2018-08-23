@@ -13,38 +13,24 @@ namespace Dragons.Console
 {
     class Program
     {
-        const string LogFilePath = "Log.txt";
-
-        static DragonsClient _client;
-        static readonly ConcurrentQueue<Tuple<string, ConsoleColor>> _waiterLog = new ConcurrentQueue<Tuple<string, ConsoleColor>>();
-        static readonly ConcurrentQueue<Tuple<string, ConsoleColor>> _joinerLog = new ConcurrentQueue<Tuple<string, ConsoleColor>>();
-
         enum PlayerMode
         { 
             Waiter, 
             Joiner
         }
-
-        static void LogEvent(PlayerMode mode, string log, ConsoleColor color)
-        {
-            var logger = mode == PlayerMode.Waiter ? _waiterLog : _joinerLog;
-            logger.Enqueue(new Tuple<string, ConsoleColor>(log, color));
-            System.Console.Write(".");
-
-            //if (mode == PlayerMode.Waiter)
-            //{
-            //    System.Console.ForegroundColor = color;
-            //    System.Console.WriteLine(log);
-            //}
-        }
         
+        const string LogFilePath = "Log.txt";
+        static DragonsClient _client;
+        static readonly ConcurrentQueue<Tuple<string, ConsoleColor>> _waiterLog = new ConcurrentQueue<Tuple<string, ConsoleColor>>();
+        static readonly ConcurrentQueue<Tuple<string, ConsoleColor>> _joinerLog = new ConcurrentQueue<Tuple<string, ConsoleColor>>();
+
         static void Main(string[] args)
         {
             _client = new DragonsClient(new Uri("http://localhost:51962/"), Guid.NewGuid().ToString(), Constants.ApiKey);
 
             if (args.Length == 0)
             {
-                SinglePlayerStart(PlayerType.HardComputer).Wait();
+                SinglePlayerStart(PlayerType.HardComputer, PlayerType.HardComputer).Wait();
             }
             else
             {
@@ -76,7 +62,7 @@ namespace Dragons.Console
             System.Console.ReadLine();
         }
 
-        static async Task SinglePlayerStart(PlayerType player2Type)
+        static async Task SinglePlayerStart(PlayerType player1Type, PlayerType player2Type)
         {
             try
             {
@@ -84,7 +70,7 @@ namespace Dragons.Console
                 var player1 = players.Item1;
                 var player2 = players.Item2;
 
-                player1.Type = PlayerType.Human;
+                player1.Type = player1Type;
                 player2.Type = player2Type;
 
                 await _client.InsertReservationAsync(new Reservation { Player = player1 });
@@ -151,7 +137,32 @@ namespace Dragons.Console
                             LogEvent(playerMode, $"{game}", ConsoleColor.Magenta);
                             printedStart = true;
                         }
-                        var move = await _client.GetNextMoveAsync(player.PlayerId);
+
+                        Move move;
+                        if (player.Type == PlayerType.Human)
+                        {
+                            System.Console.WriteLine();
+                            System.Console.Write($"Enter attack coordinates X:");
+                            int.TryParse(System.Console.ReadLine(), out var x);
+                            System.Console.Write($"Enter attack coordinates Y:");
+                            int.TryParse(System.Console.ReadLine(), out var y);
+                            System.Console.Write($"Enter attack :");
+                            int.TryParse(System.Console.ReadLine(), out var spellIndex);
+
+                            move = new Move()
+                            {
+                                Player = player,
+                                Coordinate = new Coordinate()
+                                {
+                                    X = x,
+                                    Y = y
+                                }, 
+                                Spell = Constants.AllSpells[spellIndex]
+                            };
+                        }
+                        else
+                            move = await _client.GetNextMoveAsync(player.PlayerId);
+
                         //move.Spell = Spell.AllSpells.Single(spell => spell.Type == SpellType.AvadaKedavra);
                         await _client.InsertGameMoveAsync(move);
                         LogEvent(playerMode, $"{Environment.NewLine}{player.Name}: {move}", ConsoleColor.White);
@@ -201,6 +212,18 @@ namespace Dragons.Console
                 LogEvent(playerMode, e.Message, ConsoleColor.DarkRed);
                 throw;
             }
+        }
+        static void LogEvent(PlayerMode mode, string log, ConsoleColor color)
+        {
+            var logger = mode == PlayerMode.Waiter ? _waiterLog : _joinerLog;
+            logger.Enqueue(new Tuple<string, ConsoleColor>(log, color));
+            System.Console.Write(".");
+
+            //if (mode == PlayerMode.Waiter)
+            //{
+            //    System.Console.ForegroundColor = color;
+            //    System.Console.WriteLine(log);
+            //}
         }
     }
 }
