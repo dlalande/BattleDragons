@@ -11,6 +11,17 @@ namespace Dragons.Core
     public static class IReadOnlyListExtensions
     {
         /// <summary>
+        /// Returns the dragons that are not dead.
+        /// </summary>
+        /// <typeparam name="T">Type of Dragon.</typeparam>
+        /// <param name="list">List of dragons.</param>
+        /// <returns>Returns the dragons that are not dead.</returns>
+        public static IReadOnlyList<T> Alive<T>(this IReadOnlyList<T> list) where T : Dragon 
+        {
+            return list.Where<T>(i => !i.IsDead).ToList();
+        }
+
+        /// <summary>
         /// Returns the spells that cost no more than the given mana.
         /// </summary>
         /// <typeparam name="T">Type of spell.</typeparam>

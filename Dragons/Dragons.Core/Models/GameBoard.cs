@@ -73,15 +73,6 @@ namespace Dragons.Core.Models
         }
 
         /// <summary>
-        /// List of all the alive dragons on the board.
-        /// </summary>
-        [BsonIgnore]
-        public List<Dragon> AliveDragons
-        {
-            get { return Dragons.Where(dragon => !dragon.IsDead).ToList(); }
-        }
-
-        /// <summary>
         /// Returns pretty-printed string
         /// </summary>
         /// <returns>Returns pretty-printed string</returns>
