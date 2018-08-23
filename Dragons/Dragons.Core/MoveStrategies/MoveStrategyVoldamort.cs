@@ -1,35 +1,35 @@
 ﻿using System.Linq;
 using Dragons.Core.Models;
+using Dragons.Core.Types;
 
 namespace Dragons.Core.MoveStrategies
 {
     /// <summary>
-    /// Represents an easy strategy for generating a new move.
+    /// Represents a wizard that always meditates.
     /// </summary>
-    public class MoveStrategyEasy : MoveStrategy, IMoveStrategy
+    public class MoveStrategyVoldamort : MoveStrategy, IMoveStrategy
     {
         /// <summary>
         /// Default constructor.
         /// </summary>
         /// <param name="playerState">Player state to generate move for.</param>
         /// <param name="gameState">Current state of the game.</param>
-        public MoveStrategyEasy(PlayerState playerState, GameState gameState) :
+        public MoveStrategyVoldamort(PlayerState playerState, GameState gameState) :
             base(playerState, gameState)
         { }
 
         /// <summary>
-        /// Generates a new completely random move.
+        /// Generates a new random move without repeating itself.
         /// </summary>
-        /// <returns>Generates a new completely random move.</returns>
+        /// <returns>Generates a new random move without repeating itself.</returns>
         public override Move GetNextMove()
         {
-            return new Move
+            return new Move()
             {
                 Player = PlayerState.Player,
                 Coordinate = Coordinate.Random(GameState.Player1State.Board.InitialSetup.BoardSize),
-                Spell = Constants.AllSpells.Costing(PlayerState.Mana).Random()
+                Spell = Constants.AllSpells.First(spell => spell.Type == SpellType.AvadaKedavra)
             };
-            
         }
     }
 }

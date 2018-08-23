@@ -11,6 +11,16 @@
         Human,
 
         /// <summary>
+        /// Player always meditates.
+        /// </summary>
+        Sleeper,
+
+        /// <summary>
+        /// Player 
+        /// </summary>
+        Voldamort,
+
+        /// <summary>
         /// Computer player that picks attacks at random (rare power moves)
         /// </summary>
         EasyComputer,

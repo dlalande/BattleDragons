@@ -44,57 +44,9 @@ namespace Dragons.Core.Models
         /// <returns>Returns pretty-printed string</returns>
         public override string ToString()
         {
-            return $"{Type} cast for {ManaCost}";
+            return $"{Type} for {ManaCost}";
         }
 
-        /// <summary>
-        /// List of all the spells in the game.
-        /// </summary>
-        /// <returns></returns>
-        public static readonly IReadOnlyList<Spell> AllSpells = new List<Spell>()
-        {
-            new Spell()
-            {
-                Type = SpellType.Meditate,
-                Description = "Quietly mediate to restore Mana.",
-                ManaCost = 0
-            },
-            new Spell()
-            {
-                Type = SpellType.Lightning,
-                Description = "Strike a single cell with your standard lightning attack.",
-                ManaCost = 5
-            },
-            new Spell()
-            {
-                Type = SpellType.FireBall,
-                Description = "Singe a 2x2 region with an explosive charge.",
-                ManaCost =  20
-            },
-            new Spell()
-            {
-                Type = SpellType.FireStorm,
-                Description = "Attacks across the entire column of your choice.",
-                ManaCost =  35
-            },
-            new Spell()
-            {
-                Type = SpellType.IceStrike,
-                Description = "Attacks across the entire row of your choice.",
-                ManaCost =  35
-            },
-            new Spell()
-            {
-                Type = SpellType.DragonFury,
-                Description = "Remaining alive dragons each lay waste to one randomly chosen 2x2 region.",
-                ManaCost =  60
-            },
-            new Spell()
-            {
-                Type = SpellType.AvadaKedavra,
-                Description = "Instantly kills one dragon at random.",
-                ManaCost =  150
-            }
-        }.AsReadOnly();
+        
     }
 }

@@ -19,6 +19,7 @@ namespace Dragons.Client
         private const string MoveRoute = "move";
         private const string RandomRoute = "random";
         private const string PlayerRoute = "player";
+        private const string PairRoute = "pair";
 
         private const string RoutePrefix = "dragons";
         private readonly Uri baseAddress;
@@ -51,11 +52,22 @@ namespace Dragons.Client
             }
         }
 
-        public async Task<Move> GetRandomMoveAsync(int boardSize)
+        public async Task<Tuple<Player,Player>> GetRandomPlayerPairAsync()
         {
             using (var client = GetHttpClient())
             {
-                var response = await client.GetAsync($"{RoutePrefix}/{GameRoute}/{MoveRoute}/{RandomRoute}/{boardSize}");
+                var response = await client.GetAsync($"{RoutePrefix}/{GameRoute}/{PlayerRoute}/{RandomRoute}/{PairRoute}");
+                response.EnsureSuccess();
+                var content = await response.Content.ReadAsStringAsync();
+                return JsonConvert.DeserializeObject<Tuple<Player, Player>>(content);
+            }
+        }
+
+        public async Task<Move> GetRandomMoveAsync(int boardSize, int maxMana)
+        {
+            using (var client = GetHttpClient())
+            {
+                var response = await client.GetAsync($"{RoutePrefix}/{GameRoute}/{MoveRoute}/{RandomRoute}/{boardSize}/{maxMana}");
                 response.EnsureSuccess();
                 var content = await response.Content.ReadAsStringAsync();
                 return JsonConvert.DeserializeObject<Move>(content);

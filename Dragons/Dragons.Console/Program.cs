@@ -44,11 +44,14 @@ namespace Dragons.Console
 
             if (args.Length == 0)
             {
-                OnePlayerStart(PlayerType.MediumComputer).Wait();
+                SinglePlayerStart(PlayerType.HardComputer).Wait();
             }
             else
             {
-                var playerTasks = new[] {TwoPlayerStart(PlayerMode.Waiter), TwoPlayerStart(PlayerMode.Joiner)};
+                var playerTasks = new[] 
+                {
+                    MultiPlayerStart(PlayerType.HardComputer, PlayerMode.Waiter),
+                    MultiPlayerStart(PlayerType.HardComputer, PlayerMode.Joiner)};
                 Task.WaitAll(playerTasks);
             }
 
@@ -73,16 +76,19 @@ namespace Dragons.Console
             System.Console.ReadLine();
         }
 
-        static async Task OnePlayerStart(PlayerType playerType)
+        static async Task SinglePlayerStart(PlayerType player2Type)
         {
             try
             {
-                var player1 = await _client.GetRandomPlayerAsync();
-                var player2 = await _client.GetRandomPlayerAsync();
-                player2.Type = playerType;
+                var players = await _client.GetRandomPlayerPairAsync();
+                var player1 = players.Item1;
+                var player2 = players.Item2;
 
-                await _client.InsertReservationAsync(new Reservation {Player = player1});
-                await _client.InsertGameStartAsync(new GameStart {Player1 = player1, Player2 = player2});
+                player1.Type = PlayerType.Human;
+                player2.Type = player2Type;
+
+                await _client.InsertReservationAsync(new Reservation { Player = player1 });
+                await _client.InsertGameStartAsync(new GameStart { Player1 = player1, Player2 = player2 });
                 System.Console.Write($"Playing game {player1.Name} vs. {player2.Name} ...");
                 await PlayGameAsync(player1, PlayerMode.Waiter);
             }
@@ -93,11 +99,12 @@ namespace Dragons.Console
             }
         }
 
-        static async Task TwoPlayerStart(PlayerMode playerMode)
+        static async Task MultiPlayerStart(PlayerType playerType, PlayerMode playerMode)
         {
             try
             {
                 var player = await _client.GetRandomPlayerAsync();
+                player.Type = playerType;
                 if (playerMode == PlayerMode.Waiter)
                     await _client.InsertReservationAsync(new Reservation {Player = player});
                 else
@@ -144,8 +151,7 @@ namespace Dragons.Console
                             LogEvent(playerMode, $"{game}", ConsoleColor.Magenta);
                             printedStart = true;
                         }
-                        var move = await _client.GetRandomMoveAsync(14);
-                        move.Player = player;
+                        var move = await _client.GetNextMoveAsync(player.PlayerId);
                         //move.Spell = Spell.AllSpells.Single(spell => spell.Type == SpellType.AvadaKedavra);
                         await _client.InsertGameMoveAsync(move);
                         LogEvent(playerMode, $"{Environment.NewLine}{player.Name}: {move}", ConsoleColor.White);

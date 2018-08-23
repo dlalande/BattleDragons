@@ -5,6 +5,7 @@ using Dragons.Core.Models;
 using Dragons.Service.Extensions;
 using Dragons.Service.Pipeline;
 using NLog;
+using System;
 
 namespace Dragons.Service.Controllers
 {
@@ -58,12 +59,13 @@ namespace Dragons.Service.Controllers
         /// Returns a random move for a given board size.
         /// </summary>
         /// <param name="boardSize">Size of board.</param>
+        /// <param name="maxMana">Maximum mana for move.</param>
         /// <returns>Returns a random move for a given board size.</returns>
         [HttpGet]
-        [Route("move/random/{boardSize}")]
-        public Move Get(int boardSize)
+        [Route("move/random/{boardSize}/{maxMana}")]
+        public Move Get(int boardSize, int maxMana)
         {
-            return Logger.LogExecute($"GetRandomMove({boardSize})", () => WebApiApplication.GameService.GetRandomMove(boardSize));
+            return Logger.LogExecute($"GetRandomMove({boardSize},{maxMana})", () => WebApiApplication.GameService.GetRandomMove(boardSize, maxMana));
         }
 
         /// <summary>
@@ -88,6 +90,17 @@ namespace Dragons.Service.Controllers
         public Player Get()
         { 
             return Logger.LogExecute($"GetRandomPlayer()", () => WebApiApplication.GameService.GetRandomPlayer());
+        }
+
+        /// <summary>
+        /// Returns a random player pair.
+        /// </summary>
+        /// <returns>Returns a random player pair.</returns>
+        [HttpGet]
+        [Route("player/random/pair")]
+        public Tuple<Player,Player> GetRandomPair()
+        {
+            return Logger.LogExecute($"GetRandomPlayerPair()", () => WebApiApplication.GameService.GetRandomPlayerPair());
         }
     }
 }

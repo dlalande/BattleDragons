@@ -55,14 +55,14 @@ namespace Dragons.Core.Models
         [JsonConverter(typeof(StringEnumConverter))]
         public PlayerType Type { get; set; }
 
-        /// <summary>
-        /// Returns true if player is a computer.
-        /// </summary>
-        /// <returns>Returns true if player is a computer.</returns>
-        public bool IsComputerPlayer()
-        {
-            return Type != PlayerType.Human;
-        }
+        ///// <summary>
+        ///// Returns true if player is a computer.
+        ///// </summary>
+        ///// <returns>Returns true if player is a computer.</returns>
+        //public bool IsComputerPlayer()
+        //{
+        //    return Type != PlayerType.Human;
+        //}
         
         /// <summary>
         /// Returns true if the given player's PlayerId matches.

@@ -28,13 +28,13 @@ namespace Dragons.Service.Core
             return _repo.GetRandomPlayerPair();
         }
 
-        public Move GetRandomMove(int boardSize)
+        public Move GetRandomMove(int boardSize, int mana)
         {
             return new Move
             {
                 Player = null,
                 Coordinate = Coordinate.Random(boardSize),
-                Spell = Spell.AllSpells.Random()
+                Spell = Constants.AllSpells.Costing(mana).Random()
             };
         }
 

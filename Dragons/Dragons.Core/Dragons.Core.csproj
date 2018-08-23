@@ -57,6 +57,8 @@
     <Compile Include="MoveStrategies\MoveStrategyMedium.cs" />
     <Compile Include="MoveStrategies\MoveStrategy.cs" />
     <Compile Include="MoveStrategies\MoveStrategyFactory.cs" />
+    <Compile Include="MoveStrategies\MoveStrategySleeper.cs" />
+    <Compile Include="MoveStrategies\MoveStrategyVoldamort.cs" />
     <Compile Include="Types\EventType.cs" />
     <Compile Include="Models\Game.cs" />
     <Compile Include="Models\GameBoard.cs" />

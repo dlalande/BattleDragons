@@ -25,6 +25,10 @@ namespace Dragons.Core.MoveStrategies
                     return new MoveStrategyMedium(playerState, gameState);
                 case PlayerType.HardComputer:
                     return new MoveStrategyHard(playerState, gameState);
+                case PlayerType.Sleeper:
+                    return new MoveStrategySleeper(playerState, gameState);
+                case PlayerType.Voldamort:
+                    return new MoveStrategyVoldamort(playerState, gameState);
                 default:
                     throw new Exception("Player is not a computer.");
             }

@@ -87,7 +87,7 @@ namespace Dragons.Core.Models
                 Opponent = !Player1State.Player.Equals(playerState.Player) ? Player1State.Player.Name : Player2State.Player.Name,
                 CanMove = CanMove(playerState.Player),
                 IsOver = IsOver,
-                Spells = Spell.AllSpells.ToList()
+                Spells = Constants.AllSpells.ToList()
             };
             return game;
         }
@@ -124,10 +124,12 @@ namespace Dragons.Core.Models
             var player = Player1State.Player.Equals(move.Player) ? Player1State : Player2State;
             var opponent = Player1State.Player.Equals(move.Player) ? Player2State : Player1State;
 
-            if (player.Mana < move.Spell.ManaCost)
+            if (player.Player.Type != PlayerType.Voldamort && player.Mana < move.Spell.ManaCost)
                 throw new Exception("Not enough mana to cast spell.");
 
-            player.Mana -= move.Spell.ManaCost;
+            if(player.Player.Type != PlayerType.Voldamort)
+                player.Mana -= move.Spell.ManaCost;
+
             Events.Add(new Event { Player = player.Player, Type = EventType.ManaUpdated, Mana = -1 * move.Spell.ManaCost });
 
             var attackEvent = new Event
@@ -161,8 +163,8 @@ namespace Dragons.Core.Models
                         AttackSquare(Coordinate.Random(opponent.Board.Pieces.Count), attackEvent, opponent);
                     break;
                 case SpellType.AvadaKedavra:
-                        var dragonToKill = opponent.Board.Dragons.Where(dragon=> !dragon.IsDead).ToList().AsReadOnly().Random();
-                        attackEvent.Pieces.AddRange(dragonToKill);
+                    var dragonToKill = opponent.Board.Dragons.Where(dragon => !dragon.IsDead).ToList().AsReadOnly().Random();
+                    attackEvent.Pieces.AddRange(dragonToKill);
                     break;
             }
 
@@ -186,11 +188,12 @@ namespace Dragons.Core.Models
                     return;
                 }
             }
+            opponent.Mana += Constants.DefaultManaIncrement;
             // Add mana to next player.
             Events.Add(new Event { Player = opponent.Player, Type = EventType.ManaUpdated, Mana = Constants.DefaultManaIncrement });
 
-            if (opponent.Player.IsComputerPlayer())
-                ProcessMove(GetNextMove(opponent.Player.PlayerId));
+            //if (opponent.Player.IsComputerPlayer())
+            //    ProcessMove(GetNextMove(opponent.Player.PlayerId));
         }
 
         private static void AttackSquare(Coordinate coordinate, Event attackEvent, PlayerState opponent)

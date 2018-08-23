@@ -36,7 +36,7 @@ namespace Dragons.Core.MoveStrategies
             {
                 Player = PlayerState.Player,
                 Coordinate = coordinate,
-                Spell = Spell.AllSpells.Where(spell => spell.ManaCost <= PlayerState.Mana).ToList().Random()
+                Spell = Constants.AllSpells.Costing(PlayerState.Mana).Random()
             };
 
         }

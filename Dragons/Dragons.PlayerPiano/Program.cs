@@ -36,7 +36,7 @@ namespace Dragons.PlayerPiano
                 var i = 0;
                 while (true)
                 {
-                    var move = gameService.GetRandomMove(14);
+                    var move = gameService.GetRandomMove(14, int.MaxValue);
                     if (i % 2 == 0)
                         move.Player = gamePlay.GameStart.Player1;
                     else
@@ -98,7 +98,7 @@ namespace Dragons.PlayerPiano
 
             var moves = Enumerable.Range(0, 200).Select(i =>
             {
-                var move = gameService.GetRandomMove(14);
+                var move = gameService.GetRandomMove(14, int.MaxValue);
                 if (i % 2 == 0)
                     move.Player = players.Item1;
                 else

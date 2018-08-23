@@ -25,16 +25,17 @@ namespace Dragons.Core.MoveStrategies
         public override Move GetNextMove()
         {
             var coordinate = Coordinate.Random(GameState.Player1State.Board.InitialSetup.BoardSize);
-            var spell = Spell.AllSpells.First(s => s.Type == SpellType.Meditate);
+            var spell = Constants.AllSpells.First(s => s.Type == SpellType.Meditate);
 
-            if (Dice.Roll(100) <= Constants.MeditatePercentage)
-                spell = Spell.AllSpells.Where(s => s.ManaCost <= PlayerState.Mana).ToList().Random();
+            // As you run out of dragons, your attacks increase.
+            if (Dice.Roll(100) >= (PlayerState.Board.Dragons.Count - 1 * 100) / Constants.DragonsPerPlayer)
+                spell = Constants.AllSpells.Costing(PlayerState.Mana).Where(s => s.Type != SpellType.Meditate).ToList().Random();
 
             if (Dice.Roll(100) <= Constants.AttackDragonPercentage)
             {
                 var opponentState = GameState.Player1State.Player.Equals(PlayerState.Player) ? GameState.Player2State : GameState.Player1State;
                 coordinate = opponentState.Board.Dragons.First().First(p => p.HasBeenAttacked = false).Coordinate;
-                spell = Spell.AllSpells.Where(s => s.ManaCost <= PlayerState.Mana).OrderByDescending(s => s.ManaCost).First();
+                spell = Constants.AllSpells.Costing(PlayerState.Mana).OrderByDescending(s => s.ManaCost).First();
             }
 
             return new Move
