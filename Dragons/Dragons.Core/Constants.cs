@@ -12,9 +12,14 @@ namespace Dragons.Core
         #region Web Api
 
         /// <summary>
-        /// Api key used for web api calls.
+        /// Valid api key
         /// </summary>
-        public const string ApiKey = "0123456789";
+        public const string ValidApiKey = "0123456789";
+
+        /// <summary>
+        /// Name of configuration app setting containing valid api keys.
+        /// </summary>
+        public const string ValidApiKeysSettingName = "ValidApiKeys";
 
         /// <summary>
         /// Header used to transmit the api key.

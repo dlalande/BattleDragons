@@ -26,7 +26,7 @@ namespace Dragons.Console
 
         static void Main(string[] args)
         {
-            _client = new DragonsClient(new Uri("http://localhost:51962/"), Guid.NewGuid().ToString(), Constants.ApiKey);
+            _client = new DragonsClient(new Uri("http://localhost:51962/"), Guid.NewGuid().ToString(), Constants.ValidApiKey);
 
             if (args.Length == 0)
             {

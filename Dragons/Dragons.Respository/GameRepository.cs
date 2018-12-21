@@ -29,7 +29,7 @@ namespace Dragons.Respository
             mongoClientSettings.ConnectTimeout = TimeSpan.FromSeconds(5);
             mongoClientSettings.ServerSelectionTimeout = TimeSpan.FromSeconds(5);
             var client = new MongoClient(mongoClientSettings);
-            var db = client.GetDatabase(Constants.DefaultDatabase);
+            var db = client.GetDatabase(settings.Database);
             
             _reservationCollection = db.GetCollection<Reservation>(Constants.ReservationCollection);
             await _reservationCollection.Indexes.CreateOneAsync(

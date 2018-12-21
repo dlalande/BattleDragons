@@ -1,4 +1,5 @@
-﻿using Dragons.Core;
+﻿using System.Linq;
+using Dragons.Core;
 using System.Net;
 using System.Net.Http;
 using System.Threading;
@@ -13,15 +14,15 @@ namespace Dragons.Service.Pipeline
     /// </summary>
     public class ApiKeyDelegatingHandler : DelegatingHandler
     {
-        private readonly string _apiKey;
+        private readonly string[] _validApiKeys;
 
         /// <summary>
         /// Default constructor.
         /// </summary>
-        /// <param name="apiKey">Api key to validate against.</param>
-        public ApiKeyDelegatingHandler(string apiKey)
+        /// <param name="validApiKeys">Api keys to validate against.</param>
+        public ApiKeyDelegatingHandler(string[] validApiKeys)
         {
-            this._apiKey = apiKey;
+            this._validApiKeys = validApiKeys;
         }
 
         /// <summary>
@@ -50,7 +51,7 @@ namespace Dragons.Service.Pipeline
             if (!request.TryGetCustomHeaderValue(Constants.ApiKeyHeader, out var apiKey)) 
                 return false;
             MappedDiagnosticsLogicalContext.Set("ApiKey", apiKey);
-            return _apiKey.Equals(apiKey);
+            return _validApiKeys.Contains(apiKey);
         }
     }
 }

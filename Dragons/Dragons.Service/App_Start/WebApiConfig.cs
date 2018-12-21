@@ -1,4 +1,6 @@
-﻿using Dragons.Core;
+﻿using System;
+using System.Configuration;
+using Dragons.Core;
 using Newtonsoft.Json;
 using System.Net.Http;
 using System.Web.Http;
@@ -21,9 +23,11 @@ namespace Dragons.Service
         {
             config.EnableSystemDiagnosticsTracing();
 
+            var validApiKeysString = ConfigurationManager.AppSettings[Constants.ValidApiKeysSettingName];
+
             // Create a message handler chain with an end-point.
             var routeHandlers = HttpClientFactory.CreatePipeline(new HttpControllerDispatcher(config),
-                new DelegatingHandler[] { new ApiKeyDelegatingHandler(Constants.ApiKey) });
+                new DelegatingHandler[] {new ApiKeyDelegatingHandler(validApiKeysString.Split(new[] {","}, StringSplitOptions.RemoveEmptyEntries))});
 
             // Web API routes
             config.MapHttpAttributeRoutes();
