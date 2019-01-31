@@ -1,0 +1,254 @@
+﻿{
+  "GameStart": {
+    "Player1": {
+      "PlayerId": "f0bd81a3-4b90-4396-a857-f5a04f7df699",
+      "Name": "Cyrus"
+    },
+    "Player2": {
+      "PlayerId": "b979d93b-d9d8-44fa-8112-df0fbb291562",
+      "Name": "Palpatine"
+    }
+  },
+  "Moves": [
+    {
+      "PlayerId": "f0bd81a3-4b90-4396-a857-f5a04f7df699",
+      "Coordinate": {
+        "X": 10,
+        "Y": 1
+      },
+      "Spell": {
+        "Type": "DragonFury",
+        "Description": "Remaining alive dragons each lay waste to one randomly chosen 2x2 region.",
+        "ManaCost": 60
+      }
+    },
+    {
+      "PlayerId": "b979d93b-d9d8-44fa-8112-df0fbb291562",
+      "Coordinate": {
+        "X": 4,
+        "Y": 6
+      },
+      "Spell": {
+        "Type": "IceStrike",
+        "Description": "Attacks across the entire row of your choice.",
+        "ManaCost": 35
+      }
+    },
+    {
+      "PlayerId": "f0bd81a3-4b90-4396-a857-f5a04f7df699",
+      "Coordinate": {
+        "X": 4,
+        "Y": 5
+      },
+      "Spell": {
+        "Type": "Meditate",
+        "Description": "Quietly mediate to restore Mana.",
+        "ManaCost": 0
+      }
+    },
+    {
+      "PlayerId": "b979d93b-d9d8-44fa-8112-df0fbb291562",
+      "Coordinate": {
+        "X": 10,
+        "Y": 10
+      },
+      "Spell": {
+        "Type": "IceStrike",
+        "Description": "Attacks across the entire row of your choice.",
+        "ManaCost": 35
+      }
+    },
+    {
+      "PlayerId": "f0bd81a3-4b90-4396-a857-f5a04f7df699",
+      "Coordinate": {
+        "X": 1,
+        "Y": 5
+      },
+      "Spell": {
+        "Type": "DragonFury",
+        "Description": "Remaining alive dragons each lay waste to one randomly chosen 2x2 region.",
+        "ManaCost": 60
+      }
+    },
+    {
+      "PlayerId": "b979d93b-d9d8-44fa-8112-df0fbb291562",
+      "Coordinate": {
+        "X": 5,
+        "Y": 12
+      },
+      "Spell": {
+        "Type": "Meditate",
+        "Description": "Quietly mediate to restore Mana.",
+        "ManaCost": 0
+      }
+    },
+    {
+      "PlayerId": "f0bd81a3-4b90-4396-a857-f5a04f7df699",
+      "Coordinate": {
+        "X": 2,
+        "Y": 6
+      },
+      "Spell": {
+        "Type": "DragonFury",
+        "Description": "Remaining alive dragons each lay waste to one randomly chosen 2x2 region.",
+        "ManaCost": 60
+      }
+    },
+    {
+      "PlayerId": "b979d93b-d9d8-44fa-8112-df0fbb291562",
+      "Coordinate": {
+        "X": 7,
+        "Y": 8
+      },
+      "Spell": {
+        "Type": "Meditate",
+        "Description": "Quietly mediate to restore Mana.",
+        "ManaCost": 0
+      }
+    },
+    {
+      "PlayerId": "f0bd81a3-4b90-4396-a857-f5a04f7df699",
+      "Coordinate": {
+        "X": 8,
+        "Y": 6
+      },
+      "Spell": {
+        "Type": "Meditate",
+        "Description": "Quietly mediate to restore Mana.",
+        "ManaCost": 0
+      }
+    },
+    {
+      "PlayerId": "b979d93b-d9d8-44fa-8112-df0fbb291562",
+      "Coordinate": {
+        "X": 4,
+        "Y": 7
+      },
+      "Spell": {
+        "Type": "DragonFury",
+        "Description": "Remaining alive dragons each lay waste to one randomly chosen 2x2 region.",
+        "ManaCost": 60
+      }
+    },
+    {
+      "PlayerId": "f0bd81a3-4b90-4396-a857-f5a04f7df699",
+      "Coordinate": {
+        "X": 0,
+        "Y": 3
+      },
+      "Spell": {
+        "Type": "DragonFury",
+        "Description": "Remaining alive dragons each lay waste to one randomly chosen 2x2 region.",
+        "ManaCost": 60
+      }
+    },
+    {
+      "PlayerId": "b979d93b-d9d8-44fa-8112-df0fbb291562",
+      "Coordinate": {
+        "X": 11,
+        "Y": 11
+      },
+      "Spell": {
+        "Type": "Lightning",
+        "Description": "Strike a single cell with your standard lightning attack.",
+        "ManaCost": 5
+      }
+    },
+    {
+      "PlayerId": "f0bd81a3-4b90-4396-a857-f5a04f7df699",
+      "Coordinate": {
+        "X": 13,
+        "Y": 2
+      },
+      "Spell": {
+        "Type": "Lightning",
+        "Description": "Strike a single cell with your standard lightning attack.",
+        "ManaCost": 5
+      }
+    },
+    {
+      "PlayerId": "b979d93b-d9d8-44fa-8112-df0fbb291562",
+      "Coordinate": {
+        "X": 10,
+        "Y": 6
+      },
+      "Spell": {
+        "Type": "Meditate",
+        "Description": "Quietly mediate to restore Mana.",
+        "ManaCost": 0
+      }
+    },
+    {
+      "PlayerId": "f0bd81a3-4b90-4396-a857-f5a04f7df699",
+      "Coordinate": {
+        "X": 8,
+        "Y": 13
+      },
+      "Spell": {
+        "Type": "DragonFury",
+        "Description": "Remaining alive dragons each lay waste to one randomly chosen 2x2 region.",
+        "ManaCost": 60
+      }
+    },
+    {
+      "PlayerId": "b979d93b-d9d8-44fa-8112-df0fbb291562",
+      "Coordinate": {
+        "X": 8,
+        "Y": 5
+      },
+      "Spell": {
+        "Type": "DragonFury",
+        "Description": "Remaining alive dragons each lay waste to one randomly chosen 2x2 region.",
+        "ManaCost": 60
+      }
+    },
+    {
+      "PlayerId": "f0bd81a3-4b90-4396-a857-f5a04f7df699",
+      "Coordinate": {
+        "X": 9,
+        "Y": 9
+      },
+      "Spell": {
+        "Type": "Lightning",
+        "Description": "Strike a single cell with your standard lightning attack.",
+        "ManaCost": 5
+      }
+    },
+    {
+      "PlayerId": "b979d93b-d9d8-44fa-8112-df0fbb291562",
+      "Coordinate": {
+        "X": 0,
+        "Y": 3
+      },
+      "Spell": {
+        "Type": "Meditate",
+        "Description": "Quietly mediate to restore Mana.",
+        "ManaCost": 0
+      }
+    },
+    {
+      "PlayerId": "f0bd81a3-4b90-4396-a857-f5a04f7df699",
+      "Coordinate": {
+        "X": 12,
+        "Y": 3
+      },
+      "Spell": {
+        "Type": "FireBall",
+        "Description": "Singe a 2x2 region with an explosive charge.",
+        "ManaCost": 20
+      }
+    },
+    {
+      "PlayerId": "b979d93b-d9d8-44fa-8112-df0fbb291562",
+      "Coordinate": {
+        "X": 11,
+        "Y": 10
+      },
+      "Spell": {
+        "Type": "Meditate",
+        "Description": "Quietly mediate to restore Mana.",
+        "ManaCost": 0
+      }
+    }
+  ]
+}

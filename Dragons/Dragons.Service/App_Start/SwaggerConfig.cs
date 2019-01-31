@@ -6,13 +6,20 @@ using System;
 using System.Xml.XPath;
 using System.IO;
 using System.Reflection;
+using Dragons.Core;
 
 [assembly: PreApplicationStartMethod(typeof(SwaggerConfig), "Register")]
 
 namespace Dragons.Service
 {
+    /// <summary>
+    /// Configures the swagger settings.
+    /// </summary>
     public class SwaggerConfig
     {
+        /// <summary>
+        /// Configures the swagger settings.
+        /// </summary>
         public static void Register()
         {
             var thisAssembly = typeof(SwaggerConfig).Assembly;
@@ -65,11 +72,11 @@ namespace Dragons.Service
                         //c.BasicAuth("basic")
                         //    .Description("Basic HTTP Authentication");
                         //
-						// NOTE: You must also configure 'EnableApiKeySupport' below in the SwaggerUI section
-                        //c.ApiKey("apiKey")
-                        //    .Description("API Key Authentication")
-                        //    .Name("apiKey")
-                        //    .In("header");
+                        // NOTE: You must also configure 'EnableApiKeySupport' below in the SwaggerUI section
+                        c.ApiKey("apiKey")
+                            .Description("API Key Authentication")
+                            .Name(Constants.ApiKeyHeader)
+                            .In("header");
                         //
                         //c.OAuth2("oauth2")
                         //    .Description("OAuth2 Implicit Grant")
@@ -252,7 +259,7 @@ namespace Dragons.Service
                         // If your API supports ApiKey, you can override the default values.
                         // "apiKeyIn" can either be "query" or "header"
                         //
-                        //c.EnableApiKeySupport("apiKey", "header");
+                        c.EnableApiKeySupport(Constants.ApiKeyHeader, "header");
                     });
         }
     }

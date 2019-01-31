@@ -1,40 +1,42 @@
-﻿using System;
+﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using Dragons.Core.Types;
 using MongoDB.Bson.Serialization.Attributes;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
 
-namespace Dragons.Core
+namespace Dragons.Core.Models
 {
     /// <summary>
-    /// Represents a specific coordinate on the game board.
+    /// Represents a spell in the game.
     /// </summary>
     [BsonIgnoreExtraElements]
-    public class Coordinate
+    public class Spell
     {
         /// <summary>
-        /// Position on the horizontal axis.
+        /// Type of spell.
         /// </summary>
         [BsonElement]
         [BsonRequired]
         [Required]
-        public int X { get; set; }
-
+        [JsonConverter(typeof(StringEnumConverter))]
+        public SpellType Type { get; set; }
+        
         /// <summary>
-        /// Position on the vertical axis.
+        /// Description of spell.
         /// </summary>
         [BsonElement]
         [BsonRequired]
         [Required]
-        public int Y { get; set; }
+        public string Description { get; set; }
 
         /// <summary>
-        /// Returns a random coordinate bounded by the size of the game board.
+        /// Cost of mana to cast the spell.
         /// </summary>
-        /// <param name="size"></param>
-        /// <returns></returns>
-        public static Coordinate Random(int size)
-        {
-            return new Coordinate() {X = new Random().Next(0, size - 1), Y = new Random().Next(0, size - 1)};
-        }
+        [BsonElement]
+        [BsonRequired]
+        [Required]
+        public int ManaCost { get; set; }
 
         /// <summary>
         /// Returns pretty-printed string
@@ -42,7 +44,9 @@ namespace Dragons.Core
         /// <returns>Returns pretty-printed string</returns>
         public override string ToString()
         {
-            return $"{X},{Y}";
+            return $"{Type} for {ManaCost}";
         }
+
+        
     }
 }

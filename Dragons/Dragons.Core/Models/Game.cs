@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
-namespace Dragons.Core
+namespace Dragons.Core.Models
 {
     /// <summary>
     /// Represents the state of the game from a player's perspective.
@@ -38,6 +38,18 @@ namespace Dragons.Core
         /// </summary>
         [Required]
         public List<Spell> Spells { get; set; }
+
+        /// <summary>
+        /// Indicates whether the player can make a move.
+        /// </summary>
+        [Required]
+        public bool CanMove { get; set; }
+
+        /// <summary>
+        /// Indicates whether the game is over. (probably not needed)
+        /// </summary>
+        [Required]
+        public bool IsOver { get; set; }
 
         /// <summary>
         /// Returns pretty-printed string

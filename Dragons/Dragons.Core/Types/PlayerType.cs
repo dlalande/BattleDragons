@@ -1,7 +1,7 @@
-﻿namespace Dragons.Core
+﻿namespace Dragons.Core.Types
 {
     /// <summary>
-    /// Types of players in the game. (Not currently used)
+    /// Types of players in the game.
     /// </summary>
     public enum PlayerType
     {
@@ -11,8 +11,28 @@
         Human,
 
         /// <summary>
-        /// Player is a computer.
+        /// Player always meditates.
         /// </summary>
-        Computer
+        Sleeper,
+
+        /// <summary>
+        /// Player 
+        /// </summary>
+        Voldamort,
+
+        /// <summary>
+        /// Computer player that picks attacks at random (rare power moves)
+        /// </summary>
+        EasyComputer,
+
+        /// <summary>
+        /// Computer player that doesn't repeat moves.
+        /// </summary>
+        MediumComputer,
+
+        /// <summary>
+        /// Computer player who can use your board to cheat and win.
+        /// </summary>
+        HardComputer
     }
 }

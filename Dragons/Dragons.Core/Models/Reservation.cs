@@ -2,7 +2,7 @@
 using System.ComponentModel.DataAnnotations;
 using MongoDB.Bson.Serialization.Attributes;
 
-namespace Dragons.Core
+namespace Dragons.Core.Models
 {
     /// <summary>
     /// Represents a player's game reservation while waiting for another player to join the game.
@@ -24,7 +24,7 @@ namespace Dragons.Core
         [BsonElement]
         [BsonRequired]
         [Required]
-        public PlayerDetails Player { get; set; }
+        public Player Player { get; set; }
         
         /// <summary>
         /// Date and time in UTC the reservation was created.

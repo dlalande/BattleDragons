@@ -3,10 +3,17 @@ using System.Net.Http;
 using System.Web.Http.Controllers;
 using System.Web.Http.Filters;
 
-namespace Dragons.Service
+namespace Dragons.Service.Pipeline
 {
+    /// <summary>
+    ///  Filter used to validate all models sent to controllers.
+    /// </summary>
     public class ValidationActionFilter : ActionFilterAttribute
     {
+        /// <summary>
+        /// Validates model state for action.
+        /// </summary>
+        /// <param name="actionContext">Executing action in pipeline.</param>
         public override void OnActionExecuting(HttpActionContext actionContext)
         {
             var modelState = actionContext.ModelState;

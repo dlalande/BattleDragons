@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using Dragons.Core;
+using Dragons.Core.Models;
 
 namespace Dragons.Respository
 {
@@ -14,6 +14,9 @@ namespace Dragons.Respository
         Task<GameState> GetGameStateAsync(string playerId);
         Task<GameState> InsertGameStateAsync(GameState gameState);
         Task<GameState> UpdateGameStateAsync(GameState gameState);
-        Task<Tuple<InitialSetup, InitialSetup>> GetRandomInitialSetupsAsync();
+        Tuple<InitialSetup, InitialSetup> GetRandomInitialSetupPair();
+        InitialSetup GetRandomInitialSetup();
+        Player GetRandomPlayer();
+        Tuple<Player, Player> GetRandomPlayerPair();
     }
 }

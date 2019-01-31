@@ -1,4 +1,4 @@
-﻿namespace Dragons.Core
+﻿namespace Dragons.Core.Types
 {
     /// <summary>
     /// Types of spells to cast in the game.
@@ -33,6 +33,11 @@
         /// <summary>
         /// Attacks with a fireball for each dragon you still have alive.
         /// </summary>
-        DragonFury
+        DragonFury, 
+
+        /// <summary>
+        /// Instantly kills one dragon at random.
+        /// </summary>
+        AvadaKedavra
     }
 }

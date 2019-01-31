@@ -3,13 +3,16 @@ using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
 using Dragons.Core;
+using Dragons.Core.Models;
 using MongoDB.Driver;
+using NLog;
 using JsonConvert = Newtonsoft.Json.JsonConvert;
 
 namespace Dragons.Respository
 {
     public class GameRepository : IGameRepository
     { 
+        private static readonly Logger Logger = LogManager.GetCurrentClassLogger();
         private IMongoCollection<Reservation> _reservationCollection;
         private IMongoCollection<GameState> _gameStateCollection;
         private IReadOnlyList<InitialSetup> _initialSetups;
@@ -23,8 +26,10 @@ namespace Dragons.Respository
                 //builder.Subscribe(new SingleEventSubscriber<CommandStartedEvent>(CommandStartedEventHandler));
 
             };
+            mongoClientSettings.ConnectTimeout = TimeSpan.FromSeconds(5);
+            mongoClientSettings.ServerSelectionTimeout = TimeSpan.FromSeconds(5);
             var client = new MongoClient(mongoClientSettings);
-            var db = client.GetDatabase(Constants.DefaultDatabase);
+            var db = client.GetDatabase(settings.Database);
             
             _reservationCollection = db.GetCollection<Reservation>(Constants.ReservationCollection);
             await _reservationCollection.Indexes.CreateOneAsync(
@@ -33,8 +38,8 @@ namespace Dragons.Respository
             _gameStateCollection = db.GetCollection<GameState>(Constants.GameStateCollection);
             await _gameStateCollection.Indexes.CreateManyAsync(new[]
             {
-                new CreateIndexModel<GameState>(Builders<GameState>.IndexKeys.Ascending(state => state.Player1.PlayerId)),
-                new CreateIndexModel<GameState>(Builders<GameState>.IndexKeys.Ascending(state => state.Player2.PlayerId))
+                new CreateIndexModel<GameState>(Builders<GameState>.IndexKeys.Ascending(state => state.Player1State.Player.PlayerId)),
+                new CreateIndexModel<GameState>(Builders<GameState>.IndexKeys.Ascending(state => state.Player2State.Player.PlayerId))
             });
 
             if (!Directory.Exists(settings.InitialSetupsFolderPath))
@@ -49,7 +54,7 @@ namespace Dragons.Respository
                 }
                 catch (Exception e)
                 {
-                    //Log warning.
+                    Logger.Warn(e);
                 }
             }
             _initialSetups = initialSetups.AsReadOnly();
@@ -63,7 +68,7 @@ namespace Dragons.Respository
 
         public async Task<GameState> GetGameStateAsync(string playerId)
         {
-            var filter = Builders<GameState>.Filter.Where(state => state.Player1.PlayerId.Equals(playerId) || state.Player2.PlayerId.Equals(playerId));
+            var filter = Builders<GameState>.Filter.Where(state => state.Player1State.Player.PlayerId.Equals(playerId) || state.Player2State.Player.PlayerId.Equals(playerId));
             return await _gameStateCollection.Find(filter).SingleOrDefaultAsync();
         }
 
@@ -75,22 +80,33 @@ namespace Dragons.Respository
 
         public async Task<GameState> UpdateGameStateAsync(GameState gameState)
         {
-            var result = await _gameStateCollection.ReplaceOneAsync(state => state.Player1.PlayerId.Equals(gameState.Player1.PlayerId), gameState);
+            var result = await _gameStateCollection.ReplaceOneAsync(state => state.Player1State.Player.PlayerId.Equals(gameState.Player1State.Player.PlayerId), gameState);
             if(!result.IsAcknowledged)
-                throw new Exception("Problem with update.");
+                throw new Exception("Error saving game state.");
             return gameState;
         }
 
-        public async Task<Tuple<InitialSetup,InitialSetup>> GetRandomInitialSetupsAsync()
+        public Tuple<InitialSetup,InitialSetup> GetRandomInitialSetupPair()
         {
-            var random = new Random();
-            var player1Index = random.Next(_initialSetups.Count);
-            int player2Index;
-            do
-            {
-                player2Index = random.Next(_initialSetups.Count);
-            } while (player1Index == player2Index);
-            return new Tuple<InitialSetup, InitialSetup>(_initialSetups[player1Index], _initialSetups[player2Index]);
+            return _initialSetups.RandomPair();
+        }
+
+        public InitialSetup GetRandomInitialSetup()
+        {
+            return _initialSetups.Random();
+        }
+
+        public Player GetRandomPlayer()
+        {
+            return new Player(Guid.NewGuid().ToString(), Constants.WizardNames.Random());
+        }
+
+        public Tuple<Player, Player> GetRandomPlayerPair()
+        {
+            var namePair = Constants.WizardNames.RandomPair();
+            return new Tuple<Player, Player>(
+                new Player(Guid.NewGuid().ToString(), namePair.Item1), 
+                new Player(Guid.NewGuid().ToString(), namePair.Item2));
         }
 
         public async Task<List<Reservation>> GetReservationsAsync()
@@ -103,7 +119,7 @@ namespace Dragons.Respository
             var filter = Builders<Reservation>.Filter.Where(r => r.Player.PlayerId.Equals(reservation.Player.PlayerId));
             var result = await _reservationCollection.DeleteOneAsync(filter);
             if (!result.IsAcknowledged)
-                throw new Exception("Problem with delete.");
+                throw new Exception("Error deleting reservation.");
         }
     }
 }

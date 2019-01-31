@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
+﻿using System.ComponentModel.DataAnnotations;
 using MongoDB.Bson.Serialization.Attributes;
 
-namespace Dragons.Core
+namespace Dragons.Core.Models
 {
     /// <summary>
     /// Represents a move made by a player in the game.
@@ -13,12 +10,11 @@ namespace Dragons.Core
     public class Move
     {
         /// <summary>
-        /// Id of player who made the move.
+        /// Player who made the move.
         /// </summary>
         [BsonElement]
         [BsonRequired]
-        [Required]
-        public string PlayerId { get; set; }
+        public Player Player { get; set; }
 
         /// <summary>
         /// Coordinate on game board the move applies to.
@@ -35,5 +31,14 @@ namespace Dragons.Core
         [BsonRequired]
         [Required]
         public Spell Spell { get; set; }
+
+        /// <summary>
+        /// Returns pretty-printed string
+        /// </summary>
+        /// <returns>Returns pretty-printed string</returns>
+        public override string ToString()
+        {
+            return $"{Player?.Name ?? "Unknown player"} casts {Spell} at {Coordinate}";
+        }
     }
 }

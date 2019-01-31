@@ -1,7 +1,10 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Dragons.Core;
+using Dragons.Core.Models;
+using Dragons.Core.Types;
 using Dragons.Respository;
 
 namespace Dragons.Service.Core
@@ -15,10 +18,34 @@ namespace Dragons.Service.Core
             await _repo.InitializeAsync(new GameRepositorySettings {InitialSetupsFolderPath = folderPath});
         }
 
+        public Player GetRandomPlayer()
+        {
+            return _repo.GetRandomPlayer();
+        }
+
+        public Tuple<Player,Player> GetRandomPlayerPair()
+        {
+            return _repo.GetRandomPlayerPair();
+        }
+
+        public Move GetRandomMove(int boardSize, int mana)
+        {
+            return new Move
+            {
+                Player = null,
+                Coordinate = Coordinate.Random(boardSize),
+                Spell = Constants.AllSpells.Costing(mana).Random()
+            };
+        }
+
         public async Task<Game> GetGameAsync(string playerId)
         {
             var gameState = await _repo.GetGameStateAsync(playerId);
-            return gameState?.ToGame(playerId);
+            if (gameState == null)
+                return null;
+
+            var playerState = gameState.Player1State.Player.PlayerId.Equals(playerId) ? gameState.Player1State : gameState.Player2State;
+            return gameState.ToGame(playerState);
         }
 
         public async Task<List<Event>> GetGameEventsAsync(string playerId, int offset = 0)
@@ -34,7 +61,9 @@ namespace Dragons.Service.Core
 
         public async Task<Move> InsertGameMoveAsync(Move move)
         {
-            var gameState = await _repo.GetGameStateAsync(move.PlayerId);
+            if (string.IsNullOrWhiteSpace(move.Player?.PlayerId))
+                throw new ArgumentException("Player must not be empty.", nameof(move));
+            var gameState = await _repo.GetGameStateAsync(move.Player.PlayerId);
             gameState.ProcessMove(move);
             await _repo.UpdateGameStateAsync(gameState);
             return move;
@@ -43,33 +72,38 @@ namespace Dragons.Service.Core
 
         public async Task InsertGameStartAsync(GameStart start)
         {
-            var initialSetups = await _repo.GetRandomInitialSetupsAsync();
+            var player1Setup = start.Player1Setup;
+            var player2Setup = start.Player1Setup;
+
+            if (player1Setup == null && player1Setup == null)
+            {
+                var initialSetupPair = _repo.GetRandomInitialSetupPair();
+                player1Setup = initialSetupPair.Item1;
+                player2Setup = initialSetupPair.Item2;
+            }
+
+            player1Setup = player1Setup ?? _repo.GetRandomInitialSetup();
+            player2Setup = player2Setup ?? _repo.GetRandomInitialSetup();
 
             var gameState = new GameState()
             {
-                Player1 = new Player()
+                Player1State = new PlayerState
                 {
-                    PlayerId = start.Player1.PlayerId,
-                    Name = start.Player1.Name,
+                    Player = start.Player1,
                     Mana = Constants.DefaultInitialMana,
-                    Type = PlayerType.Human,
-                    Board = new GameBoard(initialSetups.Item1),
-                    Dragons = initialSetups.Item1.Dragons
+                    Board = new GameBoard(player1Setup)
                 },
-                Player2 = new Player()
+                Player2State = new PlayerState
                 {
-                    PlayerId = start.Player2.PlayerId,
-                    Name = start.Player2.Name,
+                    Player = start.Player2,
                     Mana = Constants.DefaultInitialMana,
-                    Type = PlayerType.Human,
-                    Board = new GameBoard(initialSetups.Item2),
-                    Dragons = initialSetups.Item2.Dragons
+                    Board = new GameBoard(player2Setup)
                 },
                 Events = new List<Event>
                 {
                     new Event()
                     {
-                        PlayerId = start.Player1.PlayerId,
+                        Player = start.Player1,
                         Type = EventType.GameStarted
                     }
                 }
@@ -86,6 +120,12 @@ namespace Dragons.Service.Core
         public async Task DeleteReservationAsync(Reservation reservation)
         {
             await _repo.DeleteReservationAsync(reservation);
+        }
+
+        public async Task<Move> GetNextMoveAsync(string playerId)
+        {
+            var gameState = await _repo.GetGameStateAsync(playerId);
+            return gameState.GetNextMove(playerId);
         }
 
     }

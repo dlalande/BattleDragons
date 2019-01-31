@@ -1,0 +1,932 @@
+2018-08-23 00:10:18.1609|INFO|ClientId: |ApiKey: |Dragons.Service.WebApiApplication|Dragons.Service.WebApiApplication.Application_Start|Dragons.Service starting...
+2018-08-23 00:10:28.4135|ERROR|ClientId: |ApiKey: |Dragons.Service.Pipeline.NLogExceptionLogger|Dragons.Service.Pipeline.NLogExceptionLogger.Log|System.Exception: Not enough mana to cast spell.
+   at Dragons.Core.Models.GameState.ProcessMove(Move move) in C:\Users\David\source\repos\BattleDragons\Dragons\Dragons.Core\Models\GameState.cs:line 128
+   at Dragons.Service.Core.GameService.<InsertGameMoveAsync>d__8.MoveNext() in C:\Users\David\source\repos\BattleDragons\Dragons\Dragons.Service.Core\GameService.cs:line 67
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at Dragons.Service.Controllers.gameController.<>c__DisplayClass3_0.<<Post>b__0>d.MoveNext() in C:\Users\David\source\repos\BattleDragons\Dragons\Dragons.Service\Controllers\GameController.cs:line 55
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at Dragons.Service.Extensions.LoggerExtensions.<LogExecuteAsync>d__4`1.MoveNext() in C:\Users\David\source\repos\BattleDragons\Dragons\Dragons.Service\Extensions\LoggerExtensions.cs:line 123
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at Dragons.Service.Controllers.gameController.<Post>d__3.MoveNext() in C:\Users\David\source\repos\BattleDragons\Dragons\Dragons.Service\Controllers\GameController.cs:line 55
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Threading.Tasks.TaskHelpersExtensions.<CastToObject>d__1`1.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Tracing.ITraceWriterExtensions.<TraceBeginEndAsyncCore>d__17`1.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Controllers.ApiControllerActionInvoker.<InvokeActionAsyncCore>d__1.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Tracing.ITraceWriterExtensions.<TraceBeginEndAsyncCore>d__17`1.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Filters.ActionFilterAttribute.<CallOnActionExecutedAsync>d__6.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Web.Http.Filters.ActionFilterAttribute.<CallOnActionExecutedAsync>d__6.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Filters.ActionFilterAttribute.<ExecuteActionFilterAsyncCore>d__5.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Controllers.ActionFilterResult.<ExecuteAsync>d__5.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Tracing.Tracers.HttpControllerTracer.<ExecuteAsyncCore>d__10.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Tracing.ITraceWriterExtensions.<TraceBeginEndAsyncCore>d__17`1.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Dispatcher.HttpControllerDispatcher.<SendAsync>d__15.MoveNext()|System.Exception: Not enough mana to cast spell.
+   at Dragons.Core.Models.GameState.ProcessMove(Move move) in C:\Users\David\source\repos\BattleDragons\Dragons\Dragons.Core\Models\GameState.cs:line 128
+   at Dragons.Service.Core.GameService.<InsertGameMoveAsync>d__8.MoveNext() in C:\Users\David\source\repos\BattleDragons\Dragons\Dragons.Service.Core\GameService.cs:line 67
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at Dragons.Service.Controllers.gameController.<>c__DisplayClass3_0.<<Post>b__0>d.MoveNext() in C:\Users\David\source\repos\BattleDragons\Dragons\Dragons.Service\Controllers\GameController.cs:line 55
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at Dragons.Service.Extensions.LoggerExtensions.<LogExecuteAsync>d__4`1.MoveNext() in C:\Users\David\source\repos\BattleDragons\Dragons\Dragons.Service\Extensions\LoggerExtensions.cs:line 123
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at Dragons.Service.Controllers.gameController.<Post>d__3.MoveNext() in C:\Users\David\source\repos\BattleDragons\Dragons\Dragons.Service\Controllers\GameController.cs:line 55
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Threading.Tasks.TaskHelpersExtensions.<CastToObject>d__1`1.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Tracing.ITraceWriterExtensions.<TraceBeginEndAsyncCore>d__17`1.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Controllers.ApiControllerActionInvoker.<InvokeActionAsyncCore>d__1.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Tracing.ITraceWriterExtensions.<TraceBeginEndAsyncCore>d__17`1.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Filters.ActionFilterAttribute.<CallOnActionExecutedAsync>d__6.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Web.Http.Filters.ActionFilterAttribute.<CallOnActionExecutedAsync>d__6.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Filters.ActionFilterAttribute.<ExecuteActionFilterAsyncCore>d__5.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Controllers.ActionFilterResult.<ExecuteAsync>d__5.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Tracing.Tracers.HttpControllerTracer.<ExecuteAsyncCore>d__10.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Tracing.ITraceWriterExtensions.<TraceBeginEndAsyncCore>d__17`1.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Dispatcher.HttpControllerDispatcher.<SendAsync>d__15.MoveNext()
+2018-08-23 01:07:18.1464|INFO|ClientId: |ApiKey: |Dragons.Service.WebApiApplication|Dragons.Service.WebApiApplication.Application_Start|Dragons.Service starting...
+2018-08-23 02:10:09.7741|INFO|ClientId: |ApiKey: |Dragons.Service.WebApiApplication|Dragons.Service.WebApiApplication.Application_Start|Dragons.Service starting...
+2018-08-23 02:33:03.2652|INFO|ClientId: |ApiKey: |Dragons.Service.WebApiApplication|Dragons.Service.WebApiApplication.Application_Start|Dragons.Service starting...
+2018-08-23 02:36:19.3389|INFO|ClientId: |ApiKey: |Dragons.Service.WebApiApplication|Dragons.Service.WebApiApplication.Application_Start|Dragons.Service starting...
+2018-08-23 03:01:29.9103|INFO|ClientId: |ApiKey: |Dragons.Service.WebApiApplication|Dragons.Service.WebApiApplication.Application_Start|Dragons.Service starting...
+2018-08-23 03:01:53.4480|ERROR|ClientId: |ApiKey: |Dragons.Service.Pipeline.NLogExceptionLogger|Dragons.Service.Pipeline.NLogExceptionLogger.Log|System.Exception: Not enough mana to cast spell.
+   at Dragons.Core.Models.GameState.ProcessMove(Move move) in C:\Users\David\source\repos\BattleDragons\Dragons\Dragons.Core\Models\GameState.cs:line 128
+   at Dragons.Service.Core.GameService.<InsertGameMoveAsync>d__8.MoveNext() in C:\Users\David\source\repos\BattleDragons\Dragons\Dragons.Service.Core\GameService.cs:line 67
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at Dragons.Service.Controllers.gameController.<>c__DisplayClass3_0.<<Post>b__0>d.MoveNext() in C:\Users\David\source\repos\BattleDragons\Dragons\Dragons.Service\Controllers\GameController.cs:line 55
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at Dragons.Service.Extensions.LoggerExtensions.<LogExecuteAsync>d__4`1.MoveNext() in C:\Users\David\source\repos\BattleDragons\Dragons\Dragons.Service\Extensions\LoggerExtensions.cs:line 123
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at Dragons.Service.Controllers.gameController.<Post>d__3.MoveNext() in C:\Users\David\source\repos\BattleDragons\Dragons\Dragons.Service\Controllers\GameController.cs:line 55
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Threading.Tasks.TaskHelpersExtensions.<CastToObject>d__1`1.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Tracing.ITraceWriterExtensions.<TraceBeginEndAsyncCore>d__17`1.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Controllers.ApiControllerActionInvoker.<InvokeActionAsyncCore>d__1.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Tracing.ITraceWriterExtensions.<TraceBeginEndAsyncCore>d__17`1.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Filters.ActionFilterAttribute.<CallOnActionExecutedAsync>d__6.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Web.Http.Filters.ActionFilterAttribute.<CallOnActionExecutedAsync>d__6.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Filters.ActionFilterAttribute.<ExecuteActionFilterAsyncCore>d__5.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Controllers.ActionFilterResult.<ExecuteAsync>d__5.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Tracing.Tracers.HttpControllerTracer.<ExecuteAsyncCore>d__10.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Tracing.ITraceWriterExtensions.<TraceBeginEndAsyncCore>d__17`1.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Dispatcher.HttpControllerDispatcher.<SendAsync>d__15.MoveNext()|System.Exception: Not enough mana to cast spell.
+   at Dragons.Core.Models.GameState.ProcessMove(Move move) in C:\Users\David\source\repos\BattleDragons\Dragons\Dragons.Core\Models\GameState.cs:line 128
+   at Dragons.Service.Core.GameService.<InsertGameMoveAsync>d__8.MoveNext() in C:\Users\David\source\repos\BattleDragons\Dragons\Dragons.Service.Core\GameService.cs:line 67
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at Dragons.Service.Controllers.gameController.<>c__DisplayClass3_0.<<Post>b__0>d.MoveNext() in C:\Users\David\source\repos\BattleDragons\Dragons\Dragons.Service\Controllers\GameController.cs:line 55
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at Dragons.Service.Extensions.LoggerExtensions.<LogExecuteAsync>d__4`1.MoveNext() in C:\Users\David\source\repos\BattleDragons\Dragons\Dragons.Service\Extensions\LoggerExtensions.cs:line 123
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at Dragons.Service.Controllers.gameController.<Post>d__3.MoveNext() in C:\Users\David\source\repos\BattleDragons\Dragons\Dragons.Service\Controllers\GameController.cs:line 55
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Threading.Tasks.TaskHelpersExtensions.<CastToObject>d__1`1.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Tracing.ITraceWriterExtensions.<TraceBeginEndAsyncCore>d__17`1.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Controllers.ApiControllerActionInvoker.<InvokeActionAsyncCore>d__1.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Tracing.ITraceWriterExtensions.<TraceBeginEndAsyncCore>d__17`1.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Filters.ActionFilterAttribute.<CallOnActionExecutedAsync>d__6.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Web.Http.Filters.ActionFilterAttribute.<CallOnActionExecutedAsync>d__6.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Filters.ActionFilterAttribute.<ExecuteActionFilterAsyncCore>d__5.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Controllers.ActionFilterResult.<ExecuteAsync>d__5.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Tracing.Tracers.HttpControllerTracer.<ExecuteAsyncCore>d__10.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Tracing.ITraceWriterExtensions.<TraceBeginEndAsyncCore>d__17`1.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Dispatcher.HttpControllerDispatcher.<SendAsync>d__15.MoveNext()
+2018-08-23 03:07:59.6131|INFO|ClientId: |ApiKey: |Dragons.Service.WebApiApplication|Dragons.Service.WebApiApplication.Application_Start|Dragons.Service starting...
+2018-08-23 03:12:06.6424|INFO|ClientId: |ApiKey: |Dragons.Service.WebApiApplication|Dragons.Service.WebApiApplication.Application_Start|Dragons.Service starting...
+2018-08-23 03:23:30.7390|INFO|ClientId: |ApiKey: |Dragons.Service.WebApiApplication|Dragons.Service.WebApiApplication.Application_Start|Dragons.Service starting...
+2018-08-23 03:35:00.8244|INFO|ClientId: |ApiKey: |Dragons.Service.WebApiApplication|Dragons.Service.WebApiApplication.Application_Start|Dragons.Service starting...
+2018-08-23 03:38:10.4436|ERROR|ClientId: |ApiKey: |Dragons.Service.Pipeline.NLogExceptionLogger|Dragons.Service.Pipeline.NLogExceptionLogger.Log|System.InvalidOperationException: Sequence contains no matching element
+   at System.Linq.Enumerable.First[TSource](IEnumerable`1 source, Func`2 predicate)
+   at Dragons.Core.MoveStrategies.MoveStrategyHard.GetNextMove() in C:\Users\David\source\repos\BattleDragons\Dragons\Dragons.Core\MoveStrategies\MoveStrategyHard.cs:line 36
+   at Dragons.Core.Models.GameState.GetNextMove(String playerId) in C:\Users\David\source\repos\BattleDragons\Dragons\Dragons.Core\Models\GameState.cs:line 111
+   at Dragons.Service.Core.GameService.<GetNextMoveAsync>d__12.MoveNext() in C:\Users\David\source\repos\BattleDragons\Dragons\Dragons.Service.Core\GameService.cs:line 127
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at Dragons.Service.Controllers.gameController.<>c__DisplayClass5_0.<<GetNextMove>b__0>d.MoveNext() in C:\Users\David\source\repos\BattleDragons\Dragons\Dragons.Service\Controllers\GameController.cs:line 81
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at Dragons.Service.Extensions.LoggerExtensions.<LogExecuteAsync>d__4`1.MoveNext() in C:\Users\David\source\repos\BattleDragons\Dragons\Dragons.Service\Extensions\LoggerExtensions.cs:line 123
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at Dragons.Service.Controllers.gameController.<GetNextMove>d__5.MoveNext() in C:\Users\David\source\repos\BattleDragons\Dragons\Dragons.Service\Controllers\GameController.cs:line 81
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Threading.Tasks.TaskHelpersExtensions.<CastToObject>d__1`1.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Tracing.ITraceWriterExtensions.<TraceBeginEndAsyncCore>d__17`1.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Controllers.ApiControllerActionInvoker.<InvokeActionAsyncCore>d__1.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Tracing.ITraceWriterExtensions.<TraceBeginEndAsyncCore>d__17`1.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Filters.ActionFilterAttribute.<CallOnActionExecutedAsync>d__6.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Web.Http.Filters.ActionFilterAttribute.<CallOnActionExecutedAsync>d__6.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Filters.ActionFilterAttribute.<ExecuteActionFilterAsyncCore>d__5.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Controllers.ActionFilterResult.<ExecuteAsync>d__5.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Tracing.Tracers.HttpControllerTracer.<ExecuteAsyncCore>d__10.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Tracing.ITraceWriterExtensions.<TraceBeginEndAsyncCore>d__17`1.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Dispatcher.HttpControllerDispatcher.<SendAsync>d__15.MoveNext()|System.InvalidOperationException: Sequence contains no matching element
+   at System.Linq.Enumerable.First[TSource](IEnumerable`1 source, Func`2 predicate)
+   at Dragons.Core.MoveStrategies.MoveStrategyHard.GetNextMove() in C:\Users\David\source\repos\BattleDragons\Dragons\Dragons.Core\MoveStrategies\MoveStrategyHard.cs:line 36
+   at Dragons.Core.Models.GameState.GetNextMove(String playerId) in C:\Users\David\source\repos\BattleDragons\Dragons\Dragons.Core\Models\GameState.cs:line 111
+   at Dragons.Service.Core.GameService.<GetNextMoveAsync>d__12.MoveNext() in C:\Users\David\source\repos\BattleDragons\Dragons\Dragons.Service.Core\GameService.cs:line 127
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at Dragons.Service.Controllers.gameController.<>c__DisplayClass5_0.<<GetNextMove>b__0>d.MoveNext() in C:\Users\David\source\repos\BattleDragons\Dragons\Dragons.Service\Controllers\GameController.cs:line 81
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at Dragons.Service.Extensions.LoggerExtensions.<LogExecuteAsync>d__4`1.MoveNext() in C:\Users\David\source\repos\BattleDragons\Dragons\Dragons.Service\Extensions\LoggerExtensions.cs:line 123
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at Dragons.Service.Controllers.gameController.<GetNextMove>d__5.MoveNext() in C:\Users\David\source\repos\BattleDragons\Dragons\Dragons.Service\Controllers\GameController.cs:line 81
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Threading.Tasks.TaskHelpersExtensions.<CastToObject>d__1`1.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Tracing.ITraceWriterExtensions.<TraceBeginEndAsyncCore>d__17`1.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Controllers.ApiControllerActionInvoker.<InvokeActionAsyncCore>d__1.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Tracing.ITraceWriterExtensions.<TraceBeginEndAsyncCore>d__17`1.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Filters.ActionFilterAttribute.<CallOnActionExecutedAsync>d__6.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Web.Http.Filters.ActionFilterAttribute.<CallOnActionExecutedAsync>d__6.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Filters.ActionFilterAttribute.<ExecuteActionFilterAsyncCore>d__5.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Controllers.ActionFilterResult.<ExecuteAsync>d__5.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Tracing.Tracers.HttpControllerTracer.<ExecuteAsyncCore>d__10.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Tracing.ITraceWriterExtensions.<TraceBeginEndAsyncCore>d__17`1.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Dispatcher.HttpControllerDispatcher.<SendAsync>d__15.MoveNext()
+2018-08-23 03:56:20.8115|INFO|ClientId: |ApiKey: |Dragons.Service.WebApiApplication|Dragons.Service.WebApiApplication.Application_Start|Dragons.Service starting...
+2018-08-23 03:59:27.2110|INFO|ClientId: |ApiKey: |Dragons.Service.WebApiApplication|Dragons.Service.WebApiApplication.Application_Start|Dragons.Service starting...
+2018-08-23 11:26:20.8159|INFO|ClientId: |ApiKey: |Dragons.Service.WebApiApplication|Dragons.Service.WebApiApplication.Application_Start|Dragons.Service starting...
+2018-08-23 11:26:56.2533|ERROR|ClientId: |ApiKey: |Dragons.Service.Pipeline.NLogExceptionLogger|Dragons.Service.Pipeline.NLogExceptionLogger.Log|System.InvalidOperationException: Sequence contains no matching element
+   at System.Linq.Enumerable.First[TSource](IEnumerable`1 source, Func`2 predicate)
+   at Dragons.Core.MoveStrategies.MoveStrategyHard.GetNextMove() in C:\Users\dlalande\Source\Repos\BattleDragons\Dragons\Dragons.Core\MoveStrategies\MoveStrategyHard.cs:line 37
+   at Dragons.Core.Models.GameState.GetNextMove(String playerId) in C:\Users\dlalande\Source\Repos\BattleDragons\Dragons\Dragons.Core\Models\GameState.cs:line 111
+   at Dragons.Service.Core.GameService.<GetNextMoveAsync>d__12.MoveNext() in C:\Users\dlalande\Source\Repos\BattleDragons\Dragons\Dragons.Service.Core\GameService.cs:line 127
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at Dragons.Service.Controllers.gameController.<>c__DisplayClass5_0.<<GetNextMove>b__0>d.MoveNext() in C:\Users\dlalande\Source\Repos\BattleDragons\Dragons\Dragons.Service\Controllers\GameController.cs:line 81
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at Dragons.Service.Extensions.LoggerExtensions.<LogExecuteAsync>d__4`1.MoveNext() in C:\Users\dlalande\Source\Repos\BattleDragons\Dragons\Dragons.Service\Extensions\LoggerExtensions.cs:line 123
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at Dragons.Service.Controllers.gameController.<GetNextMove>d__5.MoveNext() in C:\Users\dlalande\Source\Repos\BattleDragons\Dragons\Dragons.Service\Controllers\GameController.cs:line 81
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Threading.Tasks.TaskHelpersExtensions.<CastToObject>d__1`1.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Tracing.ITraceWriterExtensions.<TraceBeginEndAsyncCore>d__17`1.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Controllers.ApiControllerActionInvoker.<InvokeActionAsyncCore>d__1.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Tracing.ITraceWriterExtensions.<TraceBeginEndAsyncCore>d__17`1.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Filters.ActionFilterAttribute.<CallOnActionExecutedAsync>d__6.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Web.Http.Filters.ActionFilterAttribute.<CallOnActionExecutedAsync>d__6.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Filters.ActionFilterAttribute.<ExecuteActionFilterAsyncCore>d__5.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Controllers.ActionFilterResult.<ExecuteAsync>d__5.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Tracing.Tracers.HttpControllerTracer.<ExecuteAsyncCore>d__10.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Tracing.ITraceWriterExtensions.<TraceBeginEndAsyncCore>d__17`1.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Dispatcher.HttpControllerDispatcher.<SendAsync>d__15.MoveNext()|System.InvalidOperationException: Sequence contains no matching element
+   at System.Linq.Enumerable.First[TSource](IEnumerable`1 source, Func`2 predicate)
+   at Dragons.Core.MoveStrategies.MoveStrategyHard.GetNextMove() in C:\Users\dlalande\Source\Repos\BattleDragons\Dragons\Dragons.Core\MoveStrategies\MoveStrategyHard.cs:line 37
+   at Dragons.Core.Models.GameState.GetNextMove(String playerId) in C:\Users\dlalande\Source\Repos\BattleDragons\Dragons\Dragons.Core\Models\GameState.cs:line 111
+   at Dragons.Service.Core.GameService.<GetNextMoveAsync>d__12.MoveNext() in C:\Users\dlalande\Source\Repos\BattleDragons\Dragons\Dragons.Service.Core\GameService.cs:line 127
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at Dragons.Service.Controllers.gameController.<>c__DisplayClass5_0.<<GetNextMove>b__0>d.MoveNext() in C:\Users\dlalande\Source\Repos\BattleDragons\Dragons\Dragons.Service\Controllers\GameController.cs:line 81
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at Dragons.Service.Extensions.LoggerExtensions.<LogExecuteAsync>d__4`1.MoveNext() in C:\Users\dlalande\Source\Repos\BattleDragons\Dragons\Dragons.Service\Extensions\LoggerExtensions.cs:line 123
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at Dragons.Service.Controllers.gameController.<GetNextMove>d__5.MoveNext() in C:\Users\dlalande\Source\Repos\BattleDragons\Dragons\Dragons.Service\Controllers\GameController.cs:line 81
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Threading.Tasks.TaskHelpersExtensions.<CastToObject>d__1`1.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Tracing.ITraceWriterExtensions.<TraceBeginEndAsyncCore>d__17`1.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Controllers.ApiControllerActionInvoker.<InvokeActionAsyncCore>d__1.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Tracing.ITraceWriterExtensions.<TraceBeginEndAsyncCore>d__17`1.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Filters.ActionFilterAttribute.<CallOnActionExecutedAsync>d__6.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Web.Http.Filters.ActionFilterAttribute.<CallOnActionExecutedAsync>d__6.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Filters.ActionFilterAttribute.<ExecuteActionFilterAsyncCore>d__5.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Controllers.ActionFilterResult.<ExecuteAsync>d__5.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Tracing.Tracers.HttpControllerTracer.<ExecuteAsyncCore>d__10.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Tracing.ITraceWriterExtensions.<TraceBeginEndAsyncCore>d__17`1.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Dispatcher.HttpControllerDispatcher.<SendAsync>d__15.MoveNext()
+2018-08-23 11:27:50.5404|INFO|ClientId: |ApiKey: |Dragons.Service.WebApiApplication|Dragons.Service.WebApiApplication.Application_Start|Dragons.Service starting...
+2018-08-23 11:29:41.1439|ERROR|ClientId: |ApiKey: |Dragons.Service.Pipeline.NLogExceptionLogger|Dragons.Service.Pipeline.NLogExceptionLogger.Log|System.InvalidOperationException: Sequence contains no matching element
+   at System.Linq.Enumerable.First[TSource](IEnumerable`1 source, Func`2 predicate)
+   at Dragons.Core.MoveStrategies.MoveStrategyHard.GetNextMove() in C:\Users\dlalande\Source\Repos\BattleDragons\Dragons\Dragons.Core\MoveStrategies\MoveStrategyHard.cs:line 37
+   at Dragons.Core.Models.GameState.GetNextMove(String playerId) in C:\Users\dlalande\Source\Repos\BattleDragons\Dragons\Dragons.Core\Models\GameState.cs:line 111
+   at Dragons.Service.Core.GameService.<GetNextMoveAsync>d__12.MoveNext() in C:\Users\dlalande\Source\Repos\BattleDragons\Dragons\Dragons.Service.Core\GameService.cs:line 127
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at Dragons.Service.Controllers.gameController.<>c__DisplayClass5_0.<<GetNextMove>b__0>d.MoveNext() in C:\Users\dlalande\Source\Repos\BattleDragons\Dragons\Dragons.Service\Controllers\GameController.cs:line 81
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at Dragons.Service.Extensions.LoggerExtensions.<LogExecuteAsync>d__4`1.MoveNext() in C:\Users\dlalande\Source\Repos\BattleDragons\Dragons\Dragons.Service\Extensions\LoggerExtensions.cs:line 123
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at Dragons.Service.Controllers.gameController.<GetNextMove>d__5.MoveNext() in C:\Users\dlalande\Source\Repos\BattleDragons\Dragons\Dragons.Service\Controllers\GameController.cs:line 81
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Threading.Tasks.TaskHelpersExtensions.<CastToObject>d__1`1.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Tracing.ITraceWriterExtensions.<TraceBeginEndAsyncCore>d__17`1.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Controllers.ApiControllerActionInvoker.<InvokeActionAsyncCore>d__1.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Tracing.ITraceWriterExtensions.<TraceBeginEndAsyncCore>d__17`1.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Filters.ActionFilterAttribute.<CallOnActionExecutedAsync>d__6.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Web.Http.Filters.ActionFilterAttribute.<CallOnActionExecutedAsync>d__6.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Filters.ActionFilterAttribute.<ExecuteActionFilterAsyncCore>d__5.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Controllers.ActionFilterResult.<ExecuteAsync>d__5.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Tracing.Tracers.HttpControllerTracer.<ExecuteAsyncCore>d__10.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Tracing.ITraceWriterExtensions.<TraceBeginEndAsyncCore>d__17`1.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Dispatcher.HttpControllerDispatcher.<SendAsync>d__15.MoveNext()|System.InvalidOperationException: Sequence contains no matching element
+   at System.Linq.Enumerable.First[TSource](IEnumerable`1 source, Func`2 predicate)
+   at Dragons.Core.MoveStrategies.MoveStrategyHard.GetNextMove() in C:\Users\dlalande\Source\Repos\BattleDragons\Dragons\Dragons.Core\MoveStrategies\MoveStrategyHard.cs:line 37
+   at Dragons.Core.Models.GameState.GetNextMove(String playerId) in C:\Users\dlalande\Source\Repos\BattleDragons\Dragons\Dragons.Core\Models\GameState.cs:line 111
+   at Dragons.Service.Core.GameService.<GetNextMoveAsync>d__12.MoveNext() in C:\Users\dlalande\Source\Repos\BattleDragons\Dragons\Dragons.Service.Core\GameService.cs:line 127
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at Dragons.Service.Controllers.gameController.<>c__DisplayClass5_0.<<GetNextMove>b__0>d.MoveNext() in C:\Users\dlalande\Source\Repos\BattleDragons\Dragons\Dragons.Service\Controllers\GameController.cs:line 81
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at Dragons.Service.Extensions.LoggerExtensions.<LogExecuteAsync>d__4`1.MoveNext() in C:\Users\dlalande\Source\Repos\BattleDragons\Dragons\Dragons.Service\Extensions\LoggerExtensions.cs:line 123
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at Dragons.Service.Controllers.gameController.<GetNextMove>d__5.MoveNext() in C:\Users\dlalande\Source\Repos\BattleDragons\Dragons\Dragons.Service\Controllers\GameController.cs:line 81
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Threading.Tasks.TaskHelpersExtensions.<CastToObject>d__1`1.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Tracing.ITraceWriterExtensions.<TraceBeginEndAsyncCore>d__17`1.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Controllers.ApiControllerActionInvoker.<InvokeActionAsyncCore>d__1.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Tracing.ITraceWriterExtensions.<TraceBeginEndAsyncCore>d__17`1.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Filters.ActionFilterAttribute.<CallOnActionExecutedAsync>d__6.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Web.Http.Filters.ActionFilterAttribute.<CallOnActionExecutedAsync>d__6.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Filters.ActionFilterAttribute.<ExecuteActionFilterAsyncCore>d__5.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Controllers.ActionFilterResult.<ExecuteAsync>d__5.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Tracing.Tracers.HttpControllerTracer.<ExecuteAsyncCore>d__10.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Tracing.ITraceWriterExtensions.<TraceBeginEndAsyncCore>d__17`1.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Dispatcher.HttpControllerDispatcher.<SendAsync>d__15.MoveNext()
+2018-08-23 11:31:15.2199|INFO|ClientId: |ApiKey: |Dragons.Service.WebApiApplication|Dragons.Service.WebApiApplication.Application_Start|Dragons.Service starting...
+2018-08-23 11:32:25.3069|ERROR|ClientId: |ApiKey: |Dragons.Service.Pipeline.NLogExceptionLogger|Dragons.Service.Pipeline.NLogExceptionLogger.Log|System.InvalidOperationException: Sequence contains no matching element
+   at System.Linq.Enumerable.First[TSource](IEnumerable`1 source, Func`2 predicate)
+   at Dragons.Core.MoveStrategies.MoveStrategyHard.GetNextMove() in C:\Users\dlalande\Source\Repos\BattleDragons\Dragons\Dragons.Core\MoveStrategies\MoveStrategyHard.cs:line 37
+   at Dragons.Core.Models.GameState.GetNextMove(String playerId) in C:\Users\dlalande\Source\Repos\BattleDragons\Dragons\Dragons.Core\Models\GameState.cs:line 111
+   at Dragons.Core.Models.GameState.ProcessMove(Move move) in C:\Users\dlalande\Source\Repos\BattleDragons\Dragons\Dragons.Core\Models\GameState.cs:line 196
+   at Dragons.Core.Models.GameState.ProcessMove(Move move) in C:\Users\dlalande\Source\Repos\BattleDragons\Dragons\Dragons.Core\Models\GameState.cs:line 196
+   at Dragons.Core.Models.GameState.ProcessMove(Move move) in C:\Users\dlalande\Source\Repos\BattleDragons\Dragons\Dragons.Core\Models\GameState.cs:line 196
+   at Dragons.Core.Models.GameState.ProcessMove(Move move) in C:\Users\dlalande\Source\Repos\BattleDragons\Dragons\Dragons.Core\Models\GameState.cs:line 196
+   at Dragons.Core.Models.GameState.ProcessMove(Move move) in C:\Users\dlalande\Source\Repos\BattleDragons\Dragons\Dragons.Core\Models\GameState.cs:line 196
+   at Dragons.Core.Models.GameState.ProcessMove(Move move) in C:\Users\dlalande\Source\Repos\BattleDragons\Dragons\Dragons.Core\Models\GameState.cs:line 196
+   at Dragons.Core.Models.GameState.ProcessMove(Move move) in C:\Users\dlalande\Source\Repos\BattleDragons\Dragons\Dragons.Core\Models\GameState.cs:line 196
+   at Dragons.Core.Models.GameState.ProcessMove(Move move) in C:\Users\dlalande\Source\Repos\BattleDragons\Dragons\Dragons.Core\Models\GameState.cs:line 196
+   at Dragons.Core.Models.GameState.ProcessMove(Move move) in C:\Users\dlalande\Source\Repos\BattleDragons\Dragons\Dragons.Core\Models\GameState.cs:line 196
+   at Dragons.Core.Models.GameState.ProcessMove(Move move) in C:\Users\dlalande\Source\Repos\BattleDragons\Dragons\Dragons.Core\Models\GameState.cs:line 196
+   at Dragons.Core.Models.GameState.ProcessMove(Move move) in C:\Users\dlalande\Source\Repos\BattleDragons\Dragons\Dragons.Core\Models\GameState.cs:line 196
+   at Dragons.Core.Models.GameState.ProcessMove(Move move) in C:\Users\dlalande\Source\Repos\BattleDragons\Dragons\Dragons.Core\Models\GameState.cs:line 196
+   at Dragons.Core.Models.GameState.ProcessMove(Move move) in C:\Users\dlalande\Source\Repos\BattleDragons\Dragons\Dragons.Core\Models\GameState.cs:line 196
+   at Dragons.Core.Models.GameState.ProcessMove(Move move) in C:\Users\dlalande\Source\Repos\BattleDragons\Dragons\Dragons.Core\Models\GameState.cs:line 196
+   at Dragons.Service.Core.GameService.<InsertGameMoveAsync>d__8.MoveNext() in C:\Users\dlalande\Source\Repos\BattleDragons\Dragons\Dragons.Service.Core\GameService.cs:line 67
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at Dragons.Service.Controllers.gameController.<>c__DisplayClass3_0.<<Post>b__0>d.MoveNext() in C:\Users\dlalande\Source\Repos\BattleDragons\Dragons\Dragons.Service\Controllers\GameController.cs:line 55
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at Dragons.Service.Extensions.LoggerExtensions.<LogExecuteAsync>d__4`1.MoveNext() in C:\Users\dlalande\Source\Repos\BattleDragons\Dragons\Dragons.Service\Extensions\LoggerExtensions.cs:line 123
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at Dragons.Service.Controllers.gameController.<Post>d__3.MoveNext() in C:\Users\dlalande\Source\Repos\BattleDragons\Dragons\Dragons.Service\Controllers\GameController.cs:line 55
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Threading.Tasks.TaskHelpersExtensions.<CastToObject>d__1`1.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Tracing.ITraceWriterExtensions.<TraceBeginEndAsyncCore>d__17`1.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Controllers.ApiControllerActionInvoker.<InvokeActionAsyncCore>d__1.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Tracing.ITraceWriterExtensions.<TraceBeginEndAsyncCore>d__17`1.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Filters.ActionFilterAttribute.<CallOnActionExecutedAsync>d__6.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Web.Http.Filters.ActionFilterAttribute.<CallOnActionExecutedAsync>d__6.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Filters.ActionFilterAttribute.<ExecuteActionFilterAsyncCore>d__5.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Controllers.ActionFilterResult.<ExecuteAsync>d__5.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Tracing.Tracers.HttpControllerTracer.<ExecuteAsyncCore>d__10.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Tracing.ITraceWriterExtensions.<TraceBeginEndAsyncCore>d__17`1.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Dispatcher.HttpControllerDispatcher.<SendAsync>d__15.MoveNext()|System.InvalidOperationException: Sequence contains no matching element
+   at System.Linq.Enumerable.First[TSource](IEnumerable`1 source, Func`2 predicate)
+   at Dragons.Core.MoveStrategies.MoveStrategyHard.GetNextMove() in C:\Users\dlalande\Source\Repos\BattleDragons\Dragons\Dragons.Core\MoveStrategies\MoveStrategyHard.cs:line 37
+   at Dragons.Core.Models.GameState.GetNextMove(String playerId) in C:\Users\dlalande\Source\Repos\BattleDragons\Dragons\Dragons.Core\Models\GameState.cs:line 111
+   at Dragons.Core.Models.GameState.ProcessMove(Move move) in C:\Users\dlalande\Source\Repos\BattleDragons\Dragons\Dragons.Core\Models\GameState.cs:line 196
+   at Dragons.Core.Models.GameState.ProcessMove(Move move) in C:\Users\dlalande\Source\Repos\BattleDragons\Dragons\Dragons.Core\Models\GameState.cs:line 196
+   at Dragons.Core.Models.GameState.ProcessMove(Move move) in C:\Users\dlalande\Source\Repos\BattleDragons\Dragons\Dragons.Core\Models\GameState.cs:line 196
+   at Dragons.Core.Models.GameState.ProcessMove(Move move) in C:\Users\dlalande\Source\Repos\BattleDragons\Dragons\Dragons.Core\Models\GameState.cs:line 196
+   at Dragons.Core.Models.GameState.ProcessMove(Move move) in C:\Users\dlalande\Source\Repos\BattleDragons\Dragons\Dragons.Core\Models\GameState.cs:line 196
+   at Dragons.Core.Models.GameState.ProcessMove(Move move) in C:\Users\dlalande\Source\Repos\BattleDragons\Dragons\Dragons.Core\Models\GameState.cs:line 196
+   at Dragons.Core.Models.GameState.ProcessMove(Move move) in C:\Users\dlalande\Source\Repos\BattleDragons\Dragons\Dragons.Core\Models\GameState.cs:line 196
+   at Dragons.Core.Models.GameState.ProcessMove(Move move) in C:\Users\dlalande\Source\Repos\BattleDragons\Dragons\Dragons.Core\Models\GameState.cs:line 196
+   at Dragons.Core.Models.GameState.ProcessMove(Move move) in C:\Users\dlalande\Source\Repos\BattleDragons\Dragons\Dragons.Core\Models\GameState.cs:line 196
+   at Dragons.Core.Models.GameState.ProcessMove(Move move) in C:\Users\dlalande\Source\Repos\BattleDragons\Dragons\Dragons.Core\Models\GameState.cs:line 196
+   at Dragons.Core.Models.GameState.ProcessMove(Move move) in C:\Users\dlalande\Source\Repos\BattleDragons\Dragons\Dragons.Core\Models\GameState.cs:line 196
+   at Dragons.Core.Models.GameState.ProcessMove(Move move) in C:\Users\dlalande\Source\Repos\BattleDragons\Dragons\Dragons.Core\Models\GameState.cs:line 196
+   at Dragons.Core.Models.GameState.ProcessMove(Move move) in C:\Users\dlalande\Source\Repos\BattleDragons\Dragons\Dragons.Core\Models\GameState.cs:line 196
+   at Dragons.Core.Models.GameState.ProcessMove(Move move) in C:\Users\dlalande\Source\Repos\BattleDragons\Dragons\Dragons.Core\Models\GameState.cs:line 196
+   at Dragons.Service.Core.GameService.<InsertGameMoveAsync>d__8.MoveNext() in C:\Users\dlalande\Source\Repos\BattleDragons\Dragons\Dragons.Service.Core\GameService.cs:line 67
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at Dragons.Service.Controllers.gameController.<>c__DisplayClass3_0.<<Post>b__0>d.MoveNext() in C:\Users\dlalande\Source\Repos\BattleDragons\Dragons\Dragons.Service\Controllers\GameController.cs:line 55
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at Dragons.Service.Extensions.LoggerExtensions.<LogExecuteAsync>d__4`1.MoveNext() in C:\Users\dlalande\Source\Repos\BattleDragons\Dragons\Dragons.Service\Extensions\LoggerExtensions.cs:line 123
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at Dragons.Service.Controllers.gameController.<Post>d__3.MoveNext() in C:\Users\dlalande\Source\Repos\BattleDragons\Dragons\Dragons.Service\Controllers\GameController.cs:line 55
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Threading.Tasks.TaskHelpersExtensions.<CastToObject>d__1`1.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Tracing.ITraceWriterExtensions.<TraceBeginEndAsyncCore>d__17`1.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Controllers.ApiControllerActionInvoker.<InvokeActionAsyncCore>d__1.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Tracing.ITraceWriterExtensions.<TraceBeginEndAsyncCore>d__17`1.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Filters.ActionFilterAttribute.<CallOnActionExecutedAsync>d__6.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Web.Http.Filters.ActionFilterAttribute.<CallOnActionExecutedAsync>d__6.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Filters.ActionFilterAttribute.<ExecuteActionFilterAsyncCore>d__5.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Controllers.ActionFilterResult.<ExecuteAsync>d__5.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Tracing.Tracers.HttpControllerTracer.<ExecuteAsyncCore>d__10.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Tracing.ITraceWriterExtensions.<TraceBeginEndAsyncCore>d__17`1.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Dispatcher.HttpControllerDispatcher.<SendAsync>d__15.MoveNext()
+2018-08-23 11:35:11.4229|INFO|ClientId: |ApiKey: |Dragons.Service.WebApiApplication|Dragons.Service.WebApiApplication.Application_Start|Dragons.Service starting...
+2018-08-23 11:35:38.4495|INFO|ClientId: |ApiKey: |Dragons.Service.WebApiApplication|Dragons.Service.WebApiApplication.Application_Start|Dragons.Service starting...
+2018-08-23 11:35:55.2967|ERROR|ClientId: |ApiKey: |Dragons.Service.Pipeline.NLogExceptionLogger|Dragons.Service.Pipeline.NLogExceptionLogger.Log|System.InvalidOperationException: Sequence contains no matching element
+   at System.Linq.Enumerable.First[TSource](IEnumerable`1 source, Func`2 predicate)
+   at Dragons.Core.MoveStrategies.MoveStrategyHard.GetNextMove() in C:\Users\dlalande\Source\Repos\BattleDragons\Dragons\Dragons.Core\MoveStrategies\MoveStrategyHard.cs:line 40
+   at Dragons.Core.Models.GameState.GetNextMove(String playerId) in C:\Users\dlalande\Source\Repos\BattleDragons\Dragons\Dragons.Core\Models\GameState.cs:line 111
+   at Dragons.Core.Models.GameState.ProcessMove(Move move) in C:\Users\dlalande\Source\Repos\BattleDragons\Dragons\Dragons.Core\Models\GameState.cs:line 196
+   at Dragons.Core.Models.GameState.ProcessMove(Move move) in C:\Users\dlalande\Source\Repos\BattleDragons\Dragons\Dragons.Core\Models\GameState.cs:line 196
+   at Dragons.Core.Models.GameState.ProcessMove(Move move) in C:\Users\dlalande\Source\Repos\BattleDragons\Dragons\Dragons.Core\Models\GameState.cs:line 196
+   at Dragons.Core.Models.GameState.ProcessMove(Move move) in C:\Users\dlalande\Source\Repos\BattleDragons\Dragons\Dragons.Core\Models\GameState.cs:line 196
+   at Dragons.Core.Models.GameState.ProcessMove(Move move) in C:\Users\dlalande\Source\Repos\BattleDragons\Dragons\Dragons.Core\Models\GameState.cs:line 196
+   at Dragons.Core.Models.GameState.ProcessMove(Move move) in C:\Users\dlalande\Source\Repos\BattleDragons\Dragons\Dragons.Core\Models\GameState.cs:line 196
+   at Dragons.Core.Models.GameState.ProcessMove(Move move) in C:\Users\dlalande\Source\Repos\BattleDragons\Dragons\Dragons.Core\Models\GameState.cs:line 196
+   at Dragons.Core.Models.GameState.ProcessMove(Move move) in C:\Users\dlalande\Source\Repos\BattleDragons\Dragons\Dragons.Core\Models\GameState.cs:line 196
+   at Dragons.Core.Models.GameState.ProcessMove(Move move) in C:\Users\dlalande\Source\Repos\BattleDragons\Dragons\Dragons.Core\Models\GameState.cs:line 196
+   at Dragons.Core.Models.GameState.ProcessMove(Move move) in C:\Users\dlalande\Source\Repos\BattleDragons\Dragons\Dragons.Core\Models\GameState.cs:line 196
+   at Dragons.Core.Models.GameState.ProcessMove(Move move) in C:\Users\dlalande\Source\Repos\BattleDragons\Dragons\Dragons.Core\Models\GameState.cs:line 196
+   at Dragons.Core.Models.GameState.ProcessMove(Move move) in C:\Users\dlalande\Source\Repos\BattleDragons\Dragons\Dragons.Core\Models\GameState.cs:line 196
+   at Dragons.Core.Models.GameState.ProcessMove(Move move) in C:\Users\dlalande\Source\Repos\BattleDragons\Dragons\Dragons.Core\Models\GameState.cs:line 196
+   at Dragons.Core.Models.GameState.ProcessMove(Move move) in C:\Users\dlalande\Source\Repos\BattleDragons\Dragons\Dragons.Core\Models\GameState.cs:line 196
+   at Dragons.Core.Models.GameState.ProcessMove(Move move) in C:\Users\dlalande\Source\Repos\BattleDragons\Dragons\Dragons.Core\Models\GameState.cs:line 196
+   at Dragons.Service.Core.GameService.<InsertGameMoveAsync>d__8.MoveNext() in C:\Users\dlalande\Source\Repos\BattleDragons\Dragons\Dragons.Service.Core\GameService.cs:line 67
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at Dragons.Service.Controllers.gameController.<>c__DisplayClass3_0.<<Post>b__0>d.MoveNext() in C:\Users\dlalande\Source\Repos\BattleDragons\Dragons\Dragons.Service\Controllers\GameController.cs:line 55
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at Dragons.Service.Extensions.LoggerExtensions.<LogExecuteAsync>d__4`1.MoveNext() in C:\Users\dlalande\Source\Repos\BattleDragons\Dragons\Dragons.Service\Extensions\LoggerExtensions.cs:line 123
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at Dragons.Service.Controllers.gameController.<Post>d__3.MoveNext() in C:\Users\dlalande\Source\Repos\BattleDragons\Dragons\Dragons.Service\Controllers\GameController.cs:line 55
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Threading.Tasks.TaskHelpersExtensions.<CastToObject>d__1`1.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Tracing.ITraceWriterExtensions.<TraceBeginEndAsyncCore>d__17`1.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Controllers.ApiControllerActionInvoker.<InvokeActionAsyncCore>d__1.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Tracing.ITraceWriterExtensions.<TraceBeginEndAsyncCore>d__17`1.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Filters.ActionFilterAttribute.<CallOnActionExecutedAsync>d__6.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Web.Http.Filters.ActionFilterAttribute.<CallOnActionExecutedAsync>d__6.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Filters.ActionFilterAttribute.<ExecuteActionFilterAsyncCore>d__5.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Controllers.ActionFilterResult.<ExecuteAsync>d__5.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Tracing.Tracers.HttpControllerTracer.<ExecuteAsyncCore>d__10.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Tracing.ITraceWriterExtensions.<TraceBeginEndAsyncCore>d__17`1.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Dispatcher.HttpControllerDispatcher.<SendAsync>d__15.MoveNext()|System.InvalidOperationException: Sequence contains no matching element
+   at System.Linq.Enumerable.First[TSource](IEnumerable`1 source, Func`2 predicate)
+   at Dragons.Core.MoveStrategies.MoveStrategyHard.GetNextMove() in C:\Users\dlalande\Source\Repos\BattleDragons\Dragons\Dragons.Core\MoveStrategies\MoveStrategyHard.cs:line 40
+   at Dragons.Core.Models.GameState.GetNextMove(String playerId) in C:\Users\dlalande\Source\Repos\BattleDragons\Dragons\Dragons.Core\Models\GameState.cs:line 111
+   at Dragons.Core.Models.GameState.ProcessMove(Move move) in C:\Users\dlalande\Source\Repos\BattleDragons\Dragons\Dragons.Core\Models\GameState.cs:line 196
+   at Dragons.Core.Models.GameState.ProcessMove(Move move) in C:\Users\dlalande\Source\Repos\BattleDragons\Dragons\Dragons.Core\Models\GameState.cs:line 196
+   at Dragons.Core.Models.GameState.ProcessMove(Move move) in C:\Users\dlalande\Source\Repos\BattleDragons\Dragons\Dragons.Core\Models\GameState.cs:line 196
+   at Dragons.Core.Models.GameState.ProcessMove(Move move) in C:\Users\dlalande\Source\Repos\BattleDragons\Dragons\Dragons.Core\Models\GameState.cs:line 196
+   at Dragons.Core.Models.GameState.ProcessMove(Move move) in C:\Users\dlalande\Source\Repos\BattleDragons\Dragons\Dragons.Core\Models\GameState.cs:line 196
+   at Dragons.Core.Models.GameState.ProcessMove(Move move) in C:\Users\dlalande\Source\Repos\BattleDragons\Dragons\Dragons.Core\Models\GameState.cs:line 196
+   at Dragons.Core.Models.GameState.ProcessMove(Move move) in C:\Users\dlalande\Source\Repos\BattleDragons\Dragons\Dragons.Core\Models\GameState.cs:line 196
+   at Dragons.Core.Models.GameState.ProcessMove(Move move) in C:\Users\dlalande\Source\Repos\BattleDragons\Dragons\Dragons.Core\Models\GameState.cs:line 196
+   at Dragons.Core.Models.GameState.ProcessMove(Move move) in C:\Users\dlalande\Source\Repos\BattleDragons\Dragons\Dragons.Core\Models\GameState.cs:line 196
+   at Dragons.Core.Models.GameState.ProcessMove(Move move) in C:\Users\dlalande\Source\Repos\BattleDragons\Dragons\Dragons.Core\Models\GameState.cs:line 196
+   at Dragons.Core.Models.GameState.ProcessMove(Move move) in C:\Users\dlalande\Source\Repos\BattleDragons\Dragons\Dragons.Core\Models\GameState.cs:line 196
+   at Dragons.Core.Models.GameState.ProcessMove(Move move) in C:\Users\dlalande\Source\Repos\BattleDragons\Dragons\Dragons.Core\Models\GameState.cs:line 196
+   at Dragons.Core.Models.GameState.ProcessMove(Move move) in C:\Users\dlalande\Source\Repos\BattleDragons\Dragons\Dragons.Core\Models\GameState.cs:line 196
+   at Dragons.Core.Models.GameState.ProcessMove(Move move) in C:\Users\dlalande\Source\Repos\BattleDragons\Dragons\Dragons.Core\Models\GameState.cs:line 196
+   at Dragons.Core.Models.GameState.ProcessMove(Move move) in C:\Users\dlalande\Source\Repos\BattleDragons\Dragons\Dragons.Core\Models\GameState.cs:line 196
+   at Dragons.Service.Core.GameService.<InsertGameMoveAsync>d__8.MoveNext() in C:\Users\dlalande\Source\Repos\BattleDragons\Dragons\Dragons.Service.Core\GameService.cs:line 67
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at Dragons.Service.Controllers.gameController.<>c__DisplayClass3_0.<<Post>b__0>d.MoveNext() in C:\Users\dlalande\Source\Repos\BattleDragons\Dragons\Dragons.Service\Controllers\GameController.cs:line 55
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at Dragons.Service.Extensions.LoggerExtensions.<LogExecuteAsync>d__4`1.MoveNext() in C:\Users\dlalande\Source\Repos\BattleDragons\Dragons\Dragons.Service\Extensions\LoggerExtensions.cs:line 123
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at Dragons.Service.Controllers.gameController.<Post>d__3.MoveNext() in C:\Users\dlalande\Source\Repos\BattleDragons\Dragons\Dragons.Service\Controllers\GameController.cs:line 55
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Threading.Tasks.TaskHelpersExtensions.<CastToObject>d__1`1.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Tracing.ITraceWriterExtensions.<TraceBeginEndAsyncCore>d__17`1.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Controllers.ApiControllerActionInvoker.<InvokeActionAsyncCore>d__1.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Tracing.ITraceWriterExtensions.<TraceBeginEndAsyncCore>d__17`1.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Filters.ActionFilterAttribute.<CallOnActionExecutedAsync>d__6.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Web.Http.Filters.ActionFilterAttribute.<CallOnActionExecutedAsync>d__6.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Filters.ActionFilterAttribute.<ExecuteActionFilterAsyncCore>d__5.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Controllers.ActionFilterResult.<ExecuteAsync>d__5.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Tracing.Tracers.HttpControllerTracer.<ExecuteAsyncCore>d__10.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Tracing.ITraceWriterExtensions.<TraceBeginEndAsyncCore>d__17`1.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Dispatcher.HttpControllerDispatcher.<SendAsync>d__15.MoveNext()
+2018-08-23 12:20:42.8825|INFO|ClientId: |ApiKey: |Dragons.Service.WebApiApplication|Dragons.Service.WebApiApplication.Application_Start|Dragons.Service starting...
+2018-08-23 12:22:16.4180|INFO|ClientId: |ApiKey: |Dragons.Service.WebApiApplication|Dragons.Service.WebApiApplication.Application_Start|Dragons.Service starting...
+2018-08-23 12:29:00.0614|INFO|ClientId: |ApiKey: |Dragons.Service.WebApiApplication|Dragons.Service.WebApiApplication.Application_Start|Dragons.Service starting...
+2018-08-23 12:30:48.5902|INFO|ClientId: |ApiKey: |Dragons.Service.WebApiApplication|Dragons.Service.WebApiApplication.Application_Start|Dragons.Service starting...

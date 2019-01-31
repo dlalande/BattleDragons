@@ -8,9 +8,10 @@
     <OutputType>Exe</OutputType>
     <RootNamespace>Dragons.Console</RootNamespace>
     <AssemblyName>Dragons.Console</AssemblyName>
-    <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -53,13 +54,13 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Dragons.Client\Dragons.Client.csproj">
+      <Project>{eb357960-87c8-4470-b129-f2f620deb037}</Project>
+      <Name>Dragons.Client</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Dragons.Core\Dragons.Core.csproj">
       <Project>{da356d6f-2e5d-437e-b6db-1c2a08d19e80}</Project>
       <Name>Dragons.Core</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Dragons.Service.Core\Dragons.Service.Core.csproj">
-      <Project>{8cc14d37-cb90-42e7-902e-0ea83435e408}</Project>
-      <Name>Dragons.Service.Core</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -1,4 +1,4 @@
-﻿namespace Dragons.Core
+﻿namespace Dragons.Core.Types
 {
     /// <summary>
     /// Type of events that occur in the game.
