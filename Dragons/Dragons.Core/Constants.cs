@@ -35,6 +35,8 @@ namespace Dragons.Core
 
         #region MongoDB Constants
 
+        public const string ConnectionStringName = "dragons";
+
         /// <summary>
         /// Default host for mongodb server
         /// </summary>

@@ -259,3 +259,9 @@ paket-files/
 # Python Tools for Visual Studio (PTVS)
 __pycache__/
 *.pyc
+/Dragons/Dragons.Service/Logs
+/Dragons.Service.Host - Copy
+/Dragons.Service.Host
+/Dragons.Service.Grpc
+/Dragons.Core.Grpc
+/Dragons.Console.Grpc

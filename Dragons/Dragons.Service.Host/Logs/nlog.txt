@@ -1,0 +1,5 @@
+2019-03-08 17:58:27.5557 Info Message Template Auto Format enabled
+2019-03-08 17:58:27.5710 Info Loading assembly: NLog.Web.AspNetCore
+2019-03-08 17:58:27.7075 Info Adding target File Target[logfile]
+2019-03-08 17:58:27.7238 Info Configured from an XML element in C:\Users\dlalande\source\repos\dragons\Dragons\Dragons.Service.Host\bin\Debug\netcoreapp2.2\nlog.config...
+2019-03-08 17:58:27.7504 Info Found 26 configuration items

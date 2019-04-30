@@ -1,0 +1,156 @@
+﻿syntax = "proto3";
+import "google/protobuf/timestamp.proto";
+package Dragons.Core.Grpc;
+
+// The GameService service definition.
+service GameService {
+  rpc GetRandomPlayer (Void) returns (Player) {}
+  rpc GetRandomPlayerPair (Void) returns (PlayerTuple) {}
+  rpc InsertReservation (Reservation) returns (Reservation) {}
+  rpc GetReservations (Void) returns (stream Reservation) {}
+  rpc DeleteReservation (Reservation) returns (Void) {}
+  rpc InsertGameStart (GameStart) returns (Void) {}
+  rpc GetGame (GetGameRequest) returns (Game) {}
+  rpc GetGameEvents (GetGameEventsRequest) returns (stream Event) {}
+  rpc InsertGameMove (Move) returns (Move) {}
+  rpc GetRandomMove (GetRandomMoveRequest) returns (Move) {}
+  rpc GetNextMove (GetNextMoveRequest) returns (Move) {}
+}
+
+message Void {}
+
+message GetGameRequest {
+	string playerId = 1;
+}
+
+message GetGameEventsRequest {
+	string playerId = 1;
+	int32 offset = 2;
+}
+
+message GetRandomMoveRequest{
+	int32 boardSize = 1;
+	int32 mana = 2;
+}
+
+message GetNextMoveRequest {
+	string playerId = 1;
+}
+
+message Player {
+  string PlayerId = 1;
+  string Name = 2;
+  PlayerType Type = 3;
+}
+
+message PlayerTuple {
+	Player Item1 = 1;
+	Player Item2 = 2;
+}
+
+message Reservation {
+	Player Player = 1;
+	google.protobuf.Timestamp Created = 2;
+}
+
+message GameStart {
+	Player Player1 = 1;
+	Player Player2 = 2;
+	InitialSetup Player1Setup = 3;
+	InitialSetup Player2Setup = 4;
+}
+
+message InitialSetup {
+	int32 BoardSize = 1;
+	repeated Dragon Dragons = 2;
+	repeated Piece AdditionalPieces = 3;
+}
+
+message Dragon {
+	repeated Piece Pieces = 1;
+}
+
+message Piece {
+	Coordinate Coordinate = 1;
+	PieceType Type = 2;
+}
+
+message Coordinate {
+	int32 X = 1;
+	int32 Y = 2;
+}
+
+message Move {
+	Player Player = 1;
+	Coordinate Coordinate = 2;
+	Spell Spell = 3;
+}
+
+message Spell {
+	SpellType Type = 1;
+	string Description = 2;
+	int32 ManaCost = 3;
+}
+
+message Event {
+	Player Player = 1;
+	EventType Type = 2;
+	repeated Piece Pieces = 3;
+	int32 Mana = 4;
+	Spell Spell = 5;
+}
+
+message Game {
+	string Name = 1;
+	string Opponent = 2;
+	int32 Mana = 3;
+	GameBoard Board = 4;
+	repeated Spell Spells = 5;
+	bool CanMove = 6;
+	bool IsOver = 7;
+}
+
+message GameBoard {
+	InitialSetup InitialSetup = 1;
+	repeated ListOfPieces Pieces = 2;
+}
+
+message ListOfPieces {
+	repeated Piece Items = 1;
+}
+
+enum PlayerType {
+	PLAYERTYPE_Human = 0;
+	PLAYERTYPE_Sleeper = 1;
+	PLAYERTYPE_Voldamort = 2;
+	PLAYERTYPE_EasyComputer = 3;
+	PLAYERTYPE_MediumComputer = 4;
+	PLAYERTYPE_HardComputer = 5;
+}
+
+enum PieceType {
+	PIECETYPE_Empty = 0;
+	PIECETYPE_DragonHead = 1;
+	PIECETYPE_DragonBody = 2;
+	PIECETYPE_DragonTail = 3;
+	PIECETYPE_SmallMana = 4;
+	PIECETYPE_LargeMana = 5;
+}
+
+enum SpellType {
+	SPELLTYPE_Meditate = 0;
+	SPELLTYPE_Lightning = 1;
+	SPELLTYPE_FireBall = 2;
+	SPELLTYPE_FireStorm = 3;
+	SPELLTYPE_IceStrike = 4;
+	SPELLTYPE_DragonFury = 5;
+	SPELLTYPE_AvadaKedavra = 6;
+}
+
+enum EventType {
+	GameStarted = 0;
+	Attacked = 1;
+	DragonKilled = 2;
+	ManaUpdated = 3;
+	GameWon = 4;
+}

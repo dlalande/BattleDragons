@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Security.Authentication;
 using System.Threading.Tasks;
 using Dragons.Core;
 using Dragons.Core.Models;
@@ -19,7 +20,8 @@ namespace Dragons.Respository
 
         public async Task InitializeAsync(GameRepositorySettings settings)
         {
-            var mongoClientSettings = MongoClientSettings.FromConnectionString($"mongodb://{settings.Host}:{settings.Port}/{settings.Database}");
+            var mongoClientSettings = MongoClientSettings.FromConnectionString(settings.ConnectionString); 
+            mongoClientSettings.SslSettings = new SslSettings() {EnabledSslProtocols = SslProtocols.Tls12};
             mongoClientSettings.ClusterConfigurator = builder =>
             {
                 //builder.Subscribe(new SingleEventSubscriber<CommandSucceededEvent>(CommandSucceededEventHandler));

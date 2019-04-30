@@ -1,24 +1,23 @@
-﻿using System;
+﻿using Dragons.Client.Grpc;
+using Dragons.Core.Grpc;
+using System;
 using System.Collections.Generic;
 using System.Collections.Concurrent;
-using System.Threading.Tasks;
-using Dragons.Client;
-using Dragons.Core;
-using System.Text;
 using System.IO;
-using Dragons.Core.Models;
-using Dragons.Core.Types;
+using System.Text;
+using System.Threading.Tasks;
+using Dragons.Core;
 
-namespace Dragons.Console
+namespace Dragons.Console.Grpc
 {
     class Program
     {
         enum PlayerMode
-        { 
-            Waiter, 
+        {
+            Waiter,
             Joiner
         }
-        
+
         const string LogFilePath = "Log.txt";
         static DragonsClient _client;
         static readonly ConcurrentQueue<Tuple<string, ConsoleColor>> _waiterLog = new ConcurrentQueue<Tuple<string, ConsoleColor>>();
@@ -26,20 +25,21 @@ namespace Dragons.Console
 
         static void Main(string[] args)
         {
-            _client = new DragonsClient(new Uri("http://localhost:51962/"), Guid.NewGuid().ToString(), Constants.ValidApiKey);
-
+            _client = new DragonsClient("127.0.0.1", 50051);
             if (args.Length == 0)
             {
                 SinglePlayerStart(PlayerType.HardComputer, PlayerType.HardComputer).Wait();
             }
             else
             {
-                var playerTasks = new[] 
+                var playerTasks = new[]
                 {
                     MultiPlayerStart(PlayerType.HardComputer, PlayerMode.Waiter),
                     MultiPlayerStart(PlayerType.HardComputer, PlayerMode.Joiner)};
                 Task.WaitAll(playerTasks);
             }
+
+            _client.Dispose();
 
             System.Console.WriteLine("Done!");
 
@@ -51,14 +51,14 @@ namespace Dragons.Console
                 System.Console.ForegroundColor = log.Item2;
                 System.Console.WriteLine(log.Item1);
             }
-           
+
             while (_joinerLog.TryDequeue(out var log))
             {
                 joinerLogString.AppendLine(log.Item1);
                 System.Console.ForegroundColor = log.Item2;
                 System.Console.WriteLine(log.Item1);
             }
-            File.WriteAllText(LogFilePath,$"{waiterLogString}{Environment.NewLine}{joinerLogString}");
+            File.WriteAllText(LogFilePath, $"{waiterLogString}{Environment.NewLine}{joinerLogString}");
             System.Console.ReadLine();
         }
 
@@ -92,7 +92,7 @@ namespace Dragons.Console
                 var player = await _client.GetRandomPlayerAsync();
                 player.Type = playerType;
                 if (playerMode == PlayerMode.Waiter)
-                    await _client.InsertReservationAsync(new Reservation {Player = player});
+                    await _client.InsertReservationAsync(new Reservation { Player = player });
                 else
                 {
                     List<Reservation> reservations;
@@ -102,7 +102,7 @@ namespace Dragons.Console
                         await Task.Delay(TimeSpan.FromMilliseconds(500));
                     } while (reservations == null || reservations.Count < 1);
 
-                    await _client.InsertGameStartAsync(new GameStart {Player1 = reservations[0].Player, Player2 = player});
+                    await _client.InsertGameStartAsync(new GameStart { Player1 = reservations[0].Player, Player2 = player });
                     System.Console.Write($"Playing game {reservations[0].Player.Name} vs. {player.Name} ...");
                 }
 
@@ -156,8 +156,8 @@ namespace Dragons.Console
                                 {
                                     X = x,
                                     Y = y
-                                }, 
-                                Spell = Constants.AllSpells[spellIndex]
+                                },
+                                Spell = Constants.AllSpells[spellIndex].ToSpell()
                             };
                         }
                         else
@@ -176,7 +176,7 @@ namespace Dragons.Console
                     var events = await _client.GetGameEventsAsync(player.PlayerId, eventOffset);
                     foreach (var gameEvent in events)
                     {
-                        var color = ConsoleColor.White; 
+                        var color = ConsoleColor.White;
                         switch (gameEvent.Type)
                         {
                             case EventType.GameStarted:
@@ -196,7 +196,7 @@ namespace Dragons.Console
                                 color = gameEvent.Mana > 0 ? ConsoleColor.Cyan : ConsoleColor.DarkCyan;
                                 break;
                         }
-                        if(gameEvent.Type != EventType.GameStarted)
+                        if (gameEvent.Type != EventType.GameStarted)
                             LogEvent(playerMode, $"{Environment.NewLine}{player.Name}: {gameEvent}", color);
                         eventOffset++;
                     }
